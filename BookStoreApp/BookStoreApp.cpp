@@ -1,11 +1,15 @@
-// BookStoreApp.cpp : Defines the entry point for the console application.
-//
+/*
+*  Source for BookStoreApp
+*  
+*
+*/
 
-#include "stdafx.h"
+//Includes and Namespace ------------------------------------------------------
+#include <iostream>
 
+using namespace std;
 
-int _tmain(int argc, _TCHAR* argv[])
+int main()
 {
-	return 0;
+   cout << "Hello World!" << endl;
 }
-
