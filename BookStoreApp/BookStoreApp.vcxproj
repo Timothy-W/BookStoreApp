@@ -78,7 +78,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AudioBook.cpp" />
+    <ClCompile Include="Book.cpp" />
     <ClCompile Include="BookStoreApp.cpp" />
+    <ClCompile Include="eBook.cpp" />
+    <ClCompile Include="InventoryItem.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="PaperBook.cpp" />
+    <ClCompile Include="Product.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AudioBook.h" />
+    <ClInclude Include="Book.h" />
+    <ClInclude Include="eBook.h" />
+    <ClInclude Include="InventoryItem.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="PaperBook.h" />
+    <ClInclude Include="Product.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
