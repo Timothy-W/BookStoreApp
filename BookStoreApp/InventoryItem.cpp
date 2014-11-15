@@ -3,6 +3,7 @@
 
 InventoryItem::InventoryItem()
 {
+   Quantity = 0;
 }
 
 

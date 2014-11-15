@@ -3,6 +3,7 @@
 
 Book::Book()
 {
+   ISBN = 0;
 }
 
 

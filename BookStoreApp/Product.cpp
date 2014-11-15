@@ -3,6 +3,7 @@
 
 Product::Product()
 {
+   ProductID = 0;
 }
 
 

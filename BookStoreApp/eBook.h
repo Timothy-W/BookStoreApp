@@ -1,4 +1,6 @@
-#pragma once
+#ifndef EBOOK_H
+#define EBOOK_H
+
 #include "Book.h"
 class eBook :
    public Book
@@ -9,3 +11,4 @@ public:
    virtual void DisplayItem();
 };
 
+#endif
