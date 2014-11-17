@@ -1,18 +1,36 @@
 #include "Product.h"
 
+using namespace std;
 
-Product::Product()
+//Product member function definitions------------------------------------------
+//Constructors defined in Class
+bool Product::SetID()
 {
-   ProductID = 0;
+   ProductID = generateProductID();
+   return true;
 }
 
-
-Product::~Product()
+bool Product::SetPrice(double Price)
 {
+   if (Price >= 0.00)
+   {
+      this->Price = Price;
+      return true;
+   }
+   else
+      return false;
 }
 
-
-int Product::DisplayItem()
+const void Product::DisplayItem()
 {
-   return 0;
+   InventoryItem::DisplayItem();
+   cout << ProductID << " " << fixed << setprecision(2) << Price;
+}
+
+int Product::generateProductID()
+{
+   int id;
+   srand(time(NULL) + rand()); // generate a seed
+   id = rand() % 100000;             // generate a number between 0-99999
+   return id;
 }

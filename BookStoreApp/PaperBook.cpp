@@ -1,16 +1,12 @@
 #include "PaperBook.h"
 
-
-PaperBook::PaperBook()
+bool PaperBook::setNumberOfPages(int pageCount)
 {
+   this->pageCount  = pageCount;
+   return true;
 }
 
-
-PaperBook::~PaperBook()
+const void PaperBook::DisplayItem()
 {
-}
-
-
-void PaperBook::DisplayItem()
-{
+   Book::DisplayItem();
 }

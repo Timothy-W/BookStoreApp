@@ -1,17 +1,17 @@
 #include "InventoryItem.h"
 
-
-InventoryItem::InventoryItem()
+const void InventoryItem::DisplayItem()
 {
-   Quantity = 0;
+   cout << Name << " " << Quantity << " " << endl;
 }
 
-
-InventoryItem::~InventoryItem()
+bool InventoryItem::setQuantity(int Quantity)
 {
-}
-
-
-void InventoryItem::DisplayItem()
-{
+   if (Quantity >= 0 && Quantity < 2147483647)
+   {
+      this->Quantity = Quantity;
+      return true;
+   }
+   else
+      return false; 
 }

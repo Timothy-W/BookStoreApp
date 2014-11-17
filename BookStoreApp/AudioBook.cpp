@@ -1,16 +1,14 @@
 #include "AudioBook.h"
 
 
-AudioBook::AudioBook()
+bool AudioBook::setAudioFormat(audioFileFormat fileFormat)
 {
+   this->fileFormat = fileFormat;
+   return true;
 }
 
-
-AudioBook::~AudioBook()
+const void AudioBook::DisplayItem()
 {
+   Book::DisplayItem();
 }
 
-
-void AudioBook::DisplayItem()
-{
-}

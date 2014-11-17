@@ -1,16 +1,13 @@
 #include "eBook.h"
 
-
-eBook::eBook()
+bool eBook::setFileFormat(eBookFileFormat fileFormat)
 {
+   this->fileFormat = fileFormat;
+   return true;
 }
 
-
-eBook::~eBook()
+const void eBook::DisplayItem()
 {
+   Book::DisplayItem();
 }
 
-
-void eBook::DisplayItem()
-{
-}
