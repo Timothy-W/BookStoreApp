@@ -39,18 +39,6 @@
     <ClCompile Include="AudioBook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Documents\Visual Studio 2013\Projects\Project\Project\Customer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Documents\Visual Studio 2013\Projects\Project\Project\Employee.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Documents\Visual Studio 2013\Projects\Project\Project\Manager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Documents\Visual Studio 2013\Projects\Project\Project\Person.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Item.h">
@@ -72,18 +60,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AudioBook.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Documents\Visual Studio 2013\Projects\Project\Project\Customer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Documents\Visual Studio 2013\Projects\Project\Project\Employee.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Documents\Visual Studio 2013\Projects\Project\Project\Manager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Documents\Visual Studio 2013\Projects\Project\Project\Person.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
