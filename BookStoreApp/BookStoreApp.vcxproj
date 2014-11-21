@@ -78,6 +78,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\Documents\Visual Studio 2013\Projects\Project\Project\Customer.cpp" />
+    <ClCompile Include="..\..\..\..\Documents\Visual Studio 2013\Projects\Project\Project\Employee.cpp" />
+    <ClCompile Include="..\..\..\..\Documents\Visual Studio 2013\Projects\Project\Project\Manager.cpp" />
+    <ClCompile Include="..\..\..\..\Documents\Visual Studio 2013\Projects\Project\Project\Person.cpp" />
     <ClCompile Include="AudioBook.cpp" />
     <ClCompile Include="Book.cpp" />
     <ClCompile Include="BookStoreApp.cpp" />
@@ -88,6 +92,10 @@
     <ClCompile Include="Product.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\Documents\Visual Studio 2013\Projects\Project\Project\Customer.h" />
+    <ClInclude Include="..\..\..\..\Documents\Visual Studio 2013\Projects\Project\Project\Employee.h" />
+    <ClInclude Include="..\..\..\..\Documents\Visual Studio 2013\Projects\Project\Project\Manager.h" />
+    <ClInclude Include="..\..\..\..\Documents\Visual Studio 2013\Projects\Project\Project\Person.h" />
     <ClInclude Include="AudioBook.h" />
     <ClInclude Include="Book.h" />
     <ClInclude Include="eBook.h" />
