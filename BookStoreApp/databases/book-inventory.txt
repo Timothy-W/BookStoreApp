@@ -1,21 +1,2 @@
-EP;iMac with retina display;10;2499.00;N
-EP;iMac with retina display;5;2199.00;R
-EP;iMac with retina display;2;1950.50;U
-EP;iMac with retina display;1;500.00;D
-EP;iPhone 6 16gb Space Gray;50;649.00;N
-EP;iPhone 6 64gb Space Gray;200;749.00;N
-EP;iPhone 6 128gb Space Gray;10;849.00;N
-EP;iPhone 6 16gb Space Gray;50;549.00;R
-EP;iPhone 6 Plus 16gb Space Gray;10;749.00;N
-EP;iPhone 6 Plus 64gb Space Gray;4;849.00;N
-EP;iPhone 6 Plus 128gb Space Gray;16;949.00;N
-EP;iPhone 6 Plus 16gb Space Gray;1;549.00;R
-EP;iPhone 6 16gb Gold;103;649.00;N
-EP;iPhone 6 64gb Gold;36;749.00;N
-EP;iPhone 6 128gb Gold;7;849.00;N
-EP;iPhone 6 128gb Silver;7;749.00;R
-DP;Horizon Milk;100;6.95;1414739810
-DP;Dutch Cheese;234;4.95;1414836800
-DP;Butter;235;3.25;1414936822
-DP;Ice Cream;300;8.95;1414986807
-DP;Dutch Cheese;234;4.95; 1414836800
+PaperBack;Harry Potter and the Sorcerer's Stone;J.K. Rowling;Science Fiction;16.04;3345;059035342X;Pottermore Limited;U
+PaperBack;Harry Potter and the Sorcerer's Stone;J.K. Rowling;Science Fiction;6.59;50567;059035342X;Pottermore Limited;N
