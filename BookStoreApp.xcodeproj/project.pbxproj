@@ -15,7 +15,6 @@
 		E43B04631A22DFB700FA7342 /* Item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E43B04571A22DFB700FA7342 /* Item.cpp */; };
 		E43B04641A22DFB700FA7342 /* PaperBook.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E43B04591A22DFB700FA7342 /* PaperBook.cpp */; };
 		E43B04651A22DFB700FA7342 /* Product.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E43B045B1A22DFB700FA7342 /* Product.cpp */; };
-		E43B04661A22DFB700FA7342 /* BookStoreApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E43B045E1A22DFB700FA7342 /* BookStoreApp.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,7 +46,6 @@
 		E43B045A1A22DFB700FA7342 /* PaperBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaperBook.h; sourceTree = "<group>"; };
 		E43B045B1A22DFB700FA7342 /* Product.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Product.cpp; sourceTree = "<group>"; };
 		E43B045C1A22DFB700FA7342 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
-		E43B045E1A22DFB700FA7342 /* BookStoreApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BookStoreApp.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +81,6 @@
 				E43B03EE1A22DB1C00FA7342 /* main.cpp */,
 				E43B044D1A22DFB700FA7342 /* Person-Class-Hierarchy */,
 				E43B044E1A22DFB700FA7342 /* Item-Class-Hierarchy */,
-				E43B045D1A22DFB700FA7342 /* BookStoreApp-Class-Hierarchy */,
 			);
 			path = BookStoreApp;
 			sourceTree = "<group>";
@@ -114,14 +111,6 @@
 				E43B045C1A22DFB700FA7342 /* Product.h */,
 			);
 			path = "Item-Class-Hierarchy";
-			sourceTree = "<group>";
-		};
-		E43B045D1A22DFB700FA7342 /* BookStoreApp-Class-Hierarchy */ = {
-			isa = PBXGroup;
-			children = (
-				E43B045E1A22DFB700FA7342 /* BookStoreApp.cpp */,
-			);
-			path = "BookStoreApp-Class-Hierarchy";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,7 +175,6 @@
 				E43B03EF1A22DB1C00FA7342 /* main.cpp in Sources */,
 				E43B04611A22DFB700FA7342 /* eBook.cpp in Sources */,
 				E43B04651A22DFB700FA7342 /* Product.cpp in Sources */,
-				E43B04661A22DFB700FA7342 /* BookStoreApp.cpp in Sources */,
 				E43B045F1A22DFB700FA7342 /* AudioBook.cpp in Sources */,
 				E43B04621A22DFB700FA7342 /* InventoryItem.cpp in Sources */,
 			);
