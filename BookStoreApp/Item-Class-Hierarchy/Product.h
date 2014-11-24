@@ -38,7 +38,7 @@ public:
    virtual const void DisplayItem();
    int generateProductID();
 
-   virtual const bool MoreValuable(const Item & ItemObject);
+   /*virtual const bool MoreValuable(const Item & ItemObject);*/
 };
 
 #endif
