@@ -10,15 +10,15 @@ protected:
    int Quantity;
 
 public:
-   InventoryItem::InventoryItem() : Name(""), Quantity(0) {}
-   InventoryItem::InventoryItem(string Name, int Quantity) : Name(Name), Quantity(Quantity) {}
+   InventoryItem() : Name(""), Quantity(0) {}
+   InventoryItem(string Name, int Quantity) : Name(Name), Quantity(Quantity) {}
 
    virtual ~InventoryItem() {}
 
    const string getName() { return Name; }
    const int getQuantity() { return Quantity; }
 
-   bool setName(string Name) { this->Name = Name; }
+   void setName(string Name) { this->Name = Name; }
    bool setQuantity(int Quantity);
 
    virtual const void DisplayItem();

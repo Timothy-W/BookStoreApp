@@ -19,8 +19,8 @@ protected:
 
 public:
    //Constructor
-   Product::Product() : InventoryItem(), ProductID(SetID()), Price(0.0) {}
-   Product::Product(string Name, int Quantity, double Price) : 
+   Product() : InventoryItem(), ProductID(SetID()), Price(0.0) {}
+   Product(string Name, int Quantity, double Price) : 
       InventoryItem(Name, Quantity) { SetPrice(Price); SetID(); }
 
    //Destructor
