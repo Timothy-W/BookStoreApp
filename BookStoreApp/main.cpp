@@ -7,9 +7,9 @@
 
 #include <iostream>
 using namespace std;
-#include "List.h"
-#include "InventoryList.h"
-#include "Item.h"
+#include "Inventory-Class-Hierarcy\\List.h"
+#include "Inventory-Class-Hierarcy\\InventoryList.h"
+#include "Item-Class-Hierarchy\\Item.h"
 
 int main()
 {
