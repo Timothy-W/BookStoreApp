@@ -7,7 +7,7 @@
  */
 
 #include "Transaction.h"
-#include "Person-Class-Hierarchy\\Person.h"
+#include "Person-Class-Hierarchy\\Person.h" //dont need these as they are already included in Transaction.h
 #include "Item-Class-Hierarchy\\Book.h"
 
 #include <iostream>

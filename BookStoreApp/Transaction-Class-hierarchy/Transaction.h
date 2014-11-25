@@ -9,8 +9,8 @@
 #ifndef Transaction_H
 #define Transaction_H
 
-#include "Book.h"
-#include "Person.h"
+#include "Person-Class-Hierarchy\\Person.h"
+#include "Item-Class-Hierarchy\\Book.h"
 
 #include <ctime>
 #include <string>
