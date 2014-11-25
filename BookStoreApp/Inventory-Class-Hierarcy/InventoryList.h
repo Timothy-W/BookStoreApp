@@ -5,7 +5,7 @@
 
 
 #include "List.h"
-#include "Item.h"
+#include "Item-Class-Hierarchy\\Item.h"
 #include <fstream>
 
 class InventoryList : public List<Item*>{

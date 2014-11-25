@@ -7,8 +7,8 @@
  */
 
 #include "Transaction.h"
-#include "Person.h"
-#include "Book.h"
+#include "Person-Class-Hierarchy\\Person.h"
+#include "Item-Class-Hierarchy\\Book.h"
 
 #include <iostream>
 #include <ctime>
