@@ -29,7 +29,7 @@ string Manager::getLevelString()
     return managerStr[(int)managerLevel];
 }
 
-void Manager::editItem(int &item)
+void Manager::editItem(Item &item)
 {
     item.edit();
 }

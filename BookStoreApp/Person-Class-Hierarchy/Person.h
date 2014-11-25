@@ -6,7 +6,7 @@ class Person
 {
 public:
     Person();
-    Person(int age, string address);
+    Person(int age, string address, string name);
     virtual ~Person();
 protected:
     int DOB; //day of birth MMDDYYYY

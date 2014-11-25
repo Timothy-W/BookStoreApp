@@ -13,6 +13,7 @@ public:
     void setLevel(managerType lvl);
     managerType getLevel();
     string getLevelString();
+	
     void editItem(int &Item);
 };
 
