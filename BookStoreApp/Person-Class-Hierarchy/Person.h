@@ -8,15 +8,18 @@ public:
     Person();
     Person(int age, string address);
     virtual ~Person();
-    
 protected:
-    int age;
-    string address;
-public:
-    int getAge();
-    void setAge(int age);
-    void setAddress(string address);
-    string getAddress();
+    int DOB; //day of birth MMDDYYYY
+    string address; //0 3 zip
 
+public:
+    int getDOB();
+    void setDOB(int age);
+
+    string getAddress();
+    void setAddress(string address);
+
+    string getName();
+    void setName(string);
 };
 

@@ -1,21 +1,22 @@
 #include "Person.h"
 
+Person::Person() : DOB(0), address(""), name("")
+{}
 
-Person::Person() : age(0), address(""){}
-
-Person::Person(int age, string address) : age(age), address(address){}
+Person::Person(int dob, string address, string name) : DOB(dob), address(address), name(name)
+{}
 
 Person::~Person(){}
 
-int Person::getAge()
+int Person::getDOB()
 {
-    return 0;
+    return DOB;
 }
 
 
-void Person::setAge(int age)
+void Person::setDOB(int age)
 {
-    this->age = age;
+    this->DOB = age;
 }
 
 
@@ -30,3 +31,12 @@ string Person::getAddress()
     return address;
 }
 
+string Person::getName()
+{
+    return name;
+}
+
+void Person::setName(string name)
+{
+    this->name = name;
+}
