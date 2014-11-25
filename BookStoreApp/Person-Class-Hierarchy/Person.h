@@ -11,6 +11,7 @@ public:
 protected:
     int DOB; //day of birth MMDDYYYY
     string address; //0 3 zip
+    string name;
 
 public:
     int getDOB();
