@@ -13,8 +13,8 @@ protected:
    audioFileFormat fileFormat;
 
 public:
-   AudioBook::AudioBook() : Book(), fileFormat(UNKNOWN_AUDIO) {}
-   AudioBook::AudioBook(string Name, int Quantity, double Price, int ISBN, string author, string title,
+   AudioBook() : Book(), fileFormat(UNKNOWN_AUDIO) {}
+   AudioBook(string Name, int Quantity, double Price, int ISBN, string author, string title,
                         genreType genre, string publisher, audioFileFormat fileFormat) : 
                         Book(Name, Quantity, Price, ISBN, author, title, genre, publisher), fileFormat(fileFormat) {}
 

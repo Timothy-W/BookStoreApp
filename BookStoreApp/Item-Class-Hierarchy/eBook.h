@@ -12,8 +12,8 @@ private:
 
 public:
    //Constructors
-   eBook::eBook() : Book(), fileFormat(UNKNOWN_EBOOK) {}
-   eBook::eBook(string Name, int Quantity, double Price,
+   eBook() : Book(), fileFormat(UNKNOWN_EBOOK) {}
+   eBook(string Name, int Quantity, double Price,
       int ISBN, string author, string title,
       genreType genre, string publisher, eBookFileFormat fileFormat)
       : Book(Name, Quantity, Price, ISBN, author, title, genre, publisher), fileFormat(fileFormat) {}
