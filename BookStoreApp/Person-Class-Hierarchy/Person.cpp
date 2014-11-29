@@ -8,7 +8,7 @@ Person::Person(int dob, string address, string name) : DOB(dob), address(address
 
 Person::~Person(){}
 
-int Person::getDOB()
+int Person::getDOB() const
 {
     return DOB;
 }
@@ -26,12 +26,12 @@ void Person::setAddress(string address)
 }
 
 
-string Person::getAddress()
+string Person::getAddress() const
 {
     return address;
 }
 
-string Person::getName()
+string Person::getName() const
 {
     return name;
 }

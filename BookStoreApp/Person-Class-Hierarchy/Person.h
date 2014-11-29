@@ -10,17 +10,17 @@ public:
     virtual ~Person();
 protected:
     int DOB; //day of birth MMDDYYYY
-    string address; //0 3 zip
-    string name;
+    string address; //
+    string name; // First Last
 
 public:
-    int getDOB();
+    int getDOB() const;
     void setDOB(int age);
 
-    string getAddress();
+    string getAddress() const;
     void setAddress(string address);
 
-    string getName();
+    string getName() const;
     void setName(string);
 };
 

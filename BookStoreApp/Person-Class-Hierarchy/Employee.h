@@ -5,14 +5,15 @@ class Employee :
 {
 public:
     Employee();
-    Employee(int age, string address);
+    Employee(int dob, string address, string name);
     virtual ~Employee();
 protected:
     int employeeID;
 public:
     void setID();
     void setID(int ID);
-    int getID();
+
+    int getID() const;
 private:
     int generateRandID();
 };
