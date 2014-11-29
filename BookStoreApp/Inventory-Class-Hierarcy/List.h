@@ -16,12 +16,14 @@ public:
    List( string name );
    List( string name, T array[], int arrayLength );
    virtual ~List();
-   virtual void AddToList( T item );
+   void AddToList( T item );
    virtual void RemoveFromList( T item );
-   virtual void DisplayList();
-   virtual string GetListName() const;
-   virtual void SetListName( string name );
-   virtual int GetListCount() const;
+   void DisplayList();
+   string GetListName() const;
+   void SetListName( string name );
+   int GetListCount() const;
+   T GetElementAtPosI(int i) const;
+
 
 protected:
    string ListName;
@@ -132,5 +134,14 @@ int List<T>::GetListCount() const
    return ItemCount;
  
 }
+
+
+
+template <class T>
+T List<T>::GetElementAtPosI(int I) const
+{
+   return ItemList[I];
+}
+
 
 #endif
