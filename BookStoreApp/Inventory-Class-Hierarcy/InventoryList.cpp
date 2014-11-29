@@ -260,5 +260,23 @@ void InventoryList::EbookFormat(eBookFileFormat& ebFormat, string identifier)
 
 
 
+void InventoryList::SetDatabasePath( string path )
+{
+
+   DatabasePath = path;
+
+}
+
+
+
+
+string InventoryList::GetDatabasePath() const
+{
+
+   return DatabasePath;
+   
+}
+
+
 
 

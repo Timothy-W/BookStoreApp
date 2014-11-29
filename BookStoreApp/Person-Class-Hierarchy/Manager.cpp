@@ -1,5 +1,5 @@
 #include "Manager.h"
-#include "Item-Class-Hierarchy\Item.h"
+#include "Item.h"
 
 
 Manager::Manager() : managerLevel((managerType)0)
@@ -19,7 +19,7 @@ void Manager::setLevel(managerType level)
     managerLevel = level;
 }
 
-Manager::managerType Manager::getLevel() const
+managerType Manager::getLevel() const
 {
     return managerLevel;
 }

@@ -21,8 +21,8 @@ public:
    virtual ~InventoryList();
 
    void BuildFromDatabase();
-   void SetDatabasePath();
-   string GetDatabasePath();
+   void SetDatabasePath( string path );
+   string GetDatabasePath() const;
    vector<Item*> Search( string bookProperty );
    vector<Item*> Search(int isbn);
    virtual void RemoveFromList( Item* item );

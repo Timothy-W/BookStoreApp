@@ -1,10 +1,13 @@
 #pragma once
 #include "Employee.h"
+
+enum managerType { shift_manager, store_manager, VP, CEO };
+
 class Manager :
     public Employee
 {
 protected:
-    enum managerType { shift_manager, store_manager, VP, CEO } managerLevel;
+    managerType managerLevel;
 public:
     Manager();
     Manager(int age, string address, string name, managerType level);
