@@ -23,8 +23,8 @@ public:
    void BuildFromDatabase();
    void SetDatabasePath();
    string GetDatabasePath();
-   Item* Search( string bookProperty );
-   Item* Search(int isbn);
+   vector<Item*> Search( string bookProperty );
+   vector<Item*> Search(int isbn);
    virtual void RemoveFromList( Item* item );
 
 private:

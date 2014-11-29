@@ -10,7 +10,7 @@ eBook;A Game of Thrones (A Song of Ice and Fire, Book 1);George R.R. Martin;Scie
 Paper Book;The Ghost;Apryl Baker;Horror;11.69;13967;1492156361;Limitless Publishing LLC;352
 Audio Book;The Ghost;Apryl Baker;Horror;17.95;567;1492156362;Limitless Publishing LLC;MP3
 eBook;The Ghost;Apryl Baker;Horror;1.99;NULL;1492156363;Limitless Publishing LLC;EPUB
-Paper Book;I Married a Billionaire;Romance;7.06;867;1482576988;CreateSpace Independent Publishing Platform;238
-Audio Book;I Married a Billionaire;Romance;17.06;867;1482576989;CreateSpace Independent Publishing Platform;MP3
-eBook;I Married a Billionaire;Romance;2.06;NULL;1482576990;CreateSpace Independent Publishing Platform;EPUB
+Paper Book;I Married a Billionaire;Melanie Marchande;Romance;7.06;867;1482576988;CreateSpace Independent Publishing Platform;238
+Audio Book;I Married a Billionaire;Melanie Marchande;Romance;17.06;837;1482576989;CreateSpace Independent Publishing Platform;MP3
+eBook;I Married a Billionaire;Melanie Marchande;Romance;2.06;NULL;1482576990;CreateSpace Independent Publishing Platform;EPUB
 

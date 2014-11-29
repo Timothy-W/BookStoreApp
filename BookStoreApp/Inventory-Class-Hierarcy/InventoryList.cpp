@@ -52,7 +52,7 @@ void InventoryList::BuildFromDatabase()
          exit(-1);
       }
 
-      while ( getline (inventoryFile, buffer, ';'))
+      while ( getline (inventoryFile, buffer, ';') )
       {
          productType = buffer;
 
@@ -82,28 +82,30 @@ void InventoryList::BuildFromDatabase()
          {
             getline (inventoryFile, buffer, '\n');
             pageCount = atoi( buffer.c_str() );
-            ItemList[ItemCount] = new PaperBook(productType, quanity, price,
-                                                isbn, author, title, bGenre,
-                                                publisher, pageCount);
-         }
+            AddToList( new PaperBook(productType, quanity, price,
+                                     isbn, author, title, bGenre,
+                                     publisher, pageCount) );
 
-         if( productType == "Audio Book" ){
+         }
+         else if( productType == "Audio Book" ){
             getline (inventoryFile, buffer, '\n');
             audioFormat = buffer;
             AudioFormat( abFormat, audioFormat );
-            ItemList[ItemCount] = new AudioBook(productType, quanity, price,
-                                            isbn, author, title, bGenre,
-                                            publisher, abFormat);
-         }
+            AddToList( new AudioBook(productType, quanity, price,
+                                     isbn, author, title, bGenre,
+                                     publisher, abFormat) );
 
-         if( productType == "eBook" ){
+         }
+         else if( productType == "eBook" ){
             getline (inventoryFile, buffer, '\n');
             ebookFormat = buffer;
             EbookFormat( ebFormat, ebookFormat );
-            ItemList[ItemCount] = new eBook(productType, quanity, price, isbn,
-                                            author, title, bGenre,
-                                            publisher, ebFormat);
-         }
+            AddToList( new eBook(productType, quanity, price, isbn,
+                                 author, title, bGenre,
+                                 publisher, ebFormat) );
+
+         }else
+            AddToList( NULL);
          
          ++ItemCount;
       }
@@ -125,29 +127,96 @@ void InventoryList::BuildFromDatabase()
 void InventoryList::RemoveFromList( Item* item )
 {
 
-
-
+   for( p = ItemList.begin(); p != ItemList.end(); p++ )
+   {
+      if(*p == item)
+      {
+         delete *p;
+         ItemList.erase(p);
+         --ItemCount;
+      }
+   }
 
 }
 
 
 
-Item* InventoryList::Search( string bookProperty )
+vector<Item*> InventoryList::Search( string bookProperty )
 {
 
-   Item* tmpPointer = NULL;
-   return tmpPointer;
+   vector<Item*> temp;
+
+   for( p = ItemList.begin(); p != ItemList.end(); p++ )
+   {
+      eBook * eb = dynamic_cast<eBook *>(*p);
+      PaperBook * pb = dynamic_cast<PaperBook *>(*p);
+      AudioBook * ab = dynamic_cast<AudioBook *>(*p);
+
+      if( (eb && eb->getTitle() == bookProperty) || (eb && eb->getAuthor() == bookProperty) )
+      {
+
+         temp.push_back( eb );
+         
+      }
+      else if( (pb && pb->getTitle() == bookProperty) || (pb && pb->getAuthor() == bookProperty) )
+      {
+
+         temp.push_back( pb );
+
+      }
+      else if( (ab && ab->getTitle() == bookProperty) || (ab && ab->getAuthor() == bookProperty) )
+      {
+
+         temp.push_back( ab );
+
+      }
+
+
+   }
+
+   return temp;
 
 }
 
 
-Item* InventoryList::Search(int isbn)
+
+vector<Item*> InventoryList::Search( int isbn )
 {
 
-   Item* tmpPointer = NULL;
-   return tmpPointer;
+   vector<Item*> temp;
 
+   for( p = ItemList.begin(); p != ItemList.end(); p++ )
+   {
+      eBook * eb = dynamic_cast<eBook *>(*p);
+      PaperBook * pb = dynamic_cast<PaperBook *>(*p);
+      AudioBook * ab = dynamic_cast<AudioBook *>(*p);
+
+      if( eb && eb->getISBN() == isbn )
+      {
+
+         temp.push_back( eb );
+
+      }
+      else if( pb && pb->getISBN() == isbn )
+      {
+
+         temp.push_back( pb );
+
+      }
+      else if( ab && ab->getISBN() == isbn )
+      {
+
+         temp.push_back( ab );
+         
+      }
+      
+      
+   }
+   
+   return temp;
+   
 }
+
 
 
 
