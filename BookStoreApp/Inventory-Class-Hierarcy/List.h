@@ -22,7 +22,6 @@ public:
    virtual string GetListName() const;
    virtual void SetListName( string name );
    virtual int GetListCount() const;
-   //virtual void SortList() const;
 
 protected:
    string ListName;

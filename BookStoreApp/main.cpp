@@ -6,13 +6,23 @@
 
 
 #include <iostream>
+#include <map>
 using namespace std;
-#include "Inventory-Class-Hierarcy\\List.h"
-#include "Inventory-Class-Hierarcy\\InventoryList.h"
-#include "Item-Class-Hierarchy\\Item.h"
+#include "List.h"
+#include "InventoryList.h"
+#include "Item.h"
 
 int main()
 {
+   map<string,string> databases;
+
+   databases["Book-Inventory"] = "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/book-inventory.txt";
+
+
+   Item *testItem = new PaperBook("Paper Book", 300, 3.99,
+                                  12345, "test", "test", HORROR,
+                                  "Test", 789);
+
    //test test test - tim
 
    // Template List class tests with int
@@ -28,8 +38,8 @@ int main()
    */
 
    // Template List class test with an Item List
-   InventoryList *invList = new InventoryList("Book Inventory", "/Users/Captain/Documents/xcode-workspace/CS2B/Assignment_3/Assignment_3/inventory.txt");
-   invList->BuildFromDatabase();
+   InventoryList *invList = new InventoryList( "Book Inventory", databases["Book-Inventory"] );
+   //invList->BuildFromDatabase();
 
    delete invList;
 
