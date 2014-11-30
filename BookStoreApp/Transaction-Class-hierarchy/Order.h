@@ -23,7 +23,7 @@ class Order: public Transaction {
     public:
         Order();
         Order(T, string s, int quantity);
-        virtual ~Order;
+        virtual ~Order();
         void setItem(const T &Tref);
         T getItem() const;
 };

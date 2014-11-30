@@ -23,8 +23,8 @@ CustomerOrder::~CustomerOrder() {
 }
 
 Book * CustomerOrder::PullCustomerOrder(Person &customerRef) const {
-    int i;
-    for (i=0; i<1024; i++)
-        if (customerList[i]->name == customerRef.name) //Or: *customerList[i]==customerRef if we overload operator== in Person class
+    //int i;
+    //for (i=0; i<1024; i++)
+        //if (customerList[i]->name == customerRef.name) //Or: *customerList[i]==customerRef if we overload operator== in Person class
             // Pull that customer's order!
 }

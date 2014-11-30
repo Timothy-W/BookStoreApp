@@ -23,8 +23,8 @@ class Transaction {
         Transaction();
         virtual ~Transaction();
         virtual Book * PullCustomerOrder(Person &customerRef) const = 0;
-        virtual Book * PullDatedOrder(time_t givenDate) = 0 const;
-        virtual Book * PullBookOrder(string givenTitle) = 0 const;
+        virtual Book * PullDatedOrder(time_t givenDate) const = 0;
+        virtual Book * PullBookOrder(string givenTitle) const = 0;
         virtual bool ProcessOrder(Book * givenBook) = 0;  //This should decrement the quantity of givenBook in the inventory
 };
 

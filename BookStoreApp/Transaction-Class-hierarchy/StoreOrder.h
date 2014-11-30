@@ -11,7 +11,7 @@
 #include "Order.h"
 #include <string>
 
-class StoreOrder: public Order {
+class StoreOrder: public Order<Book> {
     private:
         string orderFrom;
     public:
