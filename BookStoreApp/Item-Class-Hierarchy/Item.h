@@ -11,8 +11,8 @@ public:
    Item();
    virtual ~Item() {}
 
-   virtual const Item* Clone() = 0;                 //takes no parameter and returns a pointer to an Item object.Default implementation is to return NULL pointer.
-   virtual const void DisplayItem() = 0;                //take no parameter and return nothing.Default implementation is to display an empty string(“”).
+   //virtual const Item* Clone() = 0;                 //takes no parameter and returns a pointer to an Item object.Default implementation is to return NULL pointer.
+   //virtual void DisplayItem() const = 0;                //take no parameter and return nothing.Default implementation is to display an empty string(“”).
 };
 
 #endif // !ITEM_H

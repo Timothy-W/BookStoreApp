@@ -17,7 +17,6 @@ public:
 
    const string getName() { return Name; }
    const int getQuantity() { return Quantity; }
-
    void setName(string Name) { this->Name = Name; }
    bool setQuantity(int Quantity);
 

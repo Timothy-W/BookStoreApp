@@ -6,6 +6,8 @@ bool Book::setISBN(int ISBN)
    return true;
 }
 
+
+
 bool Book::setAuthor(string author)
 {
    this->author = author;
