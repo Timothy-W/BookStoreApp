@@ -1,9 +1,8 @@
 #include "../Inventory-Class-Hierarcy/EmployeeList.h"
 #include "../Inventory-Class-Hierarcy/List.h"
-#include "../Inventory-Class-Hierarcy/InventoryList.h"
 #include "../Item-Class-Hierarchy/Item.h"
 #include "../Transaction-Class-hierarchy/StoreOrder.h"
-
+#include "../Inventory-Class-Hierarcy/InventoryList.h"
 
 class BookStoreSystem
 {
@@ -15,11 +14,11 @@ public:
 protected:
     InventoryList * inventory;
     EmployeeList  * employeeListing;
-    TransactionList * transactions;
+    InventoryList * transactionsList; //RENAME TO TransactionList * ....
 
 public:
     void menu();
-    bool login(InventoryList * employeeList);
+    bool login();
     void makeOrder();
     void adjustSalePrice();
     void searchInventory() const;

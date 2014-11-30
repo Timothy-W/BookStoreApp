@@ -17,10 +17,12 @@ public:
     int getDOB() const;
     void setDOB(int age);
 
-    string getAddress() const;
-    void setAddress(string address);
+    virtual string getAddress() const;
+    virtual void setAddress(string address);
 
-    string getName() const;
-    void setName(string);
+    virtual string getName() const;
+    virtual void setName(string);
+
+    virtual int getID() const { return -1; };
 };
 

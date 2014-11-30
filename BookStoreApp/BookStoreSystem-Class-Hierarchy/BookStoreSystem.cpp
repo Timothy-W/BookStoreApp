@@ -10,28 +10,42 @@ using namespace std;
 
 BookStoreSystem::BookStoreSystem()
 {
-
+    inventory = new InventoryList("Inventory List", "../BookStoreApp/databases/book-inventory.txt");
+    employeeListing = new EmployeeList("Employee List", "../BookStoreApp/databases/employee-list.txt");
 }
 
 BookStoreSystem::~BookStoreSystem()
 {
 }
 
-bool BookStoreSystem::login(InventoryList * employeeList) 
+bool BookStoreSystem::login() 
 {
     string loginName;
     int loginPIN;
+    bool pinFound = false;
+    bool nameMatches = false;
 
-    cout << "\nPlease enter name";
+    cout << "\nPlease enter name:\n";
     cin >> loginName;
-    cout << "\nEnter I.D.";
+    cout << "\nEnter I.D.:\n";
     cin >> loginPIN;
-    
+    for (int i = 0; i < employeeListing->GetListCount(); i++)
+    {
+        if (loginPIN == employeeListing->GetElementAtPosI(i)->getID())
+        {
+            pinFound = true;    //there exists an employee with that PIN
+            if (loginName.compare(employeeListing->GetElementAtPosI(i)->getName()) == 0)
+                nameMatches = true; // that said employee's name matches the user's input for login name
+        }
+    }
+    cin.ignore(1000, '\n');
+    cin.clear();
+    return(pinFound && nameMatches); //if both are true, returns true
 }
 
 void BookStoreSystem::makeOrder()
 {
-    int PID;
+    int PID; //product
     int TID;
     int quantity;
     
@@ -43,7 +57,7 @@ void BookStoreSystem::makeOrder()
     cin >> quantity;
     
     
-    transactionList->AddToList();
+    transactionsList->AddToList();
 }
 
 
@@ -71,13 +85,23 @@ void BookStoreSystem::menu()
 
 
 void BookStoreSystem::searchInventory() const
-{}
+{
+
+}
 
 void BookStoreSystem::showInventory() const
-{}
+{
+    for (int i = 0; i < inventory->GetListCount(); i++)
+        cout << inventory->GetElementAtPosI(i);
+}
 
 void BookStoreSystem::showTransactions() const
-{}
+{
+    for (int i = 0; i < transactionsList->GetListCount(); i++)
+        cout << transactionsList->GetElementAtPosI(i);
+}
 
 void BookStoreSystem::adjustSalePrice()
-{}
+{
+    
+}
