@@ -9,15 +9,18 @@
 #define StoreOrder_H
 
 #include "Order.h"
+#include "Book.h"
 #include <string>
 
-class StoreOrder: public Order<Book> {
+class StoreOrder: public Order<Book *> {
     private:
         string orderFrom;
+        int generateRandomID() const;
     public:
         StoreOrder();
         StoreOrder(string name);
         virtual ~StoreOrder();
+        friend ostream & operator<< (ostream & os, const StoreOrder & s);
 };
 
 #endif

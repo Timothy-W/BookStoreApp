@@ -27,4 +27,19 @@ Book * CustomerOrder::PullCustomerOrder(Person &customerRef) const {
     //for (i=0; i<1024; i++)
         //if (customerList[i]->name == customerRef.name) //Or: *customerList[i]==customerRef if we overload operator== in Person class
             // Pull that customer's order!
+    return NULL;   // Just for now to compile
 }
+
+ostream & operator<< (ostream & os, const CustomerOrder & c) {
+    Book * b = c.getItem();
+    os << b->getISBN() << " " << b->getAuthor() << " " << b->getTitle() << " " << b->getGenre() << " " << b->getPublisher();
+    return os;
+}
+
+int CustomerOrder::generateRandomID() const {
+    int id ;
+    srand (time(NULL) + rand());   // generate a seed
+    id = rand();                   // generate a random number
+    return id;
+}
+
