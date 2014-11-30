@@ -7,8 +7,8 @@ class Customer :
 {
 public:
     Customer();
-    Customer(int age, string address);
+    Customer(int age, string address, string name);
     virtual ~Customer();
 protected:
-     vector<int> pastOrders;
+     vector<int> orders; // vector holds the IDs of customers' orders 
 };
