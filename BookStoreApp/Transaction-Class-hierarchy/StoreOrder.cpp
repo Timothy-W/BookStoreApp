@@ -28,3 +28,13 @@ int StoreOrder::generateRandomID() const {
     return id;
 }
 
+void StoreOrder::setOrderFrom(){
+   string tempOrderFrom;
+   cout << "Where are you ordering from?" << endl;
+   cin >> tempOrderFrom;
+   this->orderFrom = tempOrderFrom;
+}
+
+string StoreOrder::getOrderFrom(){
+   return this->orderFrom;
+}

@@ -21,6 +21,8 @@ class StoreOrder: public Order<Book *> {
         StoreOrder(string name);
         virtual ~StoreOrder();
         friend ostream & operator<< (ostream & os, const StoreOrder & s);
+        void setOrderFrom();
+        string getOrderFrom() const;
 };
 
 #endif
