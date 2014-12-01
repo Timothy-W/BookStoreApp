@@ -26,6 +26,12 @@ class Order: public Transaction {
         virtual ~Order();
         void setItem(const T &Tref);
         T getItem() const;
+        void setOrderID();
+        string getOrderID() const;
+        ///void setOrderName();
+        //string getOrderName() const;
+        void setOrderQuantity();
+        int getOrderQuantity() const;
 };
 
 #endif
