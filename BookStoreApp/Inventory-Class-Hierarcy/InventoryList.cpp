@@ -217,7 +217,17 @@ vector<Item*> InventoryList::Search( int isbn )
    
 }
 
-
+// insert SearchID
+Item * InventoryList::SearchID(int ID)
+{
+    for (int i = 0; i < ItemCount; i++)
+    {
+        if (GetElementAtPosI(i)->GetID() == ID)
+            return GetElementAtPosI(i);
+        else
+            cout << "Item ID doesnt exist";
+    }
+}
 
 
 void InventoryList::Genre(genreType& bGenre, string identifier)

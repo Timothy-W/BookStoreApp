@@ -5,7 +5,7 @@ class Employee :
 {
 public:
     Employee();
-    Employee(int dob, string address, string name);
+    Employee(int age, string address, string name);
     virtual ~Employee();
 protected:
     int employeeID;
@@ -14,6 +14,7 @@ public:
     void setID(int ID);
 
     int getID() const;
+    friend ostream& operator<<(ostream& os, const Employee& emp);
 private:
     int generateRandID();
 };

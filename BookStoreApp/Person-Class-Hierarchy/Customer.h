@@ -9,6 +9,6 @@ public:
     Customer();
     Customer(int age, string address, string name);
     virtual ~Customer();
-protected:
-     vector<int> orders; // vector holds the IDs of customers' orders 
+
+    friend ostream& operator<<(ostream& os, const Customer& cus);
 };

@@ -1,6 +1,6 @@
 #include "Employee.h"
 #include <ctime>
-
+#include <string>
 
 Employee::Employee() : employeeID(-1){}
 
@@ -22,7 +22,7 @@ void Employee::setID(int ID)
     employeeID = ID;
 }
 
-int Employee::getID()
+int Employee::getID() const
 {
     return employeeID;
 }
@@ -35,3 +35,8 @@ int Employee::generateRandID()
     return id;
 }
 
+ostream& operator<<(ostream& os, const Employee& emp)
+{
+    os << "\nName: " << emp.getName() << "\nAddress: " << emp.getAddress << "\nEmployee ID #: " << emp.getID << endl;
+    return os;
+}

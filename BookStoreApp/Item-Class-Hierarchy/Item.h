@@ -9,8 +9,9 @@ class Item
 {
 public:
    Item();
-   virtual ~Item() {}
+   virtual ~Item() {};
 
+   virtual int GetID(){ return -1; };
    //virtual const Item* Clone() = 0;                 //takes no parameter and returns a pointer to an Item object.Default implementation is to return NULL pointer.
    //virtual void DisplayItem() const = 0;                //take no parameter and return nothing.Default implementation is to display an empty string(“”).
 };

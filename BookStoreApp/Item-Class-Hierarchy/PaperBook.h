@@ -18,7 +18,7 @@ public:
    virtual ~PaperBook() {}
 
    //Mutators and Accessors
-   int getNumberOfPages() { return pageCount; }
+   virtual int getNumberOfPages() { return pageCount; }
 
    bool setNumberOfPages(int pageCount);
 

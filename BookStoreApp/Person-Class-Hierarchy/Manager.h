@@ -1,5 +1,7 @@
 #pragma once
 #include "Employee.h"
+#include "../Item-Class-Hierarchy/Item.h"
+
 
 enum managerType { shift_manager, store_manager, VP, CEO };
 
@@ -19,6 +21,6 @@ public:
 	
 
     friend ostream& operator<<(ostream& os, const Manager& man);
-    void editItem(int &Item);
+    void editItem(Item &Item);
 };
 

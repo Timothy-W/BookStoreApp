@@ -3,16 +3,20 @@
 */
 
 #include <iostream>
-
-using namespace std;
-
+#include <cctype>
 #include "BookStoreSystem.h"
+
 
 BookStoreSystem::BookStoreSystem()
 {
     inventory = new InventoryList("Inventory List", "../BookStoreApp/databases/book-inventory.txt");
     employeeListing = new EmployeeList("Employee List", "../BookStoreApp/databases/employee-list.txt");
 }
+
+BookStoreSystem::BookStoreSystem(std::string storeName, std::string storeAddress) : storeName(storeName), storeAddress(storeAddress)
+{}
+
+//BookStoreSystem(string storeName, string storeAddress, string invPATH, string empPATH, string tranPATH){}
 
 BookStoreSystem::~BookStoreSystem()
 {
@@ -38,8 +42,8 @@ bool BookStoreSystem::login()
                 nameMatches = true; // that said employee's name matches the user's input for login name
         }
     }
-    cin.ignore(1000, '\n');
-    cin.clear();
+  //  cin.ignore(1000, '\n');
+  //  cin.clear();
     return(pinFound && nameMatches); //if both are true, returns true
 }
 
@@ -70,13 +74,13 @@ void BookStoreSystem::menu()
         showInventory();
         break;
     case 4:
-        editEmployees();
+        modifyEmployees();
         break;
     case 5:
-        editTransactions();
+        modifyTransactions();
         break;
     case 6:
-        editInventory();
+        modifyInventory();
         break;
     case 7: 
         searchInventory();
@@ -91,33 +95,44 @@ void BookStoreSystem::menu()
 }
 
 
-
-
-
 void BookStoreSystem::showInventory() const
 {
     for (int i = 0; i < inventory->GetListCount(); i++)
         cout << inventory->GetElementAtPosI(i);
 }
-void BookStoreSystem::editInventory()
-{}
-void BookStoreSystem::addItem()
-{}
-void BookStoreSystem::removeItem()
-{}
-void BookStoreSystem::searchInventory() const
-{
-}
-
-
-
 void BookStoreSystem::showTransactions() const
 {
     for (int i = 0; i < transactionsList->GetListCount(); i++)
         cout << transactionsList->GetElementAtPosI(i);
 }
-void BookStoreSystem::editTransaction()
+void BookStoreSystem::showEmployees() const
+{
+    for (int i = 0; i < employeeListing->GetListCount(); i++)
+        cout << employeeListing->GetElementAtPosI(i);
+}
+
+// Below methods modify the vectors
+
+void BookStoreSystem::modifyInventory()
+{
+    int targetProdID;
+    int choice;
+    Item * targetItem;
+
+    targetItem = inventory->SearchID(targetProdID);
+
+}
+void BookStoreSystem::addItem()
 {}
+void BookStoreSystem::removeItem(Item * targetItem)
+{}
+void BookStoreSystem::editItem(Item * targetItem){}
+void BookStoreSystem::searchInventory() const
+{
+}
+
+
+void BookStoreSystem::modifyTransactions(){}
 void BookStoreSystem::addTransaction()
 {
     int PID; //product
@@ -134,57 +149,100 @@ void BookStoreSystem::addTransaction()
     
  //   transactionsList->AddToList();
 }
-void BookStoreSystem::removeTransaction()
+void BookStoreSystem::removeTransaction(Transaction * targetTransaction)
+{}
+void BookStoreSystem::editTransaction(Transaction * targetTransaction)
 {}
 
 
 
-void BookStoreSystem::showEmployees() const
+void BookStoreSystem::modifyEmployees()
 {
-    for (int i = 0; i < employeeListing->GetListCount(); i++)
-    {
-        cout << "\n" << i << "\n" << employeeListing->GetElementAtPosI(i);
-    }
-}
-void BookStoreSystem::editEmployees()
-{
-    int targetEmployeeID;
+    int targetPersonID;
     int choice;
+    Person * targetPerson;
 
-    Person * targetEmployee;
-    cout << "\nEnter Employee ID:" << endl;
-    cin >> targetEmployeeID;
-
-    if (employeeListing->Search(targetEmployeeID) != 0)         //If person exists
-        targetEmployee = employeeListing->Search(targetEmployeeID);
-    else
-    {
-        cout << "\nPerson not found in database";
-        return;
-    }
-    
     cout << "1) Edit Person"
         << "2) Add Person"
         << "3) Remove Person" << endl;
 
+    cout << "\nEnter Employee ID:" << endl;
+    cin >> targetPersonID;
+
+    if (employeeListing->Search(targetPersonID) != 0)         //If person exists
+        targetPerson = employeeListing->Search(targetPersonID);
+    else if (targetPersonID == 0)
+        ;//user intends to add
+    else
+    {
+        cout << "\nPerson not found in database";
+    }
+    
+
     switch (choice)
     {
     case 1: 
+        editEmployee(targetPerson);
         break;
     case 2:
+        addEmployee();
         break;
     case 3:
+        removeEmployee(targetPerson);
         break;
-
     default:
         cout << "Invalid selection";
         break;
     }
 
 }
-void BookStoreSystem::addEmployee(){}
-void BookStoreSystem::removeEmployee(){}
-void BookStoreSystem::editEmployee(){}
+void BookStoreSystem::addEmployee()
+{
+    char yesNo;
+    bool isManager = false;
+    managerType managerlvl;
+    int managerlvlInt;
+    int age;
+    string name;
+    string address;
+
+    cout << "A manager? Y/N";
+    cin >> yesNo;
+    if (toupper(yesNo) == 'Y')
+        isManager = true;
+    cin >> age;
+    getline(cin, name);
+    getline(cin, address);
+
+    if (isManager)
+    {
+        cout << "\n0 shift_manager \n1 store_manager \n2VP\n3CEO";
+        cin >> managerlvlInt;
+        if (managerlvlInt > 3 || managerlvlInt < 0)
+        {
+            cout << "Invalid #" << endl;
+            return;
+        }
+        managerlvl = (managerType)managerlvlInt;
+        Manager * newGuy = new Manager(age, address, name, managerlvl);
+    }
+
+    Employee * newGuy = new Employee(age, address, name);
+    employeeListing->AddToList(newGuy);
+
+}
+void BookStoreSystem::removeEmployee(Person * targetPerson)
+{
+    if (targetPerson != NULL) //person found
+        employeeListing->RemoveFromList(targetPerson);
+    else
+        cout << "\nPerson not found\n";
+}
+void BookStoreSystem::editEmployee(Person * Employee)
+{
+//May be complicated 
+}
+
 
 void BookStoreSystem::adjustSalePrice()
 {

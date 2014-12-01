@@ -1,5 +1,5 @@
 #include "Manager.h"
-#include "Item.h"
+#include <string>
 
 
 Manager::Manager() : managerLevel((managerType)0)
