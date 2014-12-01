@@ -5,7 +5,7 @@
 #include <iostream>
 #include <map>
 using namespace std;
-<<<<<<< HEAD
+
 #include "Inventory-Class-Hierarcy\\List.h"
 #include "Inventory-Class-Hierarcy\\InventoryList.h"
 #include "Item-Class-Hierarchy\\Item.h"
@@ -67,57 +67,5 @@ int main()
    
 }
 
-bool login(InventoryList * employeeList)
-{
-    string loginName;
-    int loginPIN;
 
-    cout << "\nPlease enter name";
-    cin >> loginName;
-    cout << "\nEnter I.D.";
-    cin >> loginPIN;
-
-    
-}
-
-void makeOrder(InventoryList *transactionList)
-{
-    int PID;
-    int TID;
-    int quantity;
-    
-    cout << "Enter Product I.D.";
-    cin >> PID;
-    cout << "Enter Transaction I.D.";
-    cin >> TID;
-    cout << "Enter quantity";
-    cin >> quantity;
-    
-    
-    transactionList->AddToList();
-}
-
-void menu()
-{
-    int choice;
-    cout << "\n1) Display employees\n 2) Display Transactions\n3) Display Inventory\n4)Make order\n5) Edit Item \n ";
-    
-    switch (choice)
-    {
-    case 1:
-        break;
-    case 2:
-        break;
-    case 3:
-        break;
-    case 4:
-        break;
-    case 'q':
-        break;
-    default:
-        break;
-    }
-}
-
-void makeOrderForStore(InventoryList *transactionList)
 

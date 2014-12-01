@@ -10,12 +10,12 @@
 
 #include <string>
 #include "Order.h"
-#include "Book.h"
-#include "Person.h"
+#include "../Item-Class-Hierarchy/Book.h"
+#include "../Person-Class-Hierarchy/Person.h"
 
 class CustomerOrder: public Order<Book *> {
     private:
-        Person *customerList[1024];
+        Person * customerList[1024];
         // We also need a Book *orderList[100] for each cutomer (orders of each customer)
         int generateRandomID() const;
     public:

@@ -61,7 +61,7 @@ void BookStoreSystem::menu()
         << "5) Edit Transactions \n "        //using Transaction I.D.
         << "6) Edit Inventory\n"             //using product I.D.
         << "7) Search Inventory\n" << endl;
-    
+    cin >> choice;
     switch (choice)
     {
     case 1:
@@ -115,8 +115,8 @@ void BookStoreSystem::showEmployees() const
 
 void BookStoreSystem::modifyInventory()
 {
-    int targetProdID;
-    int choice;
+    int targetProdID=0;
+    int choice=0;
     Item * targetItem;
 
     targetItem = inventory->SearchID(targetProdID);
@@ -160,7 +160,7 @@ void BookStoreSystem::modifyEmployees()
 {
     int targetPersonID;
     int choice;
-    Person * targetPerson;
+    Person * targetPerson = NULL;
 
     cout << "1) Edit Person"
         << "2) Add Person"
@@ -178,7 +178,7 @@ void BookStoreSystem::modifyEmployees()
         cout << "\nPerson not found in database";
     }
     
-
+    cin >> choice;
     switch (choice)
     {
     case 1: 

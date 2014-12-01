@@ -7,8 +7,8 @@
  */
 
 #include "Transaction.h"
-#include "Person-Class-Hierarchy\\Person.h" //dont need these as they are already included in Transaction.h
-#include "Item-Class-Hierarchy\\Book.h"
+#include "..\Person-Class-Hierarchy\Person.h" //dont need these as they are already included in Transaction.h
+#include "..\Item-Class-Hierarchy\Book.h"
 
 #include <iostream>
 #include <ctime>
@@ -19,7 +19,10 @@ Transaction::Transaction(): transactionID(0), transactionDate(0) {}
 
 Transaction::~Transaction() { cout << "Transaction Destructor"; }
 
-Book * Transaction::PullCustomerOrder(Person givenCustomer) const {
+
+
+//missing &
+Book * Transaction::PullCustomerOrder(Person &givenCustomer) const {
     return NULL;
 }
 
@@ -30,8 +33,8 @@ Book * Transaction::PullDatedOrder(time_t givenDate) const {
 Book * Transaction::PullBookOrder(string givenTitle) const {
     return NULL;
 }
-
-bool Transaction::ProcessOrder(Book givenBook) {
+//missing *
+bool Transaction::ProcessOrder(Book * givenBook) {
     return false;
 }
 

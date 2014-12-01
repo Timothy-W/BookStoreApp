@@ -35,6 +35,7 @@ void StoreOrder::setOrderFrom(){
    this->orderFrom = tempOrderFrom;
 }
 
-string StoreOrder::getOrderFrom(){
+string StoreOrder::getOrderFrom() const
+{
    return this->orderFrom;
 }

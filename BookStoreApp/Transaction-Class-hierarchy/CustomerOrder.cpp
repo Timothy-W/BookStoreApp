@@ -6,8 +6,8 @@
 //
 
 #include "CustomerOrder.h"
-#include "Person.h"
-#include "Book.h"
+#include "../Person-Class-Hierarchy/Person.h"
+#include "../Item-Class-Hierarchy/Book.h"
 
 CustomerOrder::CustomerOrder() {
     int i;
@@ -19,7 +19,7 @@ CustomerOrder::~CustomerOrder() {
     int i;
     for (i=0; i<1024; i++)
         if (customerList[i] != NULL)
-            delete customerList[i];
+            delete [] customerList[i]; //missing []
 }
 
 Book * CustomerOrder::PullCustomerOrder(Person &customerRef) const {
