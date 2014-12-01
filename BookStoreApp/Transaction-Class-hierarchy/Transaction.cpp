@@ -34,3 +34,14 @@ Book * Transaction::PullBookOrder(string givenTitle) const {
 bool Transaction::ProcessOrder(Book givenBook) {
     return false;
 }
+
+void Transaction::setTransactionID(){
+   int tempTransactionID;
+   cout << "What is the new transaction ID?" << endl;
+   cin >> tempTransactionID;
+   this->transactionID = tempTransactionID;
+}
+
+int Transaction::getTransactionID() const{
+   return this->transactionID;
+}
