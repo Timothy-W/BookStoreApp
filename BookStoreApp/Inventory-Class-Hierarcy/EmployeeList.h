@@ -1,7 +1,7 @@
 
 
-#ifndef InventoryList_H
-#define InventoryList_H
+#ifndef EmployeeList_H
+#define EmployeeList_H
 
 
 #include "List.h"
