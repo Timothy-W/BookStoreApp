@@ -9,7 +9,7 @@
 #define StoreOrder_H
 
 #include "Order.h"
-#include "Book.h"
+#include "..\Item-Class-Hierarchy\Book.h"
 #include <string>
 
 class StoreOrder: public Order<Book *> {

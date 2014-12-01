@@ -10,8 +10,8 @@
 
 #include <string>
 #include "Transaction.h"
-#include "Person.h"
-#include "Book.h"
+#include "..\Person-Class-Hierarchy\Person.h"
+#include "..\Item-Class-Hierarchy\Book.h"
 
 template <class T>
 class Order: public Transaction {

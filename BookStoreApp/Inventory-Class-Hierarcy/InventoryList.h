@@ -1,15 +1,11 @@
-
-
-#ifndef InventoryList_H
-#define InventoryList_H
-
+#pragma once
 
 #include "List.h"
-#include "Item.h"
-#include "Book.h"
-#include "PaperBook.h"
-#include "AudioBook.h"
-#include "eBook.h"
+#include "../Item-Class-Hierarchy/Item.h"
+#include "../Item-Class-Hierarchy/Book.h"
+#include "../Item-Class-Hierarchy/PaperBook.h"
+#include "../Item-Class-Hierarchy/AudioBook.h"
+#include "../Item-Class-Hierarchy/eBook.h"
 #include <fstream>
 
 
@@ -33,5 +29,3 @@ private:
    void AudioFormat(audioFileFormat& abFormat, string identifier);
    void EbookFormat(eBookFileFormat& ebFormat, string identifier);
 };
-
-#endif

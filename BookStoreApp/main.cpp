@@ -10,18 +10,17 @@ using namespace std;
 #include "Inventory-Class-Hierarcy\\InventoryList.h"
 #include "Item-Class-Hierarchy\\Item.h"
 #include "Transaction-Class-hierarchy\StoreOrder.h"
+#include "BookStoreSystem-Class-Hierarchy\BookStoreSystem.h"
 
 
 int main()
 {
-=======
-#include "List.h"
-#include "InventoryList.h"
-#include "Item.h"
-
-int main()
-{
-   map<string,string> databases;
+    BookStoreSystem * OurBookStore = new BookStoreSystem("Our Awesome Book Store", "1234 El Monte dr.");
+    OurBookStore->menu();
+    
+    
+    
+    /*map<string,string> databases;
 
    databases["Book-Inventory"] = "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/book-inventory.txt";
 
@@ -33,8 +32,7 @@ int main()
    //test test test - tim
 
    // Template List class tests with int
->>>>>>> e8dfb858b4fd112020f46c658265d50fdbba59d9
-   /*
+   
    // Template List class tests with int
    int length = 10;
    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -44,7 +42,7 @@ int main()
    myList.RemoveFromList( 6 );
    myList.DisplayList();
    cout << "count is " << myList.GetListCount() << endl;
-   */
+   
 
    // Template List class test with an Item List
 <<<<<<< HEAD
@@ -64,7 +62,7 @@ int main()
    login(employeeList);
 
    delete invList;
-
+   */
    return 0;
    
 }

@@ -5,9 +5,9 @@
 
 
 #include "List.h"
-#include "Person.h"
-#include "Employee.h"
-#include "Manager.h"
+#include "../Person-Class-Hierarchy/Person.h"
+#include "../Person-Class-Hierarchy/Employee.h"
+#include "../Person-Class-Hierarchy/Manager.h"
 #include <fstream>
 
 

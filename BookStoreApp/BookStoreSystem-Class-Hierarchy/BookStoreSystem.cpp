@@ -43,7 +43,82 @@ bool BookStoreSystem::login()
     return(pinFound && nameMatches); //if both are true, returns true
 }
 
-void BookStoreSystem::makeOrder()
+
+
+void BookStoreSystem::menu()
+{
+    int choice; 
+    bool menuIsRunning = true;
+    cout << "\n1) Display Employees\n "
+        << "2) Display Transactions\n"
+        << "3) Display Inventory\n"
+
+        << "4) Edit Employees\n"             //using Employee I.D.
+        << "5) Edit Transactions \n "        //using Transaction I.D.
+        << "6) Edit Inventory\n"             //using product I.D.
+        << "7) Search Inventory\n" << endl;
+    
+    switch (choice)
+    {
+    case 1:
+        showEmployees();
+        break;
+    case 2:
+        showTransactions();
+        break;
+    case 3:
+        showInventory();
+        break;
+    case 4:
+        editEmployees();
+        break;
+    case 5:
+        editTransactions();
+        break;
+    case 6:
+        editInventory();
+        break;
+    case 7: 
+        searchInventory();
+        break;
+    case 'q':
+    case 'Q':
+        menuIsRunning = false;
+        break;
+    default:
+        break;
+    }
+}
+
+
+
+
+
+void BookStoreSystem::showInventory() const
+{
+    for (int i = 0; i < inventory->GetListCount(); i++)
+        cout << inventory->GetElementAtPosI(i);
+}
+void BookStoreSystem::editInventory()
+{}
+void BookStoreSystem::addItem()
+{}
+void BookStoreSystem::removeItem()
+{}
+void BookStoreSystem::searchInventory() const
+{
+}
+
+
+
+void BookStoreSystem::showTransactions() const
+{
+    for (int i = 0; i < transactionsList->GetListCount(); i++)
+        cout << transactionsList->GetElementAtPosI(i);
+}
+void BookStoreSystem::editTransaction()
+{}
+void BookStoreSystem::addTransaction()
 {
     int PID; //product
     int TID;
@@ -57,49 +132,59 @@ void BookStoreSystem::makeOrder()
     cin >> quantity;
     
     
-    transactionsList->AddToList();
+ //   transactionsList->AddToList();
 }
+void BookStoreSystem::removeTransaction()
+{}
 
 
-void BookStoreSystem::menu()
+
+void BookStoreSystem::showEmployees() const
 {
+    for (int i = 0; i < employeeListing->GetListCount(); i++)
+    {
+        cout << "\n" << i << "\n" << employeeListing->GetElementAtPosI(i);
+    }
+}
+void BookStoreSystem::editEmployees()
+{
+    int targetEmployeeID;
     int choice;
-    cout << "\n1) Display employees\n 2) Display Transactions\n3) Display Inventory\n4)Make order\n5) Edit Item \n ";
+
+    Person * targetEmployee;
+    cout << "\nEnter Employee ID:" << endl;
+    cin >> targetEmployeeID;
+
+    if (employeeListing->Search(targetEmployeeID) != 0)         //If person exists
+        targetEmployee = employeeListing->Search(targetEmployeeID);
+    else
+    {
+        cout << "\nPerson not found in database";
+        return;
+    }
     
+    cout << "1) Edit Person"
+        << "2) Add Person"
+        << "3) Remove Person" << endl;
+
     switch (choice)
     {
-    case 1:
+    case 1: 
         break;
     case 2:
         break;
     case 3:
         break;
-    case 4:
-        break;
-    case 'q':
-        break;
+
     default:
+        cout << "Invalid selection";
         break;
     }
-}
-
-
-void BookStoreSystem::searchInventory() const
-{
 
 }
-
-void BookStoreSystem::showInventory() const
-{
-    for (int i = 0; i < inventory->GetListCount(); i++)
-        cout << inventory->GetElementAtPosI(i);
-}
-
-void BookStoreSystem::showTransactions() const
-{
-    for (int i = 0; i < transactionsList->GetListCount(); i++)
-        cout << transactionsList->GetElementAtPosI(i);
-}
+void BookStoreSystem::addEmployee(){}
+void BookStoreSystem::removeEmployee(){}
+void BookStoreSystem::editEmployee(){}
 
 void BookStoreSystem::adjustSalePrice()
 {

@@ -20,9 +20,27 @@ public:
     void menu();
     bool login();
     void makeOrder();
-    void adjustSalePrice();
     void searchInventory() const;
+
+private:
+    void adjustSalePrice();
+
     void showInventory() const;
     void showTransactions() const;
+    void showEmployees() const;
 
+    void editInventory();       //add, subtract, edit an Item
+    void addItem();             //add item
+    void removeItem();          //subtract Item
+    void editItem();             //edit Item properties
+
+    void editTransactions();    //add, subtract, edit a Transaction
+    void addTransaction();
+    void removeTransaction();
+    void editTransaction();
+
+    void editEmployees();       //add, subtract, edit an Employee
+    void addEmployee();             
+    void removeEmployee();
+    void editEmployee();
 };
