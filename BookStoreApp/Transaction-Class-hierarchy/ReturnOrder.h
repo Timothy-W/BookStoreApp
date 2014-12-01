@@ -19,6 +19,8 @@ class ReturnOrder: public Transaction {
     public:
         ReturnOrder();
         virtual ~ReturnOrder();
+        void setRefundAmount();
+        int getRefundAmount() const;
 };
 
 #endif 
