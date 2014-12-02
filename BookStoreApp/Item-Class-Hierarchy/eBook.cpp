@@ -6,7 +6,7 @@ bool eBook::setFileFormat(eBookFileFormat fileFormat)
    return true;
 }
 
-const string eBook::getFileFormatText(eBookFileFormat fileFormat)
+const string eBook::eBookFileFormatText(eBookFileFormat fileFormat)
 {
    switch (fileFormat)
    {
@@ -22,7 +22,7 @@ const string eBook::getFileFormatText(eBookFileFormat fileFormat)
 const void eBook::DisplayItem()
 {
    Book::DisplayItem();
-   cout << getFileFormatText(fileFormat) << " ";
+   cout << eBookFileFormatText(fileFormat) << " ";
 }
 
 ostream& operator<<(ostream& os, const eBook& ep){

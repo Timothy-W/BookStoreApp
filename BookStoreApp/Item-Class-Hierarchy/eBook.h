@@ -25,7 +25,7 @@ public:
    eBookFileFormat getFileFormat() { return fileFormat; }
    bool setFileFormat(eBookFileFormat fileFormat);
    
-   static const string getFileFormatText(eBookFileFormat fileFormat);
+   static const string eBookFileFormatText(eBookFileFormat fileFormat);
    virtual const void DisplayItem();
 
    friend ostream & operator<< (ostream& os, const eBook & c);
