@@ -7,10 +7,21 @@ bool AudioBook::setAudioFormat(audioFileFormat fileFormat)
    return true;
 }
 
+const string AudioBook::audioFileFormatText(audioFileFormat fileFormat)
+{
+   switch (fileFormat)
+   {
+   case MP3:
+      return ".MP3";
+   default:
+      return "Unknown";
+   }
+}
+
 const void AudioBook::DisplayItem()
 {
    Book::DisplayItem();
-   cout << fileFormat << " ";
+   cout << audioFileFormatText(fileFormat) << " ";
 }
 
 ostream& operator<<(ostream & os, const AudioBook & audioBookRef)
