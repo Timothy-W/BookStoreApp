@@ -27,6 +27,8 @@ public:
    bool setAudioFormat(audioFileFormat fileFormat);
 
    virtual const void DisplayItem();
+
+   friend ostream & operator<< (ostream& os, const AudioBook & c);
 };
 
 #endif
