@@ -23,6 +23,9 @@ public:
    bool setNumberOfPages(int pageCount);
 
    virtual const void DisplayItem();
+
+   friend ostream & operator<< (ostream& os, const PaperBook & c);
+
 };
 
 #endif

@@ -27,6 +27,9 @@ public:
    bool setFileFormat(eBookFileFormat fileFormat);
 
    virtual const void DisplayItem();
+
+   friend ostream & operator<< (ostream& os, const eBook & c);
+
 };
 
 #endif
