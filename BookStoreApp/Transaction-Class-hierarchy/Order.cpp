@@ -14,7 +14,7 @@ Order<T>::Order() {
 }
 
 template <class T>
-Order<T>::Order(T t, int quantity) : Transaction(), item(t), orderQuantity(quantity),  {}
+Order<T>::Order(T t, int quantity) : Transaction(), item(t), orderQuantity(quantity)  {}
 
 template <class T>
 Order<T>::~Order() { cout << "Order destructor"; }

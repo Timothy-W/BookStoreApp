@@ -42,10 +42,10 @@ bool Transaction::ProcessOrder(Book * givenBook) {
     return false;
 }
 
-//void Transaction::setTransactionID(int givenID){
-//    transactionID = givenID;
-//}
-//
-//int Transaction::getTransactionID() const{
-//   return this->transactionID;
-//}
+void Transaction::setTransactionID(int givenID){
+    transactionID = givenID;
+}
+
+int Transaction::getTransactionID() const{
+   return this->transactionID;
+}
