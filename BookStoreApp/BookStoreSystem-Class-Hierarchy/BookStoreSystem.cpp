@@ -14,14 +14,34 @@ BookStoreSystem::BookStoreSystem()
 }
 
 BookStoreSystem::BookStoreSystem(std::string storeName, std::string storeAddress) : storeName(storeName), storeAddress(storeAddress)
-{}
+{
+    
+}
 
-//BookStoreSystem(string storeName, string storeAddress, string invPATH, string empPATH, string tranPATH){}
+BookStoreSystem::BookStoreSystem(string storeName, string storeAddress, string invPATH, string empPATH, string tranPATH) : storeName(storeName), storeAddress(storeAddress), invPATH(invPATH), empPATH(empPATH), tranPATH(tranPATH)
+{
+
+}
 
 BookStoreSystem::~BookStoreSystem()
 {
 }
 
+//done
+void BookStoreSystem::initLists()
+{
+    inventory = new InventoryList("Inventory List", "../BookStoreApp/databases/book-inventory.txt");
+    employeeListing = new EmployeeList("Employee List", "../BookStoreApp/databases/employee-list.txt");
+    transactionsList = new InventoryList("Transaction List", "../BookStoreApp/databases/employee-list.txt");
+}
+void BookStoreSystem::initLists(string invPATH, string empPATH, string tranPATH)
+{
+    inventory = new InventoryList("Inventory List", invPATH);
+    employeeListing = new EmployeeList("Employee List", empPATH);
+    transactionsList = new InventoryList("Transaction List", tranPATH);
+}
+
+//done
 bool BookStoreSystem::login() 
 {
     string loginName;
@@ -39,7 +59,10 @@ bool BookStoreSystem::login()
         {
             pinFound = true;    //there exists an employee with that PIN
             if (loginName.compare(employeeListing->GetElementAtPosI(i)->getName()) == 0)
+            {
+                user = employeeListing->GetElementAtPosI(i);
                 nameMatches = true; // that said employee's name matches the user's input for login name
+            }
         }
     }
   //  cin.ignore(1000, '\n');
@@ -94,7 +117,7 @@ void BookStoreSystem::menu()
     }
 }
 
-
+// three below are done
 void BookStoreSystem::showInventory() const
 {
     for (int i = 0; i < inventory->GetListCount(); i++)
@@ -113,22 +136,152 @@ void BookStoreSystem::showEmployees() const
 
 // Below methods modify the vectors
 
-void BookStoreSystem::modifyInventory()
+void BookStoreSystem::modifyInventory() 
 {
     int targetProdID=0;
     int choice=0;
-    Item * targetItem;
+    Item * targetItem = NULL;
 
-    targetItem = inventory->SearchID(targetProdID);
+    cout << "1) Edit Item"
+        << "2) Add Item"
+        << "3) Remove Item" 
+        << "4) View Item"    << endl;
+    cin >> choice;
+    if (choice == 2)
+    {
+        addItem();
+        return;
+    }
+        
 
-}
+    cout << "\nEnter product ID:" << endl;
+    cin >> targetProdID;
+    if (employeeListing->Search(targetProdID) != 0)         //If Item exists
+        targetItem = inventory->SearchID(targetProdID);
+    else
+    {
+        cout << "\nItem not found in database";
+        return;
+    }
+
+    
+    switch (choice)
+    {
+    case 1:
+        editItem(targetItem);
+        break;
+    case 3:
+        removeItem(targetItem);
+        break;
+    case 4:
+        cout << targetItem;
+    default:
+        cout << "Invalid selection";
+        break;
+    }
+} 
 void BookStoreSystem::addItem()
-{}
+{
+
+    int quantity;
+    int pageCount;
+    int ISBN;
+    int itemType;
+    int genreInt;
+    int eFileInt;
+    int audioFileInt;
+    int numPages;
+    double price;
+    string author;
+    string bookType="" ;
+    string title;
+    string publisher;
+    string name;
+    genreType genre;
+    audioFileFormat audioFileFormat;
+    eBookFileFormat eFileFormat;
+    Item * newItem = NULL;
+
+    cout << "\n1.)eBook\n2.)Audio Book\n3.)Paper Book" << endl;
+    cin >> itemType;
+    if (itemType == 1)
+        bookType = "eBook";
+    else if (itemType == 2)
+        bookType = "Audio Book";
+    else if (itemType == 3)
+        bookType = "Paper Book";
+    else
+    {
+        cout << "invalid selection";
+        return;
+    }
+    cout << "\nBook quantity?\n";
+    cin >> quantity;
+    cout << "\nBook price?\n";
+    cin >> price;
+    cout << "\nBook isbn?\n";
+    cin >> ISBN;
+    cout << "\nBook author?\n";
+    getline(cin, author);
+    cout << "\nBook title?\n?";
+    getline(cin, title);
+    cout << "\nBook genre?\n?"
+        << "0 Unknown\n 1 Science_fiction\n 2 Mystery\n 3 Horror\n 4 Romance"   ;
+    cin >> genreInt;
+    genre = (genreType)genreInt;
+    cout << "\nBook publisher?\n?";
+    getline(cin, publisher);
+
+    if (itemType == 1)
+    {
+        cout << "Which eBook file format?\n"
+            << "1 Unknown/Other \n2 PDF \n3 EPUB\n";
+        cin >> eFileInt;
+        eFileFormat = (eBookFileFormat)eFileInt;
+        newItem = new eBook(bookType, quantity, price, ISBN, author, title, genre, publisher, eFileFormat);
+    }
+    else if (itemType == 2)
+    {
+        string YesOrNo;
+        cout << "\nIs this Audio Book an mp3 Y/N ?\n";
+        cin >> YesOrNo;
+        if (toupper(YesOrNo[0]) == 'Y')
+           audioFileFormat = MP3;
+        else
+            audioFileFormat = UNKNOWN_AUDIO;
+        newItem = new AudioBook(bookType, quantity, price, ISBN, author, title, genre, publisher, audioFileFormat);
+    }  
+    else
+    {
+        cout << "\n How many pages in your stupid book??\n";
+        cin >> numPages;
+        newItem = new PaperBook(bookType, quantity, price, ISBN, author, title, genre, publisher, numPages);
+    }
+    inventory->AddToList(newItem);
+}
 void BookStoreSystem::removeItem(Item * targetItem)
-{}
+{
+    inventory->RemoveFromList(targetItem);
+}
 void BookStoreSystem::editItem(Item * targetItem){}
 void BookStoreSystem::searchInventory() const
 {
+    string input;
+    cout << "Search for Book either by ISBN, title, or author";
+    getline(cin, input);
+
+    //check if input is a number
+    string::const_iterator iter = input.begin();
+    while (iter != input.end() && isdigit(*iter))
+        iter++;
+    if ( iter == input.end())
+    {
+        inventory->Search(atoi(input.c_str()));
+    }
+    else
+    {
+        inventory->Search(input);
+    }
 }
 
 
@@ -176,6 +329,7 @@ void BookStoreSystem::modifyEmployees()
     else
     {
         cout << "\nPerson not found in database";
+        return;
     }
     
     cin >> choice;

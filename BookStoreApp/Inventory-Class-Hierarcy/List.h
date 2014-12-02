@@ -130,8 +130,8 @@ void List<T>::SetListName( string name )
 template <class T>
 int List<T>::GetListCount() const
 {
-
-   return ItemCount;
+    return ItemList.size();
+//   return ItemCount;
  
 }
 

@@ -4,8 +4,9 @@
 #include "../Transaction-Class-hierarchy/StoreOrder.h"
 #include "../Inventory-Class-Hierarcy/InventoryList.h"
 #include <string>
-
+#include <iostream>
 using namespace std;
+
 class BookStoreSystem
 {
 public:
@@ -19,6 +20,8 @@ protected:
     EmployeeList  * employeeListing;
     InventoryList * transactionsList; //RENAME TO TransactionList * ....
 
+    Person * user = NULL;
+
     string storeName;
     string storeAddress;
     string invPATH;
@@ -31,7 +34,11 @@ public:
     void makeOrder();
     void searchInventory() const;
 
+    friend class SystemHelper;
+
 private:
+    void initLists();
+    void initLists(string invPATH, string empPATH, string tranPATH);
     void adjustSalePrice();
 
     void showInventory() const;
