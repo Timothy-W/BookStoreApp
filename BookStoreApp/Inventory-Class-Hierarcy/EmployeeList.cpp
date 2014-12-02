@@ -24,9 +24,9 @@ EmployeeList::EmployeeList( string name, string databasePath):
 
 EmployeeList::~EmployeeList()
 {
-
-   cout << "\nEmployee List " << ListName << " Destroyed\n";
-
+   ofstream outE("employeelistout.txt");
+   outE << "\nEmployee List " << ListName << " Destroyed\n" << endl;
+   outE.close();
 }
 
 
