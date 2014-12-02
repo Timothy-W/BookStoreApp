@@ -50,5 +50,5 @@ const string Book::getTextForEnum(genreType genre)
 const void Book::DisplayItem()
 {
    Product::DisplayItem();
-   cout << ISBN << " " << author << " " << title << " " << genre << " " << publisher << " " << endl;
+   cout << ISBN << " " << author << " " << title << " " << genre << " " << publisher << " ";
 }

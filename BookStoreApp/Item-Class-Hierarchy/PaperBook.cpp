@@ -9,6 +9,7 @@ bool PaperBook::setNumberOfPages(int pageCount)
 const void PaperBook::DisplayItem()
 {
    Book::DisplayItem();
+   cout << pageCount << " ";
 }
 
 ostream& operator<<(ostream& os, const PaperBook& ep){

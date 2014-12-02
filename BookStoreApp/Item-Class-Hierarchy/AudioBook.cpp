@@ -10,6 +10,7 @@ bool AudioBook::setAudioFormat(audioFileFormat fileFormat)
 const void AudioBook::DisplayItem()
 {
    Book::DisplayItem();
+   cout << fileFormat << " ";
 }
 
 ostream& operator<<(ostream& os, const AudioBook& ep){

@@ -2,7 +2,8 @@
 
 const void InventoryItem::DisplayItem()
 {
-   cout << Name << " " << Quantity << " " << endl;
+   Item::DisplayItem();
+   cout << Name << " " << Quantity << " ";
 }
 
 bool InventoryItem::setQuantity(int Quantity)

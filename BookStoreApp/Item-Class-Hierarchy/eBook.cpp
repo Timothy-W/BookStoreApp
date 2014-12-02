@@ -9,6 +9,7 @@ bool eBook::setFileFormat(eBookFileFormat fileFormat)
 const void eBook::DisplayItem()
 {
    Book::DisplayItem();
+   cout << fileFormat << " ";
 }
 
 ostream& operator<<(ostream& os, const eBook& ep){

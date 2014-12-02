@@ -24,7 +24,7 @@ bool Product::SetPrice(double Price)
 const void Product::DisplayItem()
 {
    InventoryItem::DisplayItem();
-   cout << ProductID << " " << fixed << setprecision(2) << Price;
+   cout << ProductID << " " << fixed << setprecision(2) << Price << " ";
 }
 
 int Product::generateProductID()
