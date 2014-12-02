@@ -33,7 +33,7 @@ public:
    bool setGenre(genreType genre);
    bool setPublisher(string publisher);
 
-   const string getTextForEnum(genreType genre);
+   static const string getTextForGenre(genreType genre);
    virtual const void DisplayItem();
 };
 

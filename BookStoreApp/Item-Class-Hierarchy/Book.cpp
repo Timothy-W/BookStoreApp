@@ -30,7 +30,7 @@ bool Book::setPublisher(string publisher)
    return true;
 }
 
-const string Book::getTextForEnum(genreType genre)
+const string Book::getTextForGenre(genreType genre)
 {
    switch (genre)
    {
@@ -50,5 +50,5 @@ const string Book::getTextForEnum(genreType genre)
 const void Book::DisplayItem()
 {
    Product::DisplayItem();
-   cout << ISBN << " " << author << " " << title << " " << genre << " " << publisher << " ";
+   cout << ISBN << " " << author << " " << title << " " << this->getTextForGenre(genre) << " " << publisher << " ";
 }

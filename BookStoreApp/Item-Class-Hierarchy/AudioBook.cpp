@@ -13,9 +13,17 @@ const void AudioBook::DisplayItem()
    cout << fileFormat << " ";
 }
 
-ostream& operator<<(ostream& os, const AudioBook& ep){
-   os << ep.Name << ";" << ep.Quantity << ";" << ep.Price << ";" << ep.ISBN << ";" << ep.author << ";" <<
-      ep.title << ";" << ep.genre << ";" << ep.publisher << ";" << ep.fileFormat << endl;
+ostream& operator<<(ostream & os, const AudioBook & audioBookRef)
+{
+   os << audioBookRef.Name << ";" 
+      << audioBookRef.Quantity << ";" 
+      << audioBookRef.Price << ";" 
+      << audioBookRef.ISBN << ";"
+      << audioBookRef.author << ";"
+      << audioBookRef.title << ";"
+      << Book::getTextForGenre(audioBookRef.genre) << ";"
+      << audioBookRef.publisher << ";"
+      << audioBookRef.fileFormat << endl;
    return os;
 }
 
