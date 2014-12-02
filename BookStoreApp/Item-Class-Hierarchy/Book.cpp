@@ -6,8 +6,6 @@ bool Book::setISBN(int ISBN)
    return true;
 }
 
-
-
 bool Book::setAuthor(string author)
 {
    this->author = author;
@@ -37,7 +35,7 @@ const string Book::getTextForEnum(genreType genre)
    switch (genre)
    {
    case SCIENCE_FICTION:
-      return "SCience Fiction";
+      return "Science Fiction";
    case MYSTERY:
       return "Mystery";
    case HORROR:

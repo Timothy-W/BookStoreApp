@@ -16,3 +16,21 @@ ostream& operator<<(ostream& os, const eBook& ep){
       ep.title << ";" << ep.genre << ";" << ep.publisher << ";" << ep.fileFormat << endl;
    return os;
 }
+
+const bool eBook::operator== (const eBook & eBookRef)
+{
+   return (this->Name == eBookRef.Name
+      && this->Quantity == eBookRef.Quantity
+      && this->Price == eBookRef.Price
+      && this->ISBN == eBookRef.ISBN
+      && this->author == eBookRef.author
+      && this->title == eBookRef.title
+      && this->genre == eBookRef.genre
+      && this->publisher == eBookRef.publisher
+      && this->fileFormat == eBookRef.fileFormat);
+}
+
+const bool eBook::operator!= (const eBook & eBookRef)
+{
+   return !operator==(eBookRef);
+}

@@ -18,3 +18,20 @@ ostream& operator<<(ostream& os, const AudioBook& ep){
    return os;
 }
 
+const bool AudioBook::operator== (const AudioBook & audioBookRef)
+{
+   return (this->Name == audioBookRef.Name
+      && this->Quantity == audioBookRef.Quantity
+      && this->Price == audioBookRef.Price
+      && this->ISBN == audioBookRef.ISBN
+      && this->author == audioBookRef.author
+      && this->title == audioBookRef.title
+      && this->genre == audioBookRef.genre
+      && this->publisher == audioBookRef.publisher
+      && this->fileFormat == audioBookRef.fileFormat);
+}
+
+const bool AudioBook::operator!= (const AudioBook & audioBookRef)
+{
+   return !operator==(audioBookRef);
+}

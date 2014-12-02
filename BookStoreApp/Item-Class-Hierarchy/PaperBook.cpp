@@ -17,3 +17,21 @@ ostream& operator<<(ostream& os, const PaperBook& ep){
 
    return os;
 }
+
+const bool PaperBook::operator== (const PaperBook & paperBookRef)
+{
+   return (this->Name == paperBookRef.Name
+      && this->Quantity == paperBookRef.Quantity
+      && this->Price == paperBookRef.Price
+      && this->ISBN == paperBookRef.ISBN
+      && this->author == paperBookRef.author
+      && this->title == paperBookRef.title
+      && this->genre == paperBookRef.genre
+      && this->publisher == paperBookRef.publisher
+      && this->pageCount == paperBookRef.pageCount);
+}
+
+const bool PaperBook::operator!= (const PaperBook & paperBookRef)
+{
+   return !operator==(paperBookRef);
+}

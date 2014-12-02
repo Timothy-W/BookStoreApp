@@ -29,6 +29,8 @@ public:
    virtual const void DisplayItem();
 
    friend ostream & operator<< (ostream& os, const AudioBook & c);
+   const bool operator== (const AudioBook & audioBookRef);
+   const bool operator!= (const AudioBook & audioBookRef);
 };
 
 #endif
