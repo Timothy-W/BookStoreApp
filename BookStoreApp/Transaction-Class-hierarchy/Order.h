@@ -23,7 +23,7 @@ class Order: public Transaction {
         T getItem() const;
         //void setOrderID();
         //string getOrderID() const;
-        void setOrderQuantity();
+        void setOrderQuantity(int givenQuantity);
         int getOrderQuantity() const;
 };
 

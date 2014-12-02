@@ -56,11 +56,12 @@ T Order<T>::getItem() const {
 //}
 
 template<class T>
-void Order<T>::setOrderQuantity(){
-    int tempOrderQuantity;
-    cout << "What is the new order quantity?" << endl;
-    cin >> tempOrderQuantity;
-    this->orderQuantity = tempOrderQuantity;
+void Order<T>::setOrderQuantity(int givenQuantity){
+//    int tempOrderQuantity;
+//    cout << "What is the new order quantity?" << endl;
+//    cin >> tempOrderQuantity;
+//    this->orderQuantity = tempOrderQuantity;
+    orderQuantity = givenQuantity;
 }
 
 template<class T>
