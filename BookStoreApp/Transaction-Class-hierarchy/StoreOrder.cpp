@@ -2,16 +2,14 @@
 //  StoreOrder.cpp
 //  Team Project
 //
-//  Created by Pegah Sattari on 11/19/14.
-//
 
 #include "StoreOrder.h"
 #include <string>
 using namespace std;
 
-StoreOrder::StoreOrder(): orderFrom("") {}
+StoreOrder::StoreOrder(): Order(), orderFrom("") {}
 
-StoreOrder::StoreOrder(string name): orderFrom(name) {}
+StoreOrder::StoreOrder(string name): Order(), orderFrom(name) {}
 
 StoreOrder::~StoreOrder() { cout << "StoreOrder destructor"; }
 
@@ -21,18 +19,12 @@ ostream & operator<< (ostream & os, const StoreOrder & s) {
     return os;
 }
 
-int StoreOrder::generateRandomID() const {
-    int id ;
-    srand (time(NULL) + rand());   // generate a seed
-    id = rand();                   // generate a random number
-    return id;
-}
-
-void StoreOrder::setOrderFrom(){
-   string tempOrderFrom;
-   cout << "Where are you ordering from?" << endl;
-   cin >> tempOrderFrom;
-   this->orderFrom = tempOrderFrom;
+void StoreOrder::setOrderFrom(string givenOrderFrom) {
+//   string tempOrderFrom;
+//   cout << "Where are you ordering from?" << endl;
+//   cin >> tempOrderFrom;
+//   this->orderFrom = tempOrderFrom;
+    orderFrom = givenOrderFrom;
 }
 
 string StoreOrder::getOrderFrom() const

@@ -2,8 +2,6 @@
 //  ReturnOrder.h
 //  Team Project
 //
-//  Created by Pegah Sattari on 11/19/14.
-//
 
 // We can probably remove this class and use a function instead of it.
 
@@ -19,7 +17,7 @@ class ReturnOrder: public Transaction {
     public:
         ReturnOrder();
         virtual ~ReturnOrder();
-        void setRefundAmount();
+        void setRefundAmount(int givenAmount);
         int getRefundAmount() const;
 };
 

@@ -2,14 +2,13 @@
 //  CustomerOrder.cpp
 //  Team Project
 //
-//  Created by Pegah Sattari on 11/19/14.
-//
 
 #include "CustomerOrder.h"
 #include "../Person-Class-Hierarchy/Person.h"
 #include "../Item-Class-Hierarchy/Book.h"
 
 CustomerOrder::CustomerOrder() {
+    Order();
     int i;
     for (i=0; i<1024; i++)
         customerList[i] = NULL;
@@ -34,12 +33,5 @@ ostream & operator<< (ostream & os, const CustomerOrder & c) {
     Book * b = c.getItem();
     os << b->getISBN() << " " << b->getAuthor() << " " << b->getTitle() << " " << b->getGenre() << " " << b->getPublisher();
     return os;
-}
-
-int CustomerOrder::generateRandomID() const {
-    int id ;
-    srand (time(NULL) + rand());   // generate a seed
-    id = rand();                   // generate a random number
-    return id;
 }
 

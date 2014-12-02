@@ -2,8 +2,6 @@
  *  Transaction.h
  *  teamProject
  *
- *  Created by Pegah Sattari on 11/19/14.
- *
  */
 
 #ifndef Transaction_H
@@ -16,9 +14,10 @@
 #include <string>
 
 class Transaction {
-    private:
+    protected:
         int transactionID;
         time_t transactionDate;
+        int generateRandomID() const = 0;
     public:
         Transaction();
         virtual ~Transaction();
@@ -26,8 +25,8 @@ class Transaction {
         virtual Book * PullDatedOrder(time_t givenDate) const = 0;
         virtual Book * PullBookOrder(string givenTitle) const = 0;
         virtual bool ProcessOrder(Book * givenBook) = 0;  //This should decrement the quantity of givenBook in the inventory
-        void setTransactionID();
-        int getTransactionID() const;
+//        void setTransactionID(int givenID);
+//        int getTransactionID() const;
 };
 
 #endif

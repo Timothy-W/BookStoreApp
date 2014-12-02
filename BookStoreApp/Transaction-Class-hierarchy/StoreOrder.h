@@ -2,8 +2,6 @@
 //  StoreOrder.h
 //  Team Project
 //
-//  Created by Pegah Sattari on 11/19/14.
-//
 
 #ifndef StoreOrder_H
 #define StoreOrder_H
@@ -15,13 +13,12 @@
 class StoreOrder: public Order<Book *> {
     private:
         string orderFrom;
-        int generateRandomID() const;
     public:
         StoreOrder();
         StoreOrder(string name);
         virtual ~StoreOrder();
         friend ostream & operator<< (ostream & os, const StoreOrder & s);
-        void setOrderFrom();
+        void setOrderFrom(string givenOrderFrom);
         string getOrderFrom() const;
 };
 

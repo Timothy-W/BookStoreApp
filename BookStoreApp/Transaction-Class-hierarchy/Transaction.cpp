@@ -2,8 +2,6 @@
  *  Transaction.cpp
  *  teamProject
  *
- *  Created by Pegah Sattari on 11/19/14.
- *
  */
 
 #include "Transaction.h"
@@ -15,11 +13,16 @@
 #include <string>
 using namespace std;
 
-Transaction::Transaction(): transactionID(0), transactionDate(0) {}
+Transaction::Transaction(): transactionID(generateRandomID()), transactionDate(0) {}
 
 Transaction::~Transaction() { cout << "Transaction Destructor"; }
 
-
+int Transaction::generateRandomID() const {
+    int id ;
+    srand (time(NULL) + rand());   // generate a seed
+    id = rand();                   // generate a random number
+    return id;
+}
 
 //missing &
 Book * Transaction::PullCustomerOrder(Person &givenCustomer) const {
@@ -33,18 +36,16 @@ Book * Transaction::PullDatedOrder(time_t givenDate) const {
 Book * Transaction::PullBookOrder(string givenTitle) const {
     return NULL;
 }
+
 //missing *
 bool Transaction::ProcessOrder(Book * givenBook) {
     return false;
 }
 
-void Transaction::setTransactionID(){
-   int tempTransactionID;
-   cout << "What is the new transaction ID?" << endl;
-   cin >> tempTransactionID;
-   this->transactionID = tempTransactionID;
-}
-
-int Transaction::getTransactionID() const{
-   return this->transactionID;
-}
+//void Transaction::setTransactionID(int givenID){
+//    transactionID = givenID;
+//}
+//
+//int Transaction::getTransactionID() const{
+//   return this->transactionID;
+//}
