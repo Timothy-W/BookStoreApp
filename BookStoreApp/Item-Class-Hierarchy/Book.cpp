@@ -50,5 +50,5 @@ const string Book::getTextForGenre(genreType genre)
 const void Book::DisplayItem()
 {
    Product::DisplayItem();
-   cout << ISBN << " " << author << " " << title << " " << this->getTextForGenre(genre) << " " << publisher << " ";
+   cout << ISBN << " " << author << " " << title << " " << getTextForGenre(genre) << " " << publisher << " ";
 }

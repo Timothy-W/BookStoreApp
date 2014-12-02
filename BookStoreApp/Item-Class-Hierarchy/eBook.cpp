@@ -6,10 +6,23 @@ bool eBook::setFileFormat(eBookFileFormat fileFormat)
    return true;
 }
 
+const string eBook::getFileFormatText(eBookFileFormat fileFormat)
+{
+   switch (fileFormat)
+   {
+   case PDF:
+      return "PDF";
+   case EPUB:
+      return "ePub";
+   default:
+      return "Unknown";
+   }
+}
+
 const void eBook::DisplayItem()
 {
    Book::DisplayItem();
-   cout << fileFormat << " ";
+   cout << getFileFormatText(fileFormat) << " ";
 }
 
 ostream& operator<<(ostream& os, const eBook& ep){
