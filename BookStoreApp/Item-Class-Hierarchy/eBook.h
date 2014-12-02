@@ -28,7 +28,7 @@ public:
    static const string eBookFileFormatText(eBookFileFormat fileFormat);
    virtual const void DisplayItem();
 
-   friend ostream & operator<< (ostream& os, const eBook & c);
+   friend ostream & operator<< (ostream& os, const eBook & eBookRef);
    const bool operator== (const eBook & eBookRef);
    const bool operator!= (const eBook & eBookRef);
 };

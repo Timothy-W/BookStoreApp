@@ -24,7 +24,7 @@ public:
 
    virtual const void DisplayItem();
 
-   friend ostream & operator<< (ostream& os, const PaperBook & c);
+   friend ostream & operator<< (ostream & os, const PaperBook & paperBookRef);
    const bool operator== (const PaperBook & paperBookRef);
    const bool operator!= (const PaperBook & paperBookRef);
 };

@@ -34,7 +34,7 @@ ostream& operator<<(ostream & os, const AudioBook & audioBookRef)
       << audioBookRef.title << ";"
       << Book::getTextForGenre(audioBookRef.genre) << ";"
       << audioBookRef.publisher << ";"
-      << audioBookRef.fileFormat << endl;
+      << AudioBook::audioFileFormatText(audioBookRef.fileFormat);
    return os;
 }
 

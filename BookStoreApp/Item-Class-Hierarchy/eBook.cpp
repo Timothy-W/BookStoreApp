@@ -25,9 +25,17 @@ const void eBook::DisplayItem()
    cout << eBookFileFormatText(fileFormat) << " ";
 }
 
-ostream& operator<<(ostream& os, const eBook& ep){
-   os << ep.Name << ";" << ep.Quantity << ";" << ep.Price << ";" << ep.ISBN << ";" << ep.author << ";" <<
-      ep.title << ";" << ep.genre << ";" << ep.publisher << ";" << ep.fileFormat << endl;
+ostream & operator<<(ostream & os, const eBook& eBookRef)
+{
+   os << eBookRef.Name << ";"
+      << eBookRef.Quantity << ";"
+      << eBookRef.Price << ";"
+      << eBookRef.ISBN << ";"
+      << eBookRef.author << ";"
+      << eBookRef.title << ";"
+      << Book::getTextForGenre(eBookRef.genre) << ";"
+      << eBookRef.publisher << ";"
+      << eBook::eBookFileFormatText(eBookRef.fileFormat);
    return os;
 }
 

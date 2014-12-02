@@ -12,9 +12,17 @@ const void PaperBook::DisplayItem()
    cout << pageCount << " ";
 }
 
-ostream& operator<<(ostream& os, const PaperBook& ep){
-   os << ep.Name << ";" << ep.Quantity << ";" << ep.Price << ";" << ep.ISBN << ";" << ep.author << ";" <<
-      ep.title << ";" << ep.genre << ";" << ep.publisher << ";" << ep.pageCount << ";" << endl;
+ostream& operator<<(ostream& os, const PaperBook& paperBookRef)
+{
+   os << paperBookRef.Name << ";"
+      << paperBookRef.Quantity << ";"
+      << paperBookRef.Price << ";"
+      << paperBookRef.ISBN << ";"
+      << paperBookRef.author << ";"
+      << paperBookRef.title << ";"
+      << Book::getTextForGenre(paperBookRef.genre) << ";"
+      << paperBookRef.publisher << ";"
+      << paperBookRef.pageCount;
 
    return os;
 }
