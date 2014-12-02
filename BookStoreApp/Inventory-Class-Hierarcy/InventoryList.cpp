@@ -24,8 +24,9 @@ InventoryList::InventoryList( string name, string databasePath):
 
 InventoryList::~InventoryList()
 {
-
-   cout << "\nInventory List " << ListName << " Destroyed\n";
+   ofstream out("inventorylistout.txt");
+   out << "\nInventory List " << ListName << " Destroyed\n" << endl;
+   out.close();
 
 }
 
@@ -220,13 +221,14 @@ vector<Item*> InventoryList::Search( int isbn )
 // insert SearchID
 Item * InventoryList::SearchID(int ID)
 {
-    for (int i = 0; i < ItemCount; i++)
-    {
-        if (GetElementAtPosI(i)->GetID() == ID)
-            return GetElementAtPosI(i);
-        else
-            cout << "Item ID doesnt exist";
-    }
+   for (int i = 0; i < ItemCount; i++)
+   {
+      if (GetElementAtPosI(i)->GetID() == ID)
+         return GetElementAtPosI(i);
+      else
+      cout << "Item ID doesnt exist";
+   }
+   return NULL;
 }
 
 
