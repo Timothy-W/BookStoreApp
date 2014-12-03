@@ -27,6 +27,7 @@ public:
    friend ostream & operator<< (ostream & os, const PaperBook & paperBookRef);
    const bool operator== (const PaperBook & paperBookRef);
    const bool operator!= (const PaperBook & paperBookRef);
+   const PaperBook & operator= (const PaperBook & paperBookRef);
 };
 
 #endif
