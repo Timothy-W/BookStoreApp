@@ -9,16 +9,24 @@
 
 CustomerOrder::CustomerOrder() {
     Order();
-    int i;
-    for (i=0; i<1024; i++)
-        customerList[i] = NULL;
+    customer = NULL;
+//    int i;
+//    for (i=0; i<1024; i++)
+//        customerList[i] = NULL;
+}
+
+CustomerOrder::CustomerOrder(Person *givenCustomer) {
+    Order();
+    customer = givenCustomer;
 }
 
 CustomerOrder::~CustomerOrder() {
-    int i;
-    for (i=0; i<1024; i++)
-        if (customerList[i] != NULL)
-            delete [] customerList[i]; //missing []
+//    int i;
+    if (customer != NULL)
+        delete customer;
+//    for (i=0; i<1024; i++)
+//        if (customerList[i] != NULL)
+//            delete [] customerList[i]; //missing []
 }
 
 Book * CustomerOrder::PullCustomerOrder(Person &customerRef) const {
