@@ -8,29 +8,14 @@
 #include "../Item-Class-Hierarchy/Book.h"
 
 CustomerOrder::CustomerOrder() {
-<<<<<<< HEAD
+
  /*   int i;
     for (i=0; i<1024; i++)
         customerList[i] = NULL;*/
 }
 
-CustomerOrder::~CustomerOrder() {
-    /*int i;
-    for (i=0; i<1024; i++)
-        if (customerList[i] != NULL)
-            delete [] customerList[i];*/ 
-=======
-    Order();
-    customer = NULL;
-//    int i;
-//    for (i=0; i<1024; i++)
-//        customerList[i] = NULL;
-}
 
-CustomerOrder::CustomerOrder(Person *givenCustomer) {
-    Order();
-    customer = givenCustomer;
-}
+
 
 CustomerOrder::~CustomerOrder() {
 //    int i;
@@ -39,7 +24,7 @@ CustomerOrder::~CustomerOrder() {
 //    for (i=0; i<1024; i++)
 //        if (customerList[i] != NULL)
 //            delete [] customerList[i]; //missing []
->>>>>>> 7285e63642ef85e3d84cac7ced76d4c8c61f2ba0
+
 }
 
 CustomerOrder::CustomerOrder(Book * book, int quantity, Person*pers) : Order(book, quantity), customer(pers){}

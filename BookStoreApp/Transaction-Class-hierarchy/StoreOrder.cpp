@@ -4,18 +4,17 @@
 //
 
 #include "StoreOrder.h"
-#include "Book.h"
+#include "../Item-Class-Hierarchy/Book.h"
 #include <string>
 using namespace std;
 
 StoreOrder::StoreOrder() {
-    Order();
+    
     orderFrom = "";
     employee = NULL;
 }
 
 StoreOrder::StoreOrder(string name, Employee *givenEmployee) {
-    Order();
     orderFrom = name;
     employee = givenEmployee;
 }

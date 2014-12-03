@@ -137,7 +137,7 @@ void BookStoreSystem::showEmployees() const
 {
     for (int i = 0; i < employeeListing->GetListCount() ; i++)
     {
-        cout << *(employeeListing->GetElementAtPosI(i)) << '\n';
+     //   cout << *(employeeListing->GetElementAtPosI(i)) << '\n';
     }
 }
 

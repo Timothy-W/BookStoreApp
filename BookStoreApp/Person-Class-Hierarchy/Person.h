@@ -14,12 +14,8 @@ protected:
     string name; // First Last
 
 protected:
-    virtual void print(std::ostream& str) const ;
-public:
-    friend std::ostream& operator<<(std::ostream& os, Person const& person)
-    {
-        return os;
-    }
+   // virtual void print(std::ostream& str) const ;
+
 public:
     int getAge() const;
     void setAge(int age);
@@ -33,3 +29,7 @@ public:
     virtual int getID() const { return -1; };
 };
 
+//std::ostream& operator<< (std::ostream& stm, const Person& b)
+//{
+//    return b.print(stm);
+//} // overloaded << operator
