@@ -4,14 +4,27 @@
 //
 
 #include "StoreOrder.h"
+#include "Book.h"
 #include <string>
 using namespace std;
 
-StoreOrder::StoreOrder(): Order(), orderFrom("") {}
+StoreOrder::StoreOrder() {
+    Order();
+    orderFrom = "";
+    employee = NULL;
+}
 
-StoreOrder::StoreOrder(string name): Order(), orderFrom(name) {}
+StoreOrder::StoreOrder(string name, Employee *givenEmployee) {
+    Order();
+    orderFrom = name;
+    employee = givenEmployee;
+}
 
-StoreOrder::~StoreOrder() { cout << "StoreOrder destructor"; }
+StoreOrder::~StoreOrder() {
+    if (employee != NULL)
+        delete employee;
+    cout << "StoreOrder destructor";
+}
 
 ostream & operator<< (ostream & os, const StoreOrder & s) {
     Book * b = s.getItem();
