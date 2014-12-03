@@ -24,7 +24,7 @@ class Transaction {
         virtual Book * PullCustomerOrder(Person &customerRef) const;
         virtual Book * PullDatedOrder(time_t givenDate) const;
         virtual Book * PullBookOrder(string givenTitle) const;
-        virtual bool ProcessOrder(Book * givenBook) = 0;  //This should decrement the quantity of givenBook in the inventory
+        virtual bool ProcessOrder(Book * givenBook);  //This should decrement the quantity of givenBook in the inventory
         void setTransactionID(int givenID);
         int getTransactionID() const;
 };

@@ -29,6 +29,7 @@ class CustomerOrder: public Order<Book *> {
         void setCustomer();
         Person * getCustomer();
         friend ostream & operator<< (ostream & os, const CustomerOrder & c);
+        void returnOrder(Book *book);
 };
 
 #endif

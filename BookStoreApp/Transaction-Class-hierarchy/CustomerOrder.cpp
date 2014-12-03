@@ -44,3 +44,7 @@ ostream & operator<< (ostream & os, const CustomerOrder & c) {
     return os;
 }
 
+void CustomerOrder::returnOrder(Book *book) {
+    int quant = book->getQuantity();
+    book->setQuantity(quant+1);
+}
