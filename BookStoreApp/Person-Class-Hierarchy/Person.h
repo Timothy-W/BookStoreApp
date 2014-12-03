@@ -13,6 +13,13 @@ protected:
     string address; //
     string name; // First Last
 
+protected:
+    virtual void print(std::ostream& str) const ;
+public:
+    friend std::ostream& operator<<(std::ostream& os, Person const& person)
+    {
+        return os;
+    }
 public:
     int getAge() const;
     void setAge(int age);

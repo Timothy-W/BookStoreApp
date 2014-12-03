@@ -15,8 +15,9 @@ using namespace std;
 
 int main()
 {
-    BookStoreSystem * OurBookStore = new BookStoreSystem("Our Awesome Book Store", "1234 El Monte dr.");
-    OurBookStore->menu();
+    BookStoreSystem * OurBookStore = new BookStoreSystem("Our Awesome Book Store", "1234 El Monte dr.", "C:\\Users\\Hassu_2\\BookStoreApp\\BookStoreApp\\databases\\book-inventory.txt", "C:\\Users\\Hassu_2\\BookStoreApp\\BookStoreApp\\databases\\employee-list.txt", "transactions path");
+    while (true)
+        OurBookStore->menu();
     
     
     

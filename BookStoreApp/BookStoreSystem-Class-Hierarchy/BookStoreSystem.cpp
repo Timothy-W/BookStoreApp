@@ -13,32 +13,35 @@ BookStoreSystem::BookStoreSystem()
     employeeListing = new EmployeeList("Employee List", "../BookStoreApp/databases/employee-list.txt");
 }
 
-BookStoreSystem::BookStoreSystem(std::string storeName, std::string storeAddress) : storeName(storeName), storeAddress(storeAddress)
+BookStoreSystem::BookStoreSystem(string storeName, string storeAddress ) : storeName(storeName), storeAddress(storeAddress)
 {
-    
+    initLists();
 }
 
 BookStoreSystem::BookStoreSystem(string storeName, string storeAddress, string invPATH, string empPATH, string tranPATH) : storeName(storeName), storeAddress(storeAddress), invPATH(invPATH), empPATH(empPATH), tranPATH(tranPATH)
 {
-
+    initLists(invPATH, empPATH, tranPATH);
 }
 
 BookStoreSystem::~BookStoreSystem()
 {
+    delete inventory;
+    //
 }
+
 
 //done
 void BookStoreSystem::initLists()
 {
     inventory = new InventoryList("Inventory List", "../BookStoreApp/databases/book-inventory.txt");
     employeeListing = new EmployeeList("Employee List", "../BookStoreApp/databases/employee-list.txt");
-    transactionsList = new InventoryList("Transaction List", "../BookStoreApp/databases/employee-list.txt");
+    //transactionsList = new InventoryList("Transaction List", "../BookStoreApp/databases/employee-list.txt");
 }
 void BookStoreSystem::initLists(string invPATH, string empPATH, string tranPATH)
 {
     inventory = new InventoryList("Inventory List", invPATH);
     employeeListing = new EmployeeList("Employee List", empPATH);
-    transactionsList = new InventoryList("Transaction List", tranPATH);
+    //transactionsList = new InventoryList("Transaction List", tranPATH);
 }
 
 //done
@@ -69,8 +72,6 @@ bool BookStoreSystem::login()
   //  cin.clear();
     return(pinFound && nameMatches); //if both are true, returns true
 }
-
-
 
 void BookStoreSystem::menu()
 {
@@ -120,39 +121,43 @@ void BookStoreSystem::menu()
 // three below are done
 void BookStoreSystem::showInventory() const
 {
-    for (int i = 0; i < inventory->GetListCount(); i++)
+    for (int i = 0; i < employeeListing->GetListCount(); i++)
+    {
         cout << inventory->GetElementAtPosI(i);
+    }
 }
 void BookStoreSystem::showTransactions() const
 {
-    for (int i = 0; i < transactionsList->GetListCount(); i++)
+    for (int i = 0; i < employeeListing->GetListCount(); i++)
+    {
         cout << transactionsList->GetElementAtPosI(i);
+    }
 }
 void BookStoreSystem::showEmployees() const
 {
-    for (int i = 0; i < employeeListing->GetListCount(); i++)
-        cout << employeeListing->GetElementAtPosI(i);
+    for (int i = 0; i < employeeListing->GetListCount() ; i++)
+    {
+        cout << *(employeeListing->GetElementAtPosI(i)) << '\n';
+    }
 }
 
 // Below methods modify the vectors
-
 void BookStoreSystem::modifyInventory() 
 {
     int targetProdID=0;
     int choice=0;
     Item * targetItem = NULL;
 
-    cout << "1) Edit Item"
-        << "2) Add Item"
-        << "3) Remove Item" 
-        << "4) View Item"    << endl;
+    cout << "1) Edit Item\n"
+        << "2) Add Item\n"
+        << "3) Remove Item\n" 
+        << "4) View Item\n"    << endl;
     cin >> choice;
     if (choice == 2)
     {
         addItem();
         return;
     }
-        
 
     cout << "\nEnter product ID:" << endl;
     cin >> targetProdID;
@@ -258,12 +263,12 @@ void BookStoreSystem::addItem()
         newItem = new PaperBook(bookType, quantity, price, ISBN, author, title, genre, publisher, numPages);
     }
     inventory->AddToList(newItem);
-}
+} 
 void BookStoreSystem::removeItem(Item * targetItem)
 {
     inventory->RemoveFromList(targetItem);
-}
-void BookStoreSystem::editItem(Item * targetItem){}
+} 
+void BookStoreSystem::editItem(Item * targetItem){} 
 void BookStoreSystem::searchInventory() const
 {
     string input;
@@ -282,7 +287,7 @@ void BookStoreSystem::searchInventory() const
     {
         inventory->Search(input);
     }
-}
+} 
 
 
 void BookStoreSystem::modifyTransactions(){}
@@ -298,7 +303,6 @@ void BookStoreSystem::addTransaction()
     cin >> TID;
     cout << "Enter quantity";
     cin >> quantity;
-    
     
  //   transactionsList->AddToList();
 }

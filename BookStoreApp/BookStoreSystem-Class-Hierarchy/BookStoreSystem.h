@@ -19,6 +19,7 @@ protected:
     InventoryList * inventory;
     EmployeeList  * employeeListing;
     InventoryList * transactionsList; //RENAME TO TransactionList * ....
+    std::vector<Person*>::iterator personIter;
 
     Person * user = NULL;
 
