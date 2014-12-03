@@ -56,3 +56,20 @@ const bool eBook::operator!= (const eBook & eBookRef)
 {
    return !operator==(eBookRef);
 }
+
+const eBook & eBook::operator= (const eBook & eBookRef)
+{
+   if (this != &eBookRef)
+   {
+      this->Name = eBookRef.Name;
+      this->Quantity = eBookRef.Quantity;
+      this->Price = eBookRef.Price;
+      this->ISBN = eBookRef.ISBN;
+      this->author = eBookRef.author;
+      this->title = eBookRef.title;
+      this->genre = eBookRef.genre;
+      this->publisher = eBookRef.publisher;
+      this->fileFormat = eBookRef.fileFormat;
+   }
+   return *this;
+}

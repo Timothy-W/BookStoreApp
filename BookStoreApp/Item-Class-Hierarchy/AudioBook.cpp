@@ -55,3 +55,20 @@ const bool AudioBook::operator!= (const AudioBook & audioBookRef)
 {
    return !operator==(audioBookRef);
 }
+
+const AudioBook & AudioBook::operator= (const AudioBook & audioBookRef)
+{
+   if (this != &audioBookRef)
+   {
+      this->Name = audioBookRef.Name;
+      this->Quantity = audioBookRef.Quantity;
+      this->Price = audioBookRef.Price;
+      this->ISBN = audioBookRef.ISBN;
+      this->author = audioBookRef.author;
+      this->title = audioBookRef.title;
+      this->genre = audioBookRef.genre;
+      this->publisher = audioBookRef.publisher;
+      this->fileFormat = audioBookRef.fileFormat;
+   }
+   return *this;
+}

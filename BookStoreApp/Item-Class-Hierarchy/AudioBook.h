@@ -31,6 +31,7 @@ public:
    friend ostream & operator<< (ostream & os, const AudioBook & audioBookRef);
    const bool operator== (const AudioBook & audioBookRef);
    const bool operator!= (const AudioBook & audioBookRef);
+   const AudioBook & operator= (const AudioBook & audioBookRef);
 };
 
 #endif

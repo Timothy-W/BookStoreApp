@@ -31,6 +31,7 @@ public:
    friend ostream & operator<< (ostream& os, const eBook & eBookRef);
    const bool operator== (const eBook & eBookRef);
    const bool operator!= (const eBook & eBookRef);
+   const eBook & operator= (const eBook & eBookRef);
 };
 
 #endif
