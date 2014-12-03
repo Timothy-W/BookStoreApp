@@ -24,9 +24,28 @@ EmployeeList::EmployeeList( string name, string databasePath):
 
 EmployeeList::~EmployeeList()
 {
-   ofstream outE("employeelistout.txt");
-   outE << "\nEmployee List " << ListName << " Destroyed\n" << endl;
-   outE.close();
+//    ofstream outE("employeelistout.txt");
+//    outE << "\nEmployee List " << ListName << " Destroyed\n" << endl;
+//    outE.close();
+    ofstream out("employeelistout.txt", ios::trunc);
+    if ((dynamic_cast <Manager *> (this)) != NULL) {
+        Manager * p = dynamic_cast <Manager *> (this);
+        out << "Manager;" << p->getID()
+        << ";" << p->getLevelString()
+        << ";" << p->getName()
+        << ";" << p->getAge()
+        << ";" << p->getAddress()
+        << endl;
+    }
+    else if ((dynamic_cast <Employee *> (this)) != NULL) {
+        Employee * p = dynamic_cast <Employee *> (this);
+        out << "Employee;" << p->getID()
+        << ";" << p->getName()
+        << ";" << p->getAge()
+        << ";" << p->getAddress()
+        << endl;
+    }
+    out.close();
 }
 
 
