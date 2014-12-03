@@ -22,8 +22,8 @@ public:
    virtual ~AudioBook() {}
 
    //Mutators and Accessors
-   audioFileFormat getAudioFormat() { return fileFormat; }
-   bool setAudioFormat(audioFileFormat fileFormat);
+   audioFileFormat getAudioFormat();
+   void setAudioFormat(audioFileFormat fileFormat);
 
    static const string audioFileFormatText(audioFileFormat fileFormat);
    virtual const void DisplayItem();

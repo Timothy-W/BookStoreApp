@@ -21,11 +21,11 @@ public:
 
    virtual ~Book() {}
 
-   int getISBN() { return ISBN; }
-   string getAuthor() { return author; }
-   string getTitle() { return title; }
-   genreType getGenre() { return genre; }
-   string getPublisher() { return publisher; }
+   int getISBN();
+   string getAuthor();
+   string getTitle();
+   genreType getGenre();
+   string getPublisher();
 
    bool setISBN(int ISBN);
    bool setAuthor(string author);
