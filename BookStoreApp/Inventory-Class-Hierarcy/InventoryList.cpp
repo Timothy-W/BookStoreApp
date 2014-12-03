@@ -24,14 +24,54 @@ InventoryList::InventoryList( string name, string databasePath):
 
 InventoryList::~InventoryList()
 {
-   ofstream out("inventorylistout.txt");
-   out << "\nInventory List " << ListName << " Destroyed\n" << endl;
+   ofstream out("inventorylistout.txt",ios::trunc);
+   
+   if ((dynamic_cast<eBook *>(this)) != NULL){
+      eBook* p = dynamic_cast<eBook *>(this);
+      out << "eBook;" << p->getTitle()
+         << ";" << p->getAuthor()
+         << ";" << p->getGenre()
+         << ";" << p->GetPrice()
+         << ";" << "NULL"
+         << ";" << p->getISBN()   
+         << ";" << p->getPublisher()
+         << ";" << p->getFileFormat() << endl;
+   }
+   else if (dynamic_cast<PaperBook *>(this) != NULL){
+      PaperBook* p = dynamic_cast<PaperBook*>(this);
+      out << "Paper Book;" << p->getTitle()
+         << ";" << p->getAuthor()
+         << ";" << p->getGenre()
+         << ";" << p->GetPrice()
+         << ";" << p->getQuantity()
+         << ";" << p->getISBN()
+         << ";" << p->getPublisher()
+         << ";" << p->getNumberOfPages() << endl;
+      
+   }
+   else if (dynamic_cast<AudioBook*>(this) != NULL){
+      AudioBook* p = dynamic_cast<AudioBook*>(this);
+      out << "Audio Book;" << p->getTitle()
+         << ";" << p->getAuthor()
+         << ";" << p->getGenre()
+         << ";" << p->GetPrice()
+         << ";" << p->getQuantity()
+         << ";" << p->getISBN()
+         << ";" << p->getPublisher()
+         << ";" << p->getAudioFormat() << endl;
+   }
+   
    out.close();
 
 }
 
+string Name, int Quantity, double Price,
+int ISBN, string author, string title,
+genreType genre, string publisher, eBookFileFormat fileFormat
 
-
+eBook * eb = dynamic_cast<eBook *>(*p);
+PaperBook * pb = dynamic_cast<PaperBook *>(*p)&
+AudioBook * ab = dynamic_cast<AudioBook *>(*p);
 
 
 void InventoryList::BuildFromDatabase()
