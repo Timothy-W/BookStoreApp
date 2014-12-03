@@ -1,5 +1,6 @@
 #include "Manager.h"
 #include <string>
+#include <fstream>
 
 
 Manager::Manager() : managerLevel((managerType)0)
@@ -10,8 +11,15 @@ Manager::Manager(int age, string address, string name, managerType level) : Empl
 {
 }
 
-Manager::~Manager()
-{
+Manager::~Manager() {
+    ofstream out("employeeListOut.txt", ios::trunc);
+    out << "Manager;" << this->getID()
+    << ";" << this->getLevelString()
+    << ";" << this->getName()
+    << ";" << this->getAge()
+    << ";" << this->getAddress()
+    << endl;
+    out.close();
 }
 
 void Manager::setLevel(managerType level)

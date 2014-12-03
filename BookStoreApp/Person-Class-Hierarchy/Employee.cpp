@@ -1,6 +1,7 @@
 #include "Employee.h"
 #include <ctime>
 #include <string>
+#include <fstream>
 
 Employee::Employee() : employeeID(-1){}
 
@@ -9,8 +10,15 @@ Employee::Employee(int age, string address, string name) : Person(age, address, 
     setID();
 }
 
-Employee::~Employee()
-{}
+Employee::~Employee() {
+    ofstream out("employeeListOut.txt", ios::trunc);
+    out << "Employee;" << this->getID()
+    << ";" << this->getName()
+    << ";" << this->getAge()
+    << ";" << this->getAddress()
+    << endl;
+    out.close();
+}
 
 void Employee::setID()
 {
