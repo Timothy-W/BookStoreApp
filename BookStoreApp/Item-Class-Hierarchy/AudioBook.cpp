@@ -1,10 +1,13 @@
 #include "AudioBook.h"
 
+audioFileFormat AudioBook::getAudioFormat()
+{ 
+   return fileFormat;
+}
 
-bool AudioBook::setAudioFormat(audioFileFormat fileFormat)
+void AudioBook::setAudioFormat(audioFileFormat fileFormat)
 {
    this->fileFormat = fileFormat;
-   return true;
 }
 
 const string AudioBook::audioFileFormatText(audioFileFormat fileFormat)

@@ -1,7 +1,35 @@
 #include "Book.h"
 
+int Book::getISBN()
+{ 
+   return ISBN;
+}
+
+string Book::getAuthor() 
+{ 
+   return author;
+}
+
+string Book::getTitle()
+{ 
+   return title;
+}
+
+genreType Book::getGenre() 
+{ 
+   return genre;
+}
+
+string Book::getPublisher()
+{ 
+   return publisher; 
+}
+
 bool Book::setISBN(int ISBN)
 {
+   if (ISBN < 0)
+      return false;
+
    this->ISBN = ISBN;
    return true;
 }
