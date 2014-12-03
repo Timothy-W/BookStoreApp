@@ -65,13 +65,7 @@ InventoryList::~InventoryList()
 
 }
 
-string Name, int Quantity, double Price,
-int ISBN, string author, string title,
-genreType genre, string publisher, eBookFileFormat fileFormat
 
-eBook * eb = dynamic_cast<eBook *>(*p);
-PaperBook * pb = dynamic_cast<PaperBook *>(*p)&
-AudioBook * ab = dynamic_cast<AudioBook *>(*p);
 
 
 void InventoryList::BuildFromDatabase()

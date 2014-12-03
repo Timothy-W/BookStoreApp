@@ -7,7 +7,7 @@
 #include "../Item-Class-Hierarchy/AudioBook.h"
 #include "../Item-Class-Hierarchy/eBook.h"
 #include <fstream>
-
+#include <string>
 
 class InventoryList : public List<Item*>{
 
