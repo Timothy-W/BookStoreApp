@@ -8,6 +8,7 @@
 #include "../Person-Class-Hierarchy/Person.h"
 #include "../Person-Class-Hierarchy/Employee.h"
 #include "../Person-Class-Hierarchy/Manager.h"
+#include "../Person-Class-Hierarchy/Customer.h"
 #include <fstream>
 
 

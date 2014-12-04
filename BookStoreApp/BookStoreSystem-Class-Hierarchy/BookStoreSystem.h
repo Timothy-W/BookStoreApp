@@ -10,6 +10,7 @@ using namespace std;
 class BookStoreSystem
 {
 public:
+
     BookStoreSystem();
     BookStoreSystem(string storeName, string storeAddress);
     BookStoreSystem(string storeName, string storeAddress, string invPATH, string empPATH, string tranPATH);
@@ -20,22 +21,18 @@ protected:
     EmployeeList  * employeeListing;
     InventoryList * transactionsList; //RENAME TO TransactionList * ....
     std::vector<Person*>::iterator personIter;
-
     Person * user = NULL;
-
     string storeName;
     string storeAddress;
     string invPATH;
     string empPATH;
     string tranPATH;
-
+ 
 public:
     void menu();
     bool login();
     void makeOrder();
     void searchInventory() const;
-
-    friend class SystemHelper;
 
 private:
     void initLists();
@@ -60,4 +57,5 @@ private:
     void addEmployee();             
     void removeEmployee(Person * targetPerson);
     void editEmployee(Person * targetPerson);
+
 };

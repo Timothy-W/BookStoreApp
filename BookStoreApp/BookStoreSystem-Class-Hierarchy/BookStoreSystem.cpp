@@ -26,7 +26,8 @@ BookStoreSystem::BookStoreSystem(string storeName, string storeAddress, string i
 BookStoreSystem::~BookStoreSystem()
 {
     delete inventory;
-    //
+    delete employeeListing;
+    delete transactionsList;
 }
 
 
@@ -68,8 +69,7 @@ bool BookStoreSystem::login()
             }
         }
     }
-  //  cin.ignore(1000, '\n');
-  //  cin.clear();
+
     return(pinFound && nameMatches); //if both are true, returns true
 }
 
@@ -77,59 +77,61 @@ void BookStoreSystem::menu()
 {
     int choice; 
     bool menuIsRunning = true;
-    cout << "\n1) Display Employees\n "
-        << "2) Display Transactions\n"
-        << "3) Display Inventory\n"
-        << "4) Edit Employees\n"             //using Employee I.D.
-        << "5) Edit Transactions \n "        //using Transaction I.D.
-        << "6) Edit Inventory\n"             //using product I.D.
-        << "7) Search Inventory\n"
-        << "(q to quit)\n"
-        << "Select an option: " << endl;
-    cin >> choice;
-    switch (choice)
+    while (menuIsRunning)
     {
-    case 1:
-        showEmployees();
-        break;
-    case 2:
-        showTransactions();
-        break;
-    case 3:
-        showInventory();
-        break;
-    case 4:
-        modifyEmployees();
-        break;
-    case 5:
-        modifyTransactions();
-        break;
-    case 6:
-        modifyInventory();
-        break;
-    case 7: 
-        searchInventory();
-        break;
-    case 'q':
-    case 'Q':
-        menuIsRunning = false;
-        break;
-    default:
-        break;
+        cout << "\n1) Display Employees\n "
+            << "2) Display Transactions\n"
+            << "3) Display Inventory\n"
+            << "4) Edit Employees\n"             //using Employee I.D.
+            << "5) Edit Transactions \n "        //using Transaction I.D.
+            << "6) Edit Inventory\n"             //using product I.D.
+            << "7) Search Inventory\n"
+            << "(q to quit)\n"
+            << "Select an option: " << endl;
+        cin >> choice;
+        switch (choice)
+        {
+            case 1:
+                showEmployees();
+                break;
+            case 2:
+                showTransactions();
+                break;
+            case 3:
+                showInventory();
+                break;
+            case 4:
+                modifyEmployees();
+                break;
+            case 5:
+                modifyTransactions();
+                break;
+            case 6:
+                modifyInventory();
+                break;
+            case 7:
+                searchInventory();
+                break;
+            case 'q':
+            case 'Q':
+                menuIsRunning = false;
+                break;
+            default:
+                break;
+        }
+        cin.ignore(1000, '\n');
+        cin.clear();
     }
 }
 
 // three below are done
 void BookStoreSystem::showInventory() const
 {
-   employeeListing->DisplayList();
+   inventory->DisplayList();
 }
 void BookStoreSystem::showTransactions() const
 {
-    for (int i = 0; i < employeeListing->GetListCount(); i++)
-    {
-        cout << transactionsList->GetElementAtPosI(i) << '\n';
-    }
+    transactionsList->DisplayList();
 }
 void BookStoreSystem::showEmployees() const
 {
