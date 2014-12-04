@@ -37,6 +37,6 @@ int Employee::generateRandID()
 
 ostream& operator<<(ostream& os, const Employee& emp)
 {
-    os << "\nName: " << emp.getName() << "\nAddress: " << emp.getAddress() << "\nEmployee ID #: " << emp.getID() << endl;
+    os << "\nEmployee" << "\nName: " << emp.getName() << "\nAddress: " << emp.getAddress() << "\nEmployee ID #: " << emp.getID() << endl;
     return os;
 }

@@ -17,10 +17,11 @@ public:
     ~BookStoreSystem();
 
 protected:
+
     InventoryList * inventory;
     EmployeeList  * employeeListing;
     InventoryList * transactionsList; //RENAME TO TransactionList * ....
-    std::vector<Person*>::iterator personIter;
+    vector<Person*>::iterator personIter;
     Person * user = NULL;
     string storeName;
     string storeAddress;
@@ -37,11 +38,11 @@ public:
 private:
     void initLists();
     void initLists(string invPATH, string empPATH, string tranPATH);
-    void adjustSalePrice();
 
     void showInventory() const;
     void showTransactions() const;
     void showEmployees() const;
+    void viewEmployee(Person * employee);
 
     void modifyInventory();       //add, subtract, edit an Item
     void addItem();             //add item

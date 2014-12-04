@@ -24,33 +24,36 @@ EmployeeList::EmployeeList( string name, string databasePath):
 
 EmployeeList::~EmployeeList()
 {
-//    ofstream outE("employeelistout.txt");
-//    outE << "\nEmployee List " << ListName << " Destroyed\n" << endl;
-//    outE.close();
+    
+}
+
+
+
+void EmployeeList::SaveToTextFile()
+{
     ofstream out("employeelistout.txt", ios::trunc);
     if ((dynamic_cast <Manager *> (this)) != NULL) {
         Manager * p = dynamic_cast <Manager *> (this);
         out << p->getName()
-        << ";" << p->getID()
-        << ";" << p->getAge()
-        << ";" << p->getAddress()
-        << ";" << "M"
-        << ";" << p->getLevelString()
-        << endl;
+            << ";" << p->getID()
+            << ";" << p->getAge()
+            << ";" << p->getAddress()
+            << ";" << "M"
+            << ";" << p->getLevelString()
+            << endl;
     }
     else if ((dynamic_cast <Employee *> (this)) != NULL) {
         Employee * p = dynamic_cast <Employee *> (this);
         out << p->getName()
-        << ";" << p->getID()
-        << ";" << p->getAge()
-        << ";" << p->getAddress()
-        << ";" << "E"
-        << ";" << "Standard"
-        << endl;
+            << ";" << p->getID()
+            << ";" << p->getAge()
+            << ";" << p->getAddress()
+            << ";" << "E"
+            << ";" << "Standard"
+            << endl;
     }
     out.close();
 }
-
 
 
 
@@ -119,16 +122,21 @@ void EmployeeList::BuildFromDatabase()
 
 void EmployeeList::RemoveFromList( Person* person )
 {
-
-   for( p = ItemList.begin(); p != ItemList.end(); p++ )
-   {
-      if(*p == person)
-      {
-         delete *p;
-         ItemList.erase(p);
-         --ItemCount;
-      }
-   }
+    for (int i = 0; i < ItemList.size(); i++)
+    {
+        if (ItemList.at(i) == person)
+            ItemList.erase(ItemList.begin() + i);
+    }
+   //for( p = ItemList.begin(); p != ItemList.end();  )
+   //{
+   //    if (*p == person)
+   //    {
+   //        ItemList.erase(p);
+   //        --ItemCount;
+   //    }
+   //    else
+   //        p++;
+   //}
 
 }
 
