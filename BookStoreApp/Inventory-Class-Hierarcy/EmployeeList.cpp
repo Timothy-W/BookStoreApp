@@ -197,9 +197,35 @@ void EmployeeList::ManagerType(managerType& managerLevel, string identifier)
 }
 
 
+//Added this guy
+void EmployeeList::DisplayList()
+{
+
+    for (p = ItemList.begin(); p != ItemList.end(); p++)
+    {
+        Manager * mg  = dynamic_cast<Manager  *>(*p);
+        Employee * ep = dynamic_cast<Employee *>(*p);
+        Customer * cs = dynamic_cast<Customer *>(*p);
+
+        if (mg)
+        {
+
+            cout << "\n" << *mg << "\n";
+
+        }
+        else if (ep)
+        {
+
+            cout << "\n" << *ep << "\n";
+
+        }
+        else if (cs)
+        {
+
+            cout << "\n" << *cs << "\n";
+
+        }
+    }
 
 
-
-
-
-
+}
