@@ -1,6 +1,6 @@
 #pragma once
 #include "Employee.h"
-#include "Item.h"
+#include "../Item-Class-Hierarchy/Item.h"
 
 
 enum managerType { shift_manager, store_manager, VP, CEO };
@@ -12,7 +12,7 @@ protected:
     managerType managerLevel;
 public:
     Manager();
-    Manager(int age, string address, string name, int empID, managerType level);
+    Manager(int age, string address, string name, managerType level);
     virtual ~Manager();
 
     void setLevel(managerType lvl);

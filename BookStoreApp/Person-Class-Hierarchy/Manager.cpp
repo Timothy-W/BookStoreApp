@@ -6,7 +6,7 @@ Manager::Manager() : managerLevel((managerType)0)
 {
 }
 
-Manager::Manager(int age, string address, string name, int empID, managerType level) : Employee(age, address, name, empID), managerLevel(level)
+Manager::Manager(int age, string address, string name, managerType level) : Employee(age, address, name), managerLevel(level)
 {
 }
 
@@ -36,6 +36,6 @@ void Manager::editItem(Item &item)
 
 ostream& operator<<(ostream& os, const Manager& man)
 {
-   os << "\nName: " << man.name << "\nAddress: " << man.address << "\nEmployee ID #: " << man.employeeID << "\nManager Level: " << man.getLevelString();
-   return os;
+    os << "\nName: " << man.name << "\nAddress: " << man.address << "\nEmployee ID #: " << man.employeeID << "\nManager Level: " << man.getLevelString();
+    return os;
 }

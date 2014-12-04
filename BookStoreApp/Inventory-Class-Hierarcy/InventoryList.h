@@ -24,7 +24,6 @@ public:
    Item * SearchID(int ID);
    virtual void RemoveFromList( Item* item );
    virtual void DisplayList();
-   void SaveToTextFile();
 
 private:
    string DatabasePath;
