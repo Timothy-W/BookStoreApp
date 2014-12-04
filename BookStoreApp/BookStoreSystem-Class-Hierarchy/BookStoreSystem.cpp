@@ -9,8 +9,8 @@
 
 BookStoreSystem::BookStoreSystem()
 {
-    inventory = new InventoryList("Inventory List", "../BookStoreApp/databases/book-inventory.txt");
-    employeeListing = new EmployeeList("Employee List", "../BookStoreApp/databases/employee-list.txt");
+    inventory = new InventoryList("Inventory List", "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/book-inventory.txt");
+    employeeListing = new EmployeeList("Employee List", "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/employee-list.txt");
 }
 
 BookStoreSystem::BookStoreSystem(string storeName, string storeAddress ) : storeName(storeName), storeAddress(storeAddress)
@@ -33,8 +33,8 @@ BookStoreSystem::~BookStoreSystem()
 //done
 void BookStoreSystem::initLists()
 {
-    inventory = new InventoryList("Inventory List", "../BookStoreApp/databases/book-inventory.txt");
-    employeeListing = new EmployeeList("Employee List", "../BookStoreApp/databases/employee-list.txt");
+    inventory = new InventoryList("Inventory List", "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/book-inventory.txt");
+    employeeListing = new EmployeeList("Employee List", "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/employee-list.txt");
     //transactionsList = new InventoryList("Transaction List", "../BookStoreApp/databases/employee-list.txt");
 }
 void BookStoreSystem::initLists(string invPATH, string empPATH, string tranPATH)
@@ -80,12 +80,12 @@ void BookStoreSystem::menu()
     cout << "\n1) Display Employees\n "
         << "2) Display Transactions\n"
         << "3) Display Inventory\n"
-
         << "4) Edit Employees\n"             //using Employee I.D.
         << "5) Edit Transactions \n "        //using Transaction I.D.
         << "6) Edit Inventory\n"             //using product I.D.
         << "7) Search Inventory\n"
-        << "(q to quit) " << endl;
+        << "(q to quit)\n"
+        << "Select an option: " << endl;
     cin >> choice;
     switch (choice)
     {
@@ -122,10 +122,7 @@ void BookStoreSystem::menu()
 // three below are done
 void BookStoreSystem::showInventory() const
 {
-    for (int i = 0; i < inventory->GetListCount(); i++)
-    {
-        cout << inventory->GetElementAtPosI(i) << '\n';
-    }
+   employeeListing->DisplayList();
 }
 void BookStoreSystem::showTransactions() const
 {
@@ -136,10 +133,7 @@ void BookStoreSystem::showTransactions() const
 }
 void BookStoreSystem::showEmployees() const
 {
-    for (int i = 0; i < employeeListing->GetListCount() ; i++)
-    {
-        cout << (employeeListing->GetElementAtPosI(i)) << '\n';
-    }
+   employeeListing->DisplayList();
 }
 
 // Below methods modify the vectors
@@ -316,8 +310,8 @@ void BookStoreSystem::modifyEmployees()
     Person * targetPerson = NULL;
 
     cout << "1) Edit Person"
-        << "2) Add Person"
-        << "3) Remove Person" << endl;
+         << "2) Add Person"
+         << "3) Remove Person" << endl;
 
     cout << "\nEnter Employee ID:" << endl;
     cin >> targetPersonID;

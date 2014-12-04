@@ -81,7 +81,7 @@ void InventoryList::BuildFromDatabase()
       genreType bGenre;
       audioFileFormat abFormat;
       eBookFileFormat ebFormat;
-
+      cout << DatabasePath << endl;
       if ( !inventoryFile ) {
          cerr << "ERROR: Failed to open input file\n";
          exit(-1);
@@ -323,6 +323,37 @@ string InventoryList::GetDatabasePath() const
    
 }
 
+
+void InventoryList::DisplayList()
+{
+
+   for( p = ItemList.begin(); p != ItemList.end(); p++ )
+   {
+      eBook * eb = dynamic_cast<eBook *>(*p);
+      PaperBook * pb = dynamic_cast<PaperBook *>(*p);
+      AudioBook * ab = dynamic_cast<AudioBook *>(*p);
+
+      if( eb )
+      {
+
+         cout << "\n" << *eb << "\n";
+
+      }
+      else if( pb )
+      {
+
+         cout << "\n" << *pb << "\n";
+
+      }
+      else if( ab )
+      {
+
+         cout << "\n" << *ab << "\n";
+         
+      }
+   }
+
+}
 
 
 

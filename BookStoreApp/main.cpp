@@ -6,20 +6,28 @@
 #include <map>
 using namespace std;
 
-#include "Inventory-Class-Hierarcy\\List.h"
-#include "Inventory-Class-Hierarcy\\InventoryList.h"
-#include "Item-Class-Hierarchy\\Item.h"
-#include "Transaction-Class-hierarchy\StoreOrder.h"
-#include "BookStoreSystem-Class-Hierarchy\BookStoreSystem.h"
+#include "List.h"
+#include "InventoryList.h"
+#include "Item.h"
+#include "StoreOrder.h"
+#include "BookStoreSystem.h"
 
 
 int main()
 {
-    BookStoreSystem * OurBookStore = new BookStoreSystem("Our Awesome Book Store", "1234 El Monte dr.", "C:\\Users\\Hassu_2\\BookStoreApp\\BookStoreApp\\databases\\book-inventory.txt", "C:\\Users\\Hassu_2\\BookStoreApp\\BookStoreApp\\databases\\employee-list.txt", "transactions path");
-    while (true)
-        OurBookStore->menu();
-    
+
+
+   map<string,string> databases;
+   databases["Book-Inventory"] = "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/book-inventory.txt";
+   databases["Employee-List"] = "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/employee-list.txt";
+
    
+   BookStoreSystem * OurBookStore = new BookStoreSystem("Our Awesome Book Store", "1234 El Monte dr.", databases["Book-Inventory"], databases["Employee-List"], "transactions path");
+   while (true)
+      OurBookStore->menu();
+
+    
+
    return 0;
    
 }
