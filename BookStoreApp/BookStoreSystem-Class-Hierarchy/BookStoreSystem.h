@@ -1,8 +1,8 @@
-#include "../Inventory-Class-Hierarcy/EmployeeList.h"
-#include "../Inventory-Class-Hierarcy/List.h"
-#include "../Item-Class-Hierarchy/Item.h"
-#include "../Transaction-Class-hierarchy/StoreOrder.h"
-#include "../Inventory-Class-Hierarcy/InventoryList.h"
+#include "EmployeeList.h"
+#include "List.h"
+#include "Item.h"
+#include "StoreOrder.h"
+#include "InventoryList.h"
 #include <string>
 #include <iostream>
 using namespace std;

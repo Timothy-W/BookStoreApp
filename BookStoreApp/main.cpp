@@ -4,18 +4,18 @@
 
 #include <iostream>
 #include <map>
-#include "BookStoreSystem-Class-Hierarchy\BookStoreSystem.h"
-#include "Inventory-Class-Hierarcy\InventoryList.h"
-#include "Item-Class-Hierarchy\Item.h"
-#include "Transaction-Class-hierarchy\StoreOrder.h"
+//#include "BookStoreSystem-Class-Hierarchy\BookStoreSystem.h"
+//#include "Inventory-Class-Hierarcy\InventoryList.h"
+//#include "Item-Class-Hierarchy\Item.h"
+//#include "Transaction-Class-hierarchy\StoreOrder.h"
 
 using namespace std;
 
-//#include "List.h"
-//#include "InventoryList.h"
-//#include "Item.h"
-//#include "StoreOrder.h"
-//#include "BookStoreSystem.h"
+#include "List.h"
+#include "InventoryList.h"
+#include "Item.h"
+#include "StoreOrder.h"
+#include "BookStoreSystem.h"
 
 
 void welcomeMessage();
@@ -23,8 +23,8 @@ int main()
 {
     
    map<string,string> databases;
-   databases["Book-Inventory"] = "C:/Users/Hassu_2/BookStoreApp/BookStoreApp/databases/book-inventory.txt";
-   databases["Employee-List"] = "C:/Users/Hassu_2/BookStoreApp/BookStoreApp/databases/employee-list.txt";
+   databases["Book-Inventory"] = "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/book-inventory.txt";
+   databases["Employee-List"] = "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/employee-list.txt";
 
    
    welcomeMessage();

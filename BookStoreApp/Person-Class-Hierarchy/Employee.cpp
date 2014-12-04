@@ -4,9 +4,12 @@
 
 Employee::Employee() : employeeID(-1){}
 
-Employee::Employee(int age, string address, string name) : Person(age, address, name)
+Employee::Employee(int age, string address, string name, int empId) : Person(age, address, name)
 {
-    setID();
+    if(!empId)
+       setID();
+    else
+       setID( empId );
 }
 
 Employee::~Employee()

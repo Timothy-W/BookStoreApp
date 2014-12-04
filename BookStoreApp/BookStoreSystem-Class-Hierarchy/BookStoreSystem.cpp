@@ -131,7 +131,7 @@ void BookStoreSystem::showInventory() const
 }
 void BookStoreSystem::showTransactions() const
 {
-    transactionsList->DisplayList();
+   transactionsList->DisplayList();
 }
 void BookStoreSystem::showEmployees() const
 {
@@ -393,10 +393,11 @@ void BookStoreSystem::addEmployee()
             return;
         }
         managerlvl = (managerType)managerlvlInt;
-        Person * newGuy = new Manager(age, address, name, managerlvl);
+        Manager * newGuy = new Manager(age, address, name, NULL, managerlvl);
     }
 
-    Person * newGuy = new Employee(age, address, name);
+    Employee * newGuy = new Employee(age, address, name, NULL);
+
     employeeListing->AddToList(newGuy);
 
 }

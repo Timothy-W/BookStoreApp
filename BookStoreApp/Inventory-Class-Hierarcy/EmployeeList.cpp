@@ -66,7 +66,7 @@ void EmployeeList::BuildFromDatabase()
 
       ifstream inventoryFile(DatabasePath);
       string employeeType, name, address, level, buffer;
-      int age;
+      int age, empID;
       managerType managerLevel;
 
       if ( !inventoryFile ) {
@@ -83,6 +83,9 @@ void EmployeeList::BuildFromDatabase()
          age = atoi( buffer.c_str() );
 
          getline (inventoryFile, buffer, ';');
+         empID = atoi( buffer.c_str() );
+
+         getline (inventoryFile, buffer, ';');
          address = buffer;
 
          getline (inventoryFile, buffer, ';');
@@ -92,13 +95,13 @@ void EmployeeList::BuildFromDatabase()
          {
             getline (inventoryFile, buffer, '\n');
             level = buffer;
-            AddToList( new Employee(age, address, name) );
+            AddToList( new Employee(age, address, name, empID) );
          }
          else if( employeeType == "M" ){
             getline (inventoryFile, buffer, '\n');
             level = buffer;
             ManagerType( managerLevel, level);
-            AddToList( new Manager(age, address, name, managerLevel) );
+            AddToList( new Manager(age, address, name, empID, managerLevel) );
          }
          else
             AddToList( NULL);
