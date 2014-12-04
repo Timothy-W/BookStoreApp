@@ -84,7 +84,8 @@ void BookStoreSystem::menu()
         << "4) Edit Employees\n"             //using Employee I.D.
         << "5) Edit Transactions \n "        //using Transaction I.D.
         << "6) Edit Inventory\n"             //using product I.D.
-        << "7) Search Inventory\n" << endl;
+        << "7) Search Inventory\n"
+        << "(q to quit) " << endl;
     cin >> choice;
     switch (choice)
     {
@@ -121,16 +122,16 @@ void BookStoreSystem::menu()
 // three below are done
 void BookStoreSystem::showInventory() const
 {
-    for (int i = 0; i < employeeListing->GetListCount(); i++)
+    for (int i = 0; i < inventory->GetListCount(); i++)
     {
-        cout << inventory->GetElementAtPosI(i);
+        cout << inventory->GetElementAtPosI(i) << '\n';
     }
 }
 void BookStoreSystem::showTransactions() const
 {
     for (int i = 0; i < employeeListing->GetListCount(); i++)
     {
-        cout << transactionsList->GetElementAtPosI(i);
+        cout << transactionsList->GetElementAtPosI(i) << '\n';
     }
 }
 void BookStoreSystem::showEmployees() const
@@ -279,10 +280,12 @@ void BookStoreSystem::searchInventory() const
     string::const_iterator iter = input.begin();
     while (iter != input.end() && isdigit(*iter))
         iter++;
+    //user intends to search by isbn
     if ( iter == input.end())
     {
         inventory->Search(atoi(input.c_str()));
     }
+    //user intends to search by title/author
     else
     {
         inventory->Search(input);
@@ -293,21 +296,14 @@ void BookStoreSystem::searchInventory() const
 void BookStoreSystem::modifyTransactions(){}
 void BookStoreSystem::addTransaction()
 {
-    int PID; //product
-    int TID;
-    int quantity;
-    
-    cout << "Enter Product I.D.";
-    cin >> PID;
-    cout << "Enter Transaction I.D.";
-    cin >> TID;
-    cout << "Enter quantity";
-    cin >> quantity;
+
     
  //   transactionsList->AddToList();
 }
 void BookStoreSystem::removeTransaction(Transaction * targetTransaction)
-{}
+{
+    //transactionsList->RemoveFromList(targetTransaction);
+}
 void BookStoreSystem::editTransaction(Transaction * targetTransaction)
 {}
 

@@ -23,7 +23,6 @@ managerType Manager::getLevel() const
     return managerLevel;
 }
 
-// FIX WHEN MANAGER TYPES ARE DECIDED
 string Manager::getLevelString() const
 {
     string managerStr[] = { "shift_manager", "store_manager", "VP", "CEO" };
