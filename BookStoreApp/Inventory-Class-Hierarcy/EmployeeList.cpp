@@ -24,33 +24,36 @@ EmployeeList::EmployeeList( string name, string databasePath):
 
 EmployeeList::~EmployeeList()
 {
-//    ofstream outE("employeelistout.txt");
-//    outE << "\nEmployee List " << ListName << " Destroyed\n" << endl;
-//    outE.close();
+    
+}
+
+
+
+void EmployeeList::SaveToTextFile()
+{
     ofstream out("employeelistout.txt", ios::trunc);
     if ((dynamic_cast <Manager *> (this)) != NULL) {
         Manager * p = dynamic_cast <Manager *> (this);
         out << p->getName()
-        << ";" << p->getID()
-        << ";" << p->getAge()
-        << ";" << p->getAddress()
-        << ";" << "M"
-        << ";" << p->getLevelString()
-        << endl;
+            << ";" << p->getID()
+            << ";" << p->getAge()
+            << ";" << p->getAddress()
+            << ";" << "M"
+            << ";" << p->getLevelString()
+            << endl;
     }
     else if ((dynamic_cast <Employee *> (this)) != NULL) {
         Employee * p = dynamic_cast <Employee *> (this);
         out << p->getName()
-        << ";" << p->getID()
-        << ";" << p->getAge()
-        << ";" << p->getAddress()
-        << ";" << "E"
-        << ";" << "Standard"
-        << endl;
+            << ";" << p->getID()
+            << ";" << p->getAge()
+            << ";" << p->getAddress()
+            << ";" << "E"
+            << ";" << "Standard"
+            << endl;
     }
     out.close();
 }
-
 
 
 
@@ -63,7 +66,7 @@ void EmployeeList::BuildFromDatabase()
 
       ifstream inventoryFile(DatabasePath);
       string employeeType, name, address, level, buffer;
-      int age;
+      int age, empID;
       managerType managerLevel;
 
       if ( !inventoryFile ) {
@@ -80,6 +83,9 @@ void EmployeeList::BuildFromDatabase()
          age = atoi( buffer.c_str() );
 
          getline (inventoryFile, buffer, ';');
+         empID = atoi( buffer.c_str() );
+
+         getline (inventoryFile, buffer, ';');
          address = buffer;
 
          getline (inventoryFile, buffer, ';');
@@ -89,13 +95,13 @@ void EmployeeList::BuildFromDatabase()
          {
             getline (inventoryFile, buffer, '\n');
             level = buffer;
-            AddToList( new Employee(age, address, name) );
+            AddToList( new Employee(age, address, name, empID) );
          }
          else if( employeeType == "M" ){
             getline (inventoryFile, buffer, '\n');
             level = buffer;
             ManagerType( managerLevel, level);
-            AddToList( new Manager(age, address, name, managerLevel) );
+            AddToList( new Manager(age, address, name, empID, managerLevel) );
          }
          else
             AddToList( NULL);
@@ -119,16 +125,21 @@ void EmployeeList::BuildFromDatabase()
 
 void EmployeeList::RemoveFromList( Person* person )
 {
-
-   for( p = ItemList.begin(); p != ItemList.end(); p++ )
-   {
-      if(*p == person)
-      {
-         delete *p;
-         ItemList.erase(p);
-         --ItemCount;
-      }
-   }
+    for (int i = 0; i < ItemList.size(); i++)
+    {
+        if (ItemList.at(i) == person)
+            ItemList.erase(ItemList.begin() + i);
+    }
+   //for( p = ItemList.begin(); p != ItemList.end();  )
+   //{
+   //    if (*p == person)
+   //    {
+   //        ItemList.erase(p);
+   //        --ItemCount;
+   //    }
+   //    else
+   //        p++;
+   //}
 
 }
 
@@ -197,9 +208,35 @@ void EmployeeList::ManagerType(managerType& managerLevel, string identifier)
 }
 
 
+//Added this guy
+void EmployeeList::DisplayList()
+{
+
+    for (p = ItemList.begin(); p != ItemList.end(); p++)
+    {
+        Manager * mg  = dynamic_cast<Manager  *>(*p);
+        Employee * ep = dynamic_cast<Employee *>(*p);
+        Customer * cs = dynamic_cast<Customer *>(*p);
+
+        if (mg)
+        {
+
+            cout << "\n" << *mg << "\n";
+
+        }
+        else if (ep)
+        {
+
+            cout << "\n" << *ep << "\n";
+
+        }
+        else if (cs)
+        {
+
+            cout << "\n" << *cs << "\n";
+
+        }
+    }
 
 
-
-
-
-
+}

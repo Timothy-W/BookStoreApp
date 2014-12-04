@@ -8,6 +8,7 @@
 #include "../Person-Class-Hierarchy/Person.h"
 #include "../Person-Class-Hierarchy/Employee.h"
 #include "../Person-Class-Hierarchy/Manager.h"
+#include "../Person-Class-Hierarchy/Customer.h"
 #include <fstream>
 
 
@@ -24,6 +25,7 @@ public:
    Person* Search( int employeeID );
    virtual void RemoveFromList( Person* person );
    virtual void DisplayList();
+   void SaveToTextFile();
 
 private:
    string DatabasePath;

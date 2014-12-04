@@ -4,9 +4,12 @@
 
 Employee::Employee() : employeeID(-1){}
 
-Employee::Employee(int age, string address, string name) : Person(age, address, name)
+Employee::Employee(int age, string address, string name, int empId) : Person(age, address, name)
 {
-    setID();
+    if(!empId)
+       setID();
+    else
+       setID( empId );
 }
 
 Employee::~Employee()
@@ -37,6 +40,6 @@ int Employee::generateRandID()
 
 ostream& operator<<(ostream& os, const Employee& emp)
 {
-    os << "\nName: " << emp.getName() << "\nAddress: " << emp.getAddress() << "\nEmployee ID #: " << emp.getID() << endl;
+    os << "\nEmployee" << "\nName: " << emp.getName() << "\nAddress: " << emp.getAddress() << "\nEmployee ID #: " << emp.getID() << endl;
     return os;
 }
