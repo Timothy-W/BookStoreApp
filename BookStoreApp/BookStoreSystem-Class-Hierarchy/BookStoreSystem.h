@@ -1,8 +1,8 @@
-#include "../Inventory-Class-Hierarcy/EmployeeList.h"
-#include "../Inventory-Class-Hierarcy/List.h"
-#include "../Item-Class-Hierarchy/Item.h"
-#include "../Transaction-Class-hierarchy/StoreOrder.h"
-#include "../Inventory-Class-Hierarcy/InventoryList.h"
+#include "EmployeeList.h"
+#include "List.h"
+#include "Item.h"
+#include "StoreOrder.h"
+#include "InventoryList.h"
 #include <string>
 #include <iostream>
 using namespace std;
@@ -17,10 +17,11 @@ public:
     ~BookStoreSystem();
 
 protected:
+
     InventoryList * inventory;
     EmployeeList  * employeeListing;
     InventoryList * transactionsList; //RENAME TO TransactionList * ....
-    std::vector<Person*>::iterator personIter;
+    vector<Person*>::iterator personIter;
     Person * user = NULL;
     string storeName;
     string storeAddress;
@@ -37,11 +38,11 @@ public:
 private:
     void initLists();
     void initLists(string invPATH, string empPATH, string tranPATH);
-    void adjustSalePrice();
 
     void showInventory() const;
     void showTransactions() const;
     void showEmployees() const;
+    void viewEmployee(Person * employee);
 
     void modifyInventory();       //add, subtract, edit an Item
     void addItem();             //add item

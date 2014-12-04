@@ -5,7 +5,7 @@ class Employee :
 {
 public:
     Employee();
-    Employee(int age, string address, string name);
+    Employee(int age, string address, string name, int empId);
     virtual ~Employee();
 protected:
     int employeeID;

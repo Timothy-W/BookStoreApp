@@ -24,48 +24,50 @@ InventoryList::InventoryList( string name, string databasePath):
 
 InventoryList::~InventoryList()
 {
-   ofstream out("inventorylistout.txt",ios::trunc);
-   
-   if ((dynamic_cast<eBook *>(this)) != NULL){
-      eBook* p = dynamic_cast<eBook *>(this);
-      out << "eBook;" << p->getTitle()
-         << ";" << p->getAuthor()
-         << ";" << p->getGenre()
-         << ";" << p->GetPrice()
-         << ";" << "NULL"
-         << ";" << p->getISBN()   
-         << ";" << p->getPublisher()
-         << ";" << p->getFileFormat() << endl;
-   }
-   else if (dynamic_cast<PaperBook *>(this) != NULL){
-      PaperBook* p = dynamic_cast<PaperBook*>(this);
-      out << "Paper Book;" << p->getTitle()
-         << ";" << p->getAuthor()
-         << ";" << p->getGenre()
-         << ";" << p->GetPrice()
-         << ";" << p->getQuantity()
-         << ";" << p->getISBN()
-         << ";" << p->getPublisher()
-         << ";" << p->getNumberOfPages() << endl;
-      
-   }
-   else if (dynamic_cast<AudioBook*>(this) != NULL){
-      AudioBook* p = dynamic_cast<AudioBook*>(this);
-      out << "Audio Book;" << p->getTitle()
-         << ";" << p->getAuthor()
-         << ";" << p->getGenre()
-         << ";" << p->GetPrice()
-         << ";" << p->getQuantity()
-         << ";" << p->getISBN()
-         << ";" << p->getPublisher()
-         << ";" << p->getAudioFormat() << endl;
-   }
-   
-   out.close();
+    SaveToTextFile();
+}
+void InventoryList::SaveToTextFile()
+{
+    ofstream out("inventorylistout.txt", ios::trunc);
+
+    if ((dynamic_cast<eBook *>(this)) != NULL){
+        eBook* p = dynamic_cast<eBook *>(this);
+        out << "eBook;" << p->getTitle()
+            << ";" << p->getAuthor()
+            << ";" << p->getGenre()
+            << ";" << p->GetPrice()
+            << ";" << "NULL"
+            << ";" << p->getISBN()
+            << ";" << p->getPublisher()
+            << ";" << p->getFileFormat() << endl;
+    }
+    else if (dynamic_cast<PaperBook *>(this) != NULL){
+        PaperBook* p = dynamic_cast<PaperBook*>(this);
+        out << "Paper Book;" << p->getTitle()
+            << ";" << p->getAuthor()
+            << ";" << p->getGenre()
+            << ";" << p->GetPrice()
+            << ";" << p->getQuantity()
+            << ";" << p->getISBN()
+            << ";" << p->getPublisher()
+            << ";" << p->getNumberOfPages() << endl;
+
+    }
+    else if (dynamic_cast<AudioBook*>(this) != NULL){
+        AudioBook* p = dynamic_cast<AudioBook*>(this);
+        out << "Audio Book;" << p->getTitle()
+            << ";" << p->getAuthor()
+            << ";" << p->getGenre()
+            << ";" << p->GetPrice()
+            << ";" << p->getQuantity()
+            << ";" << p->getISBN()
+            << ";" << p->getPublisher()
+            << ";" << p->getAudioFormat() << endl;
+    }
+
+    out.close();
 
 }
-
-
 
 
 void InventoryList::BuildFromDatabase()

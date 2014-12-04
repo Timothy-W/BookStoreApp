@@ -25,6 +25,7 @@ public:
    Person* Search( int employeeID );
    virtual void RemoveFromList( Person* person );
    virtual void DisplayList();
+   void SaveToTextFile();
 
 private:
    string DatabasePath;
