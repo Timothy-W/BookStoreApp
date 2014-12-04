@@ -23,6 +23,7 @@ public:
    string GetDatabasePath() const;
    Person* Search( int employeeID );
    virtual void RemoveFromList( Person* person );
+   virtual void DisplayList();
 
 private:
    string DatabasePath;

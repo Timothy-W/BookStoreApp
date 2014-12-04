@@ -18,7 +18,7 @@ public:
    virtual ~List();
    void AddToList( T item );
    virtual void RemoveFromList( T item );
-   void DisplayList();
+   virtual void DisplayList();
    string GetListName() const;
    void SetListName( string name );
    int GetListCount() const;

@@ -195,6 +195,19 @@ void EmployeeList::ManagerType(managerType& managerLevel, string identifier)
 
 
 
+void EmployeeList::DisplayList()
+{
+
+   for( p = ItemList.begin(); p != ItemList.end(); p++ )
+   {
+      Employee * ep = dynamic_cast<Employee *>(*p);
+      if(ep)
+         cout << "\n" << *ep << "\n";
+   }
+   
+}
+
+
 
 
 

@@ -23,6 +23,7 @@ public:
    vector<Item*> Search(int isbn);
    Item * SearchID(int ID);
    virtual void RemoveFromList( Item* item );
+   virtual void DisplayList();
 
 private:
    string DatabasePath;
