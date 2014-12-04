@@ -31,8 +31,8 @@ EmployeeList::~EmployeeList()
     if ((dynamic_cast <Manager *> (this)) != NULL) {
         Manager * p = dynamic_cast <Manager *> (this);
         out << p->getName()
-        << ";" << p->getID()
         << ";" << p->getAge()
+        << ";" << p->getID()
         << ";" << p->getAddress()
         << ";" << "M"
         << ";" << p->getLevelString()
@@ -41,8 +41,8 @@ EmployeeList::~EmployeeList()
     else if ((dynamic_cast <Employee *> (this)) != NULL) {
         Employee * p = dynamic_cast <Employee *> (this);
         out << p->getName()
-        << ";" << p->getID()
         << ";" << p->getAge()
+        << ";" << p->getID()
         << ";" << p->getAddress()
         << ";" << "E"
         << ";" << "Standard"
