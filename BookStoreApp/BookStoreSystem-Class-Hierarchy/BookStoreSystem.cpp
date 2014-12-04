@@ -79,11 +79,11 @@ void BookStoreSystem::menu()
     bool menuIsRunning = true;
     while (menuIsRunning)
     {
-        cout << "\n1) Display Employees\n "
+        cout << "\n1) Display Employees\n"
             << "2) Display Transactions\n"
-            << "3) Display Inventory\n"
+            << "3) Display Inventory\n\n"
             << "4) Edit Employees\n"             //using Employee I.D.
-            << "5) Edit Transactions \n "        //using Transaction I.D.
+            << "5) Edit Transactions \n"        //using Transaction I.D.
             << "6) Edit Inventory\n"             //using product I.D.
             << "7) Search Inventory\n"
             << "(q to quit)\n"
@@ -92,13 +92,13 @@ void BookStoreSystem::menu()
         switch (choice)
         {
             case 1:
-                showEmployees();
+                showEmployees();            //DONE
                 break;
             case 2:
-                showTransactions();
+                showTransactions();         
                 break;
             case 3:
-                showInventory();
+                showInventory();           //DONE
                 break;
             case 4:
                 modifyEmployees();
@@ -131,7 +131,7 @@ void BookStoreSystem::showInventory() const
 }
 void BookStoreSystem::showTransactions() const
 {
-    transactionsList->DisplayList();
+   transactionsList->DisplayList();
 }
 void BookStoreSystem::showEmployees() const
 {
@@ -217,20 +217,26 @@ void BookStoreSystem::addItem()
         cout << "invalid selection";
         return;
     }
+
     cout << "\nBook quantity?\n";
     cin >> quantity;
+
     cout << "\nBook price?\n";
     cin >> price;
+
     cout << "\nBook isbn?\n";
     cin >> ISBN;
+    cin.ignore();
+
     cout << "\nBook author?\n";
     getline(cin, author);
     cout << "\nBook title?\n?";
     getline(cin, title);
     cout << "\nBook genre?\n?"
-        << "0 Unknown\n 1 Science_fiction\n 2 Mystery\n 3 Horror\n 4 Romance"   ;
+        << "0 Unknown\n 1 Science fiction\n 2 Mystery\n 3 Horror\n 4 Romance"   ;
     cin >> genreInt;
     genre = (genreType)genreInt;
+    cin.ignore();
     cout << "\nBook publisher?\n?";
     getline(cin, publisher);
 
@@ -288,12 +294,10 @@ void BookStoreSystem::searchInventory() const
     }
 } 
 
-
+//These 4  are untouched
 void BookStoreSystem::modifyTransactions(){}
 void BookStoreSystem::addTransaction()
-{
-
-    
+{   
  //   transactionsList->AddToList();
 }
 void BookStoreSystem::removeTransaction(Transaction * targetTransaction)
@@ -311,31 +315,37 @@ void BookStoreSystem::modifyEmployees()
     int choice;
     Person * targetPerson = NULL;
 
-    cout << "1) Edit Person"
-         << "2) Add Person"
-         << "3) Remove Person" << endl;
+    cout << "1) Edit Person\n"
+         << "2) Add Person\n"
+         << "3) Remove Person\n"
+            "4) View Person\n" << endl;
+    cin >> choice;
+
+    if (choice == 2)
+    {
+        addEmployee();
+        cin.ignore();
+        return;
+    }
 
     cout << "\nEnter Employee ID:" << endl;
     cin >> targetPersonID;
 
-    if (employeeListing->Search(targetPersonID) != 0)         //If person exists
-        targetPerson = employeeListing->Search(targetPersonID);
-    else if (targetPersonID == 0)
-        ;//user intends to add
-    else
+    targetPerson = employeeListing->Search(targetPersonID);
+    if (!targetPerson)         //If person does not exist
     {
         cout << "\nPerson not found in database";
+        cin.ignore();
         return;
     }
     
-    cin >> choice;
     switch (choice)
     {
     case 1: 
         editEmployee(targetPerson);
         break;
-    case 2:
-        addEmployee();
+    case 4:
+        viewEmployee(targetPerson);
         break;
     case 3:
         removeEmployee(targetPerson);
@@ -356,12 +366,21 @@ void BookStoreSystem::addEmployee()
     string name;
     string address;
 
-    cout << "A manager? Y/N";
+    cin.ignore();
+    cout << "Person's Full name?\n";
+    getline(cin, name);
+    
+    
+    cout << "A manager? Y/N\n";
     cin >> yesNo;
     if (toupper(yesNo) == 'Y')
         isManager = true;
+    
+    cout << "\nPerson's age?\n";
     cin >> age;
-    getline(cin, name);
+    cin.ignore();
+
+    cout << "\nPerson's address?\n";
     getline(cin, address);
 
     if (isManager)
@@ -374,10 +393,11 @@ void BookStoreSystem::addEmployee()
             return;
         }
         managerlvl = (managerType)managerlvlInt;
-        Manager * newGuy = new Manager(age, address, name, managerlvl);
+        Manager * newGuy = new Manager(age, address, name, NULL, managerlvl);
     }
 
-    Employee * newGuy = new Employee(age, address, name);
+    Employee * newGuy = new Employee(age, address, name, NULL);
+
     employeeListing->AddToList(newGuy);
 
 }
@@ -392,9 +412,22 @@ void BookStoreSystem::editEmployee(Person * Employee)
 {
 //May be complicated 
 }
-
-
-void BookStoreSystem::adjustSalePrice()
+void BookStoreSystem::viewEmployee(Person * targ)
 {
-    
+    Manager * mg = dynamic_cast<Manager  *>(targ);
+    Employee * ep = dynamic_cast<Employee *>(targ);
+    Customer * cs = dynamic_cast<Customer *>(targ);
+
+    if (mg)
+    {
+        cout << "\n" << *mg << "\n";
+    }
+    else if (ep)
+    {
+        cout << "\n" << *ep << "\n";
+    }
+    else if (cs)
+    {
+        cout << "\n" << *cs << "\n";
+    }
 }
