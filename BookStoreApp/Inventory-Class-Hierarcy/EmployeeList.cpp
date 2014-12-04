@@ -30,19 +30,22 @@ EmployeeList::~EmployeeList()
     ofstream out("employeelistout.txt", ios::trunc);
     if ((dynamic_cast <Manager *> (this)) != NULL) {
         Manager * p = dynamic_cast <Manager *> (this);
-        out << "Manager;" << p->getID()
-        << ";" << p->getLevelString()
-        << ";" << p->getName()
+        out << p->getName()
+        << ";" << p->getID()
         << ";" << p->getAge()
         << ";" << p->getAddress()
+        << ";" << "M"
+        << ";" << p->getLevelString()
         << endl;
     }
     else if ((dynamic_cast <Employee *> (this)) != NULL) {
         Employee * p = dynamic_cast <Employee *> (this);
-        out << "Employee;" << p->getID()
-        << ";" << p->getName()
+        out << p->getName()
+        << ";" << p->getID()
         << ";" << p->getAge()
         << ";" << p->getAddress()
+        << ";" << "E"
+        << ";" << "Standard"
         << endl;
     }
     out.close();
@@ -193,19 +196,6 @@ void EmployeeList::ManagerType(managerType& managerLevel, string identifier)
       managerLevel = CEO;
 }
 
-
-
-void EmployeeList::DisplayList()
-{
-
-   for( p = ItemList.begin(); p != ItemList.end(); p++ )
-   {
-      Employee * ep = dynamic_cast<Employee *>(*p);
-      if(ep)
-         cout << "\n" << *ep << "\n";
-   }
-   
-}
 
 
 
