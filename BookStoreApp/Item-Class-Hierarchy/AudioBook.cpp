@@ -1,5 +1,10 @@
 #include "AudioBook.h"
 
+AudioBook::~AudioBook()
+{
+
+}
+
 audioFileFormat AudioBook::getAudioFormat()
 { 
    return fileFormat;
@@ -29,7 +34,7 @@ const void AudioBook::DisplayItem()
 
 ostream & operator<<(ostream & os, const AudioBook& audioBookRef)
 {
-   os << "\nName: " << audioBookRef.Name
+   os << "\nName: " << audioBookRef.ItemType
       << "\nQuantity: " << audioBookRef.Quantity
       << "\nPrice: " << audioBookRef.Price
       << "\nISBN: " << audioBookRef.ISBN
@@ -43,7 +48,7 @@ ostream & operator<<(ostream & os, const AudioBook& audioBookRef)
 
 const bool AudioBook::operator== (const AudioBook & audioBookRef)
 {
-   return (this->Name == audioBookRef.Name
+   return (this->ItemType == audioBookRef.ItemType
       && this->Quantity == audioBookRef.Quantity
       && this->Price == audioBookRef.Price
       && this->ISBN == audioBookRef.ISBN
@@ -63,7 +68,7 @@ const AudioBook & AudioBook::operator= (const AudioBook & audioBookRef)
 {
    if (this != &audioBookRef)
    {
-      this->Name = audioBookRef.Name;
+      this->ItemType = audioBookRef.ItemType;
       this->Quantity = audioBookRef.Quantity;
       this->Price = audioBookRef.Price;
       this->ISBN = audioBookRef.ISBN;
