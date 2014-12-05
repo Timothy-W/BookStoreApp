@@ -6,19 +6,19 @@
 class InventoryItem : public Item
 {
 protected:
-   string Name;
+   string ItemType;
    int Quantity;
 
 public:
-   InventoryItem() : Name(""), Quantity(0) {}
-   InventoryItem(string Name, int Quantity) : Name(Name), Quantity(Quantity) {}
+   InventoryItem() : ItemType(""), Quantity(0) {}
+   InventoryItem(string Name, int Quantity) : ItemType(Name), Quantity(Quantity) {}
 
    virtual ~InventoryItem() {}
 
-   const string getName() { return Name; }
+   const string getName() { return ItemType; }
    const int getQuantity() { return Quantity; }
 
-   void setName(string Name) { this->Name = Name; }
+   void setName(string Name) { this->ItemType = Name; }
    bool setQuantity(int Quantity);
 
    virtual const void DisplayItem();
