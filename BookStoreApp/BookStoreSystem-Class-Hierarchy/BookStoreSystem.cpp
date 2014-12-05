@@ -139,6 +139,7 @@ void BookStoreSystem::showEmployees() const
 }
 
 // Below methods modify the vectors
+
 void BookStoreSystem::modifyInventory() 
 {
     int targetProdID=0;
@@ -271,7 +272,6 @@ void BookStoreSystem::removeItem(Item * targetItem)
 {
     inventory->RemoveFromList(targetItem);
 } 
-void BookStoreSystem::editItem(Item * targetItem){} 
 void BookStoreSystem::searchInventory() const
 {
     string input;
@@ -304,9 +304,8 @@ void BookStoreSystem::removeTransaction(Transaction * targetTransaction)
 {
     //transactionsList->RemoveFromList(targetTransaction);
 }
-void BookStoreSystem::editTransaction(Transaction * targetTransaction)
+void BookStoreSystem::viewTransaction()
 {}
-
 
 
 void BookStoreSystem::modifyEmployees()
@@ -408,10 +407,6 @@ void BookStoreSystem::removeEmployee(Person * targetPerson)
     else
         cout << "\nPerson not found\n";
 }
-void BookStoreSystem::editEmployee(Person * Employee)
-{
-//May be complicated 
-}
 void BookStoreSystem::viewEmployee(Person * targ)
 {
     Manager * mg = dynamic_cast<Manager  *>(targ);
@@ -431,3 +426,13 @@ void BookStoreSystem::viewEmployee(Person * targ)
         cout << "\n" << *cs << "\n";
     }
 }
+
+
+
+
+
+
+//Time did not permit:
+void BookStoreSystem::editItem(Item * targetItem){} 
+void BookStoreSystem::editTransaction(Transaction * targetTransaction){}
+void BookStoreSystem::editEmployee(Person * Employee){}
