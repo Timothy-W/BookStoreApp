@@ -1,51 +1,45 @@
 //
-//  Order.h
+//  Order.h, Order.cpp
 //  Team Project
+
+#include <string>
+#include <iostream>
+#include "Person.h"
+#include "Book.h"
+using namespace std;
 
 #ifndef Order_H
 #define Order_H
 
-#include <string>
-#include "Transaction.h"
-#include "..\Person-Class-Hierarchy\Person.h"
-#include "..\Item-Class-Hierarchy\Book.h"
-
 template <class T>
-class Order: public Transaction {
+class Order {
     protected:
         T item;
         int orderQuantity;
+        int orderID;
+    private:
+        int generateRandomID() const;
     public:
         Order();
         Order(T, int quantity);
         virtual ~Order();
         void setItem(const T &Tref);
         T getItem() const;
-        //void setOrderID();
-        //string getOrderID() const;
         void setOrderQuantity(int givenQuantity);
         int getOrderQuantity() const;
+        void setOrderID(int givenID);
+        int getOrderID() const;
 };
 
 
 #endif
 
-//
-//  //Order.cpp
-//  //Team Project
-
-#include <string>
-#include <iostream>
-using namespace std;
 
 template <class T>
-Order<T>::Order()
-{
-    cout << "Order constructor";
-}
+Order<T>::Order() { cout << "Order constructor"; }
 
 template <class T>
-Order<T>::Order(T t, int quantity) : item(t), orderQuantity(quantity)  {}
+Order<T>::Order(T t, int quantity) : item(t), orderQuantity(quantity), orderID(generateRandomID())  {}
 
 template <class T>
 Order<T>::~Order() { cout << "Order destructor"; }
@@ -57,30 +51,35 @@ void Order<T>::setItem(const T &Tref) {
 
 template <class T>
 T Order<T>::getItem() const {
-    return this->item;
+    return item;
 }
 
-
-//template<class T>
-//void Order<T>::setOrderName(string n){
-//   this->orderName = tempOrderName;
-//}
-
-//template<class T>
-//string Order<T>::getOrderName() const{
-//   return this->orderName;
-//}
-
 template<class T>
-void Order<T>::setOrderQuantity(int givenQuantity){
-    //    int tempOrderQuantity;
-    //    cout << "What is the new order quantity?" << endl;
-    //    cin >> tempOrderQuantity;
-    //    this->orderQuantity = tempOrderQuantity;
+void Order<T>::setOrderQuantity(int givenQuantity) {
     orderQuantity = givenQuantity;
 }
 
 template<class T>
 int Order<T>::getOrderQuantity() const{
-    return this->orderQuantiy;
+    return orderQuantity;
 }
+
+template<class T>
+void Order<T>::setOrderID(int givenID) {
+    orderID = givenID;
+}
+
+template<class T>
+int Order<T>::getOrderID() const{
+    return orderID;
+}
+
+template<class T>
+int Order<T>::generateRandomID() const {
+    int id ;
+    srand (time(NULL) + rand());   // generate a seed
+    id = rand();                   // generate a random number
+    return id;
+}
+
+

@@ -7,21 +7,24 @@
 #define StoreOrder_H
 
 #include "Order.h"
-#include "../Person-Class-Hierarchy/Employee.h"
-#include "..\Item-Class-Hierarchy\Book.h"
+#include "Item.h"
+#include "Person.h"
 #include <string>
 
-class StoreOrder: public Order<Book *> {
+class StoreOrder: public Order<Item *> {
     private:
         string orderFrom;
-        Employee * employee;
+        Person * person;
     public:
         StoreOrder();
-        StoreOrder(string name, Employee *givenEmployee);
+        StoreOrder(string name, Person *givenPerson);
+        StoreOrder(Item *givenItem, int quantity, string name, Person *givenPerson);
         virtual ~StoreOrder();
-        friend ostream & operator<< (ostream & os, const StoreOrder & s);
         void setOrderFrom(string givenOrderFrom);
         string getOrderFrom() const;
+        void setPerson(Person *givenPerson);
+        Person * getPerson() const;
+        friend ostream & operator<< (ostream & os, const StoreOrder & s);
 };
 
 #endif
