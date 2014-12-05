@@ -8,8 +8,8 @@ enum audioFileFormat { UNKNOWN_AUDIO, MP3 };
 class AudioBook : public Book
 {
 protected:
-   int numberOfDiscs;
-   int playTimeInSeconds;
+   //int numberOfDiscs;
+   //int playTimeInSeconds;
    audioFileFormat fileFormat;
 
 public:
