@@ -27,15 +27,15 @@ const void eBook::DisplayItem()
 
 ostream & operator<<(ostream & os, const eBook& eBookRef)
 {
-   os << eBookRef.Name << ";"
-      << eBookRef.Quantity << ";"
-      << eBookRef.Price << ";"
-      << eBookRef.ISBN << ";"
-      << eBookRef.author << ";"
-      << eBookRef.title << ";"
-      << Book::getTextForGenre(eBookRef.genre) << ";"
-      << eBookRef.publisher << ";"
-      << eBook::eBookFileFormatText(eBookRef.fileFormat);
+   os << "\nName: " << eBookRef.Name
+      << "\nQuantity: " << eBookRef.Quantity
+      << "\nPrice: " << eBookRef.Price
+      << "\nISBN: " << eBookRef.ISBN
+      << "\nAuthor: " << eBookRef.author
+      << "\nTitle: " << eBookRef.title
+      << "\nGenre: " << Book::getTextForGenre(eBookRef.genre)
+      << "\nPublisher: " << eBookRef.publisher
+      << "\nFile Format: " << eBook::eBookFileFormatText(eBookRef.fileFormat);
    return os;
 }
 
