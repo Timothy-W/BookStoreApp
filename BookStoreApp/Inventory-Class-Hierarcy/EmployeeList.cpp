@@ -130,6 +130,7 @@ void EmployeeList::RemoveFromList( Person* person )
         if (ItemList.at(i) == person)
             ItemList.erase(ItemList.begin() + i);
     }
+
    //for( p = ItemList.begin(); p != ItemList.end();  )
    //{
    //    if (*p == person)

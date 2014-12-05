@@ -11,6 +11,7 @@ class BookStoreSystem
 {
 public:
 
+    // 3 constructors
     BookStoreSystem();
     BookStoreSystem(string storeName, string storeAddress);
     BookStoreSystem(string storeName, string storeAddress, string invPATH, string empPATH, string tranPATH);
@@ -21,7 +22,7 @@ protected:
     InventoryList * inventory;
     EmployeeList  * employeeListing;
     InventoryList * transactionsList; //RENAME TO TransactionList * ....
-    vector<Person*>::iterator personIter;
+    
     Person * user = NULL;
     string storeName;
     string storeAddress;
@@ -33,30 +34,39 @@ public:
     void menu();
     bool login();
     void makeOrder();
-    void searchInventory() const;
 
 private:
+    //Initializes the 3 main vectors
     void initLists();
     void initLists(string invPATH, string empPATH, string tranPATH);
 
+    //These display the 3 main vectors
     void showInventory() const;
     void showTransactions() const;
     void showEmployees() const;
-    void viewEmployee(Person * employee);
 
+
+    //INVENTORYLIST   interaction
     void modifyInventory();       //add, subtract, edit an Item
     void addItem();             //add item
     void removeItem(Item * targetItem);          //subtract Item
-    void editItem(Item * targetItem);             //edit Item properties
+    void searchInventory() const;
 
+    //TRANSACTIONLIST interaction
     void modifyTransactions();    //add, subtract, edit a Transaction
     void addTransaction();
     void removeTransaction(Transaction * targetTransaction);
-    void editTransaction(Transaction * targetTransaction);
+    void viewTransaction();
 
+    //EMPLOYEELIST    interaction
     void modifyEmployees();       //add, subtract, edit an Employee
     void addEmployee();             
     void removeEmployee(Person * targetPerson);
+    void viewEmployee(Person * employee);
+    
+    //Time did not permit
+    void editItem(Item * targetItem);            
+    void editTransaction(Transaction * targetTransaction);
     void editEmployee(Person * targetPerson);
 
 };
