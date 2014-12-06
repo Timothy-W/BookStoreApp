@@ -1,5 +1,5 @@
-Matthew Bozelka;31;Some Street San Jose, CA 95133;E;Standard
-Pegah Sattari;24;Some Street San Jose, CA 95133;E;Standard
-Timothy Walker;24;Some Street San Jose, CA 95133;E;Standard
-Siddhanth Sabharwal;24;Some Street San Jose, CA 95133;E;Standard
-Hasnain Haider;24;Some Street San Jose, CA 95133;M;Shift Manager
+Matthew Bozelka;31;232334;Some Street San Jose, CA 95133;E;Standard
+Pegah Sattari;24;1234123L;Some Street San Jose, CA 95133;E;Standard
+Timothy Walker;24;545234;Some Street San Jose, CA 95133;E;Standard
+Siddhanth Sabharwal;9872347;NULL;Some Street San Jose, CA 95133;E;Standard
+Hasnain Haider;24;237469;Some Street San Jose, CA 95133;M;Shift Manager

@@ -217,10 +217,8 @@ vector<Item*> InventoryList::Search( string bookProperty )
 
 
 
-vector<Item*> InventoryList::Search( int isbn )
+Item * InventoryList::Search( int isbn )
 {
-
-   vector<Item*> temp;
 
    for( p = ItemList.begin(); p != ItemList.end(); p++ )
    {
@@ -231,26 +229,26 @@ vector<Item*> InventoryList::Search( int isbn )
       if( eb && eb->getISBN() == isbn )
       {
 
-         temp.push_back( eb );
+         return eb;
 
       }
       else if( pb && pb->getISBN() == isbn )
       {
 
-         temp.push_back( pb );
+         return pb;
 
       }
       else if( ab && ab->getISBN() == isbn )
       {
 
-         temp.push_back( ab );
+         return ab;
          
       }
       
       
    }
    
-   return temp;
+   return NULL;
    
 }
 

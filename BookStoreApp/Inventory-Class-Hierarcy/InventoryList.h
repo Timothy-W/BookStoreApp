@@ -20,7 +20,7 @@ public:
    void SetDatabasePath( string path );
    string GetDatabasePath() const;
    vector<Item*> Search( string bookProperty );
-   vector<Item*> Search(int isbn);
+   Item * Search(int isbn);
    Item * SearchID(int ID);
    virtual void RemoveFromList( Item* item );
    virtual void DisplayList();

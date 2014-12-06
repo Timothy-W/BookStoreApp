@@ -14,7 +14,7 @@ const void PaperBook::DisplayItem()
 
 ostream & operator<<(ostream & os, const PaperBook& paperBookRef)
 {
-   os << "\nName: " << paperBookRef.Name
+   os << "\nName: " << paperBookRef.ItemType
       << "\nQuantity: " << paperBookRef.Quantity
       << "\nPrice: " << paperBookRef.Price
       << "\nISBN: " << paperBookRef.ISBN
@@ -28,7 +28,7 @@ ostream & operator<<(ostream & os, const PaperBook& paperBookRef)
 
 const bool PaperBook::operator== (const PaperBook & paperBookRef)
 {
-   return (this->Name == paperBookRef.Name
+   return (this->ItemType == paperBookRef.ItemType
       && this->Quantity == paperBookRef.Quantity
       && this->Price == paperBookRef.Price
       && this->ISBN == paperBookRef.ISBN
@@ -48,7 +48,7 @@ const PaperBook & PaperBook::operator= (const PaperBook & paperBookRef)
 {
    if (this != &paperBookRef)
    {
-      this->Name = paperBookRef.Name;
+      this->ItemType = paperBookRef.ItemType;
       this->Quantity = paperBookRef.Quantity;
       this->Price = paperBookRef.Price;
       this->ISBN = paperBookRef.ISBN;

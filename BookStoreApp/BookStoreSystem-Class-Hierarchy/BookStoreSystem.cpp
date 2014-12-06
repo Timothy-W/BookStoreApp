@@ -34,7 +34,7 @@ BookStoreSystem::~BookStoreSystem()
 //done
 void BookStoreSystem::initLists()
 {
-	inventory = new InventoryList("Inventory List", "C:/Users/hh/github/BookStoreApp/BookStoreApp/databases/book-inventory.txt");
+	 inventory = new InventoryList("Inventory List", "C:/Users/hh/github/BookStoreApp/BookStoreApp/databases/book-inventory.txt");
     employeeListing = new EmployeeList("Employee List", "C:/Users/hh/github/BookStoreApp/BookStoreApp/databases/employee-list.txt");
 
 }
@@ -42,14 +42,23 @@ void BookStoreSystem::initLists(string invPATH, string empPATH, string tranPATH)
 {
     inventory = new InventoryList("Inventory List", invPATH);
     employeeListing = new EmployeeList("Employee List", empPATH);
+<<<<<<< HEAD
     //transactionsList = new InventoryList("Transaction List", tranPATH);
 	user = login();
 }
 
 //done
 Person * BookStoreSystem::login() 
+=======
+    transactionsList = new OrderList("Transaction List", tranPATH, employeeListing, inventory);
+}
+
+//done
+/*bool BookStoreSystem::login()
+>>>>>>> 64e8f467b9af6281dc724526d39d034e1cf9be0e
 {
     int loginPIN;
+<<<<<<< HEAD
 	Person * loginPerson = NULL;
 	for (int i = 0; i < MAX_LOGIN_ATTEMPTS; i++)
 	{
@@ -65,6 +74,30 @@ Person * BookStoreSystem::login()
 	cin.ignore();
 	exit(1);
 }
+=======
+    bool pinFound = false;
+    bool nameMatches = false;
+
+    cout << "\nPlease enter name:\n";
+    cin >> loginName;
+    cout << "\nEnter I.D.:\n";
+    cin >> loginPIN;
+    for (int i = 0; i < employeeListing->GetListCount(); i++)
+    {
+        if (loginPIN == employeeListing->GetElementAtPosI(i)->getID())
+        {
+            pinFound = true;    //there exists an employee with that PIN
+            if (loginName.compare(employeeListing->GetElementAtPosI(i)->getName()) == 0)
+            {
+                user = employeeListing->GetElementAtPosI(i);
+                nameMatches = true; // that said employee's name matches the user's input for login name
+            }
+        }
+    }
+
+    return(pinFound && nameMatches); //if both are true, returns true
+}*/
+>>>>>>> 64e8f467b9af6281dc724526d39d034e1cf9be0e
 
 void BookStoreSystem::menu()
 {
@@ -294,7 +327,11 @@ void BookStoreSystem::addTransaction()
 {   
  //   transactionsList->AddToList();
 }
+<<<<<<< HEAD
 void BookStoreSystem::removeTransaction(Order<Item*> * targetTransaction)
+=======
+void BookStoreSystem::removeTransaction(StoreOrder * targetTransaction)
+>>>>>>> 64e8f467b9af6281dc724526d39d034e1cf9be0e
 {
     //transactionsList->RemoveFromList(targetTransaction);
 }
@@ -425,7 +462,14 @@ void BookStoreSystem::viewEmployee(Person * targ)
 
 
 
+<<<<<<< HEAD
 ////Time did not permit:
 	//void BookStoreSystem::editItem(Item * targetItem){} 
 	//void BookStoreSystem::editTransaction(Order<Item *> * targetTransaction){}
 	//void BookStoreSystem::editEmployee(Person * Employee){}
+=======
+//Time did not permit:
+void BookStoreSystem::editItem(Item * targetItem){} 
+void BookStoreSystem::editTransaction(StoreOrder * targetTransaction){}
+void BookStoreSystem::editEmployee(Person * Employee){}
+>>>>>>> 64e8f467b9af6281dc724526d39d034e1cf9be0e
