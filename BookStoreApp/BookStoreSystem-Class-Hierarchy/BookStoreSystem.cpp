@@ -20,7 +20,7 @@ BookStoreSystem::BookStoreSystem(string storeName, string storeAddress ) : store
 
 BookStoreSystem::BookStoreSystem(string storeName, string storeAddress, string invPATH, string empPATH, string tranPATH) : storeName(storeName), storeAddress(storeAddress), invPATH(invPATH), empPATH(empPATH), tranPATH(tranPATH)
 {
-    initLists(invPATH, empPATH, tranPATH);
+	initLists(invPATH, empPATH, tranPATH);
 }
 
 BookStoreSystem::~BookStoreSystem()
@@ -59,10 +59,10 @@ Person * BookStoreSystem::login()
 	{
 		cout << "\nEnter your PIN\n Try #" << i + 1 << endl;
 		cin >> loginPIN;
-		user = employeeListing->Search(loginPIN);
+		loginPerson = employeeListing->Search(loginPIN);
 		if (loginPerson != NULL)
 		{
-			return(loginPerson); 
+			return(loginPerson);
 		}
 	}
 	cout << "\nMaximum Attempts reached. Exitting...\n";
@@ -72,8 +72,9 @@ Person * BookStoreSystem::login()
 
 void BookStoreSystem::menu()
 {
-    int choice; 
+    char choice; 
     bool menuIsRunning = true;
+
     while (menuIsRunning)
     {
         cout << "\n1) Display Employees\n"
@@ -88,31 +89,30 @@ void BookStoreSystem::menu()
         cin >> choice;
         switch (choice)
         {
-            case 1:
+            case '1':
                 showEmployees();            //DONE
                 break;
-            case 2:
+            case '2':
                 showTransactions();         
                 break;
-            case 3:
+            case '3':
                 showInventory();           //DONE
                 break;
-            case 4:
+            case '4':
                 modifyEmployees();
                 break;
-            case 5:
+            case '5':
                 modifyTransactions();
                 break;
-            case 6:
+            case '6':
                 modifyInventory();
                 break;
-            case 7:
+            case '7':
                 searchInventory();
                 break;
             case 'q':
             case 'Q':
                 menuIsRunning = false;
-				cin.clear();
                 break;
             default:
                 break;
@@ -120,6 +120,7 @@ void BookStoreSystem::menu()
         cin.ignore(1000, '\n');
         cin.clear();
     }
+	return;
 }
 
 // three below are done
