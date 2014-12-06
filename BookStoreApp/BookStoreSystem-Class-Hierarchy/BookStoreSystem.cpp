@@ -34,9 +34,9 @@ BookStoreSystem::~BookStoreSystem()
 //done
 void BookStoreSystem::initLists()
 {
-    inventory = new InventoryList("Inventory List", "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/book-inventory.txt");
-    employeeListing = new EmployeeList("Employee List", "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/employee-list.txt");
-    //transactionsList = new InventoryList("Transaction List", "../BookStoreApp/databases/employee-list.txt");
+	inventory = new InventoryList("Inventory List", "C:/Users/hh/github/BookStoreApp/BookStoreApp/databases/book-inventory.txt");
+    employeeListing = new EmployeeList("Employee List", "C:/Users/hh/github/BookStoreApp/BookStoreApp/databases/employee-list.txt");
+
 }
 void BookStoreSystem::initLists(string invPATH, string empPATH, string tranPATH)
 {
