@@ -10,9 +10,8 @@ class Item
 {
 public:
    Item();
-   virtual ~Item() {};
-   virtual int GetID(){ return -1; };
-   //virtual const Item* Clone() = 0;                 //takes no parameter and returns a pointer to an Item object.Default implementation is to return NULL pointer.
+   virtual ~Item();
+   virtual int GetID();
    virtual const void DisplayItem() = 0;                //take no parameter and return nothing.Default implementation is to display an empty string(“”).
 };
 

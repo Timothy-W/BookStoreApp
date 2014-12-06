@@ -1,5 +1,10 @@
 #include "AudioBook.h"
 
+AudioBook::~AudioBook()
+{
+
+}
+
 audioFileFormat AudioBook::getAudioFormat()
 { 
    return fileFormat;

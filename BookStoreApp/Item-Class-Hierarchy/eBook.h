@@ -12,17 +12,16 @@ private:
 
 public:
    //Constructors
-   eBook() : Book(), fileFormat(UNKNOWN_EBOOK) {}
+   eBook();
    eBook(string Name, int Quantity, double Price,
       int ISBN, string author, string title,
-      genreType genre, string publisher, eBookFileFormat fileFormat)
-      : Book(Name, Quantity, Price, ISBN, author, title, genre, publisher), fileFormat(fileFormat) {}
+      genreType genre, string publisher, eBookFileFormat fileFormat);
 
    //Destructor
-   virtual ~eBook() {}
+   virtual ~eBook();
    
    //Mutators and Accessors
-   eBookFileFormat getFileFormat() { return fileFormat; }
+   eBookFileFormat getFileFormat();
    bool setFileFormat(eBookFileFormat fileFormat);
    
    static const string eBookFileFormatText(eBookFileFormat fileFormat);

@@ -1,5 +1,23 @@
 #include "InventoryItem.h"
 
+InventoryItem::InventoryItem() : ItemType(""), Quantity(0) {}
+InventoryItem::InventoryItem(string Name, int Quantity) : ItemType(Name), Quantity(Quantity) {}
+
+InventoryItem::~InventoryItem() {}
+
+string InventoryItem::getName() const
+{ return ItemType; }
+
+int InventoryItem::getQuantity() const
+{ 
+   return Quantity;
+}
+
+void InventoryItem::setName(string Name)
+{ 
+   this->ItemType = Name;
+}
+
 const void InventoryItem::DisplayItem()
 {
    Item::DisplayItem();

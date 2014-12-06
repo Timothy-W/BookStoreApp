@@ -8,8 +8,6 @@ enum audioFileFormat { UNKNOWN_AUDIO, MP3 };
 class AudioBook : public Book
 {
 protected:
-   int numberOfDiscs;
-   int playTimeInSeconds;
    audioFileFormat fileFormat;
 
 public:
@@ -19,7 +17,7 @@ public:
                         Book(Name, Quantity, Price, ISBN, author, title, genre, publisher), fileFormat(fileFormat) {}
 
    //Destructor
-   virtual ~AudioBook() {}
+   virtual ~AudioBook();
 
    //Mutators and Accessors
    audioFileFormat getAudioFormat();

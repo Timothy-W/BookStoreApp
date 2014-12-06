@@ -2,8 +2,25 @@
 
 using namespace std;
 
-//Product member function definitions------------------------------------------
-//Constructors defined in Class
+Product::Product() : InventoryItem(), ProductID(SetID()), Price(0.0) {}
+
+Product::Product(string Name, int Quantity, double Price) : InventoryItem(Name, Quantity) 
+{
+   SetPrice(Price); SetID();
+}
+
+Product::~Product() {}
+
+int Product::GetID()
+{ 
+   return ProductID;
+}
+
+double Product::GetPrice()
+{ 
+   return Price;
+}
+
 bool Product::SetID()
 {
    ProductID = generateProductID();
