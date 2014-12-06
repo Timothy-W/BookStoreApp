@@ -34,7 +34,7 @@ BookStoreSystem::~BookStoreSystem()
 //done
 void BookStoreSystem::initLists()
 {
-	inventory = new InventoryList("Inventory List", "C:/Users/hh/github/BookStoreApp/BookStoreApp/databases/book-inventory.txt");
+	 inventory = new InventoryList("Inventory List", "C:/Users/hh/github/BookStoreApp/BookStoreApp/databases/book-inventory.txt");
     employeeListing = new EmployeeList("Employee List", "C:/Users/hh/github/BookStoreApp/BookStoreApp/databases/employee-list.txt");
 
 }
@@ -42,11 +42,11 @@ void BookStoreSystem::initLists(string invPATH, string empPATH, string tranPATH)
 {
     inventory = new InventoryList("Inventory List", invPATH);
     employeeListing = new EmployeeList("Employee List", empPATH);
-    //transactionsList = new InventoryList("Transaction List", tranPATH);
+    transactionsList = new OrderList("Transaction List", tranPATH, employeeListing, inventory);
 }
 
 //done
-bool BookStoreSystem::login() 
+/*bool BookStoreSystem::login()
 {
     string loginName;
     int loginPIN;
@@ -71,7 +71,7 @@ bool BookStoreSystem::login()
     }
 
     return(pinFound && nameMatches); //if both are true, returns true
-}
+}*/
 
 void BookStoreSystem::menu()
 {
@@ -300,7 +300,7 @@ void BookStoreSystem::addTransaction()
 {   
  //   transactionsList->AddToList();
 }
-void BookStoreSystem::removeTransaction(Transaction * targetTransaction)
+void BookStoreSystem::removeTransaction(StoreOrder * targetTransaction)
 {
     //transactionsList->RemoveFromList(targetTransaction);
 }
@@ -434,5 +434,5 @@ void BookStoreSystem::viewEmployee(Person * targ)
 
 //Time did not permit:
 void BookStoreSystem::editItem(Item * targetItem){} 
-void BookStoreSystem::editTransaction(Transaction * targetTransaction){}
+void BookStoreSystem::editTransaction(StoreOrder * targetTransaction){}
 void BookStoreSystem::editEmployee(Person * Employee){}

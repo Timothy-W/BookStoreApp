@@ -3,6 +3,7 @@
 #include "StoreOrder.h"
 #include "EmployeeList.h"
 #include "InventoryList.h"
+#include "OrderList.h"
 #include <string>
 #include <iostream>
 using namespace std;
@@ -21,7 +22,7 @@ protected:
 
     InventoryList * inventory;
     EmployeeList  * employeeListing;
-    InventoryList * transactionsList; //RENAME TO TransactionList * ....
+    OrderList * transactionsList; //RENAME TO TransactionList * ....
     
     Person * user = NULL;
     string storeName;
@@ -55,7 +56,7 @@ private:
     //TRANSACTIONLIST interaction
     void modifyTransactions();    //add, subtract, edit a Transaction
     void addTransaction();
-    void removeTransaction(Transaction * targetTransaction);
+    void removeTransaction(StoreOrder * targetTransaction);
     void viewTransaction();
 
     //EMPLOYEELIST    interaction
@@ -66,7 +67,7 @@ private:
     
     //Time did not permit
     void editItem(Item * targetItem);            
-    void editTransaction(Transaction * targetTransaction);
+    void editTransaction(StoreOrder * targetTransaction);
     void editEmployee(Person * targetPerson);
 
 };
