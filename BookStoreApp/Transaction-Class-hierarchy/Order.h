@@ -32,7 +32,6 @@ class Order {
 };
 
 
-#endif
 
 
 template <class T>
@@ -83,3 +82,4 @@ int Order<T>::generateRandomID() const {
 }
 
 
+#endif

@@ -5,7 +5,7 @@
 #include <iostream>
 #include <cctype>
 #include "BookStoreSystem.h"
-
+#define MAX_LOGIN_ATTEMPTS 3
 
 BookStoreSystem::BookStoreSystem()
 {
@@ -43,34 +43,27 @@ void BookStoreSystem::initLists(string invPATH, string empPATH, string tranPATH)
     inventory = new InventoryList("Inventory List", invPATH);
     employeeListing = new EmployeeList("Employee List", empPATH);
     //transactionsList = new InventoryList("Transaction List", tranPATH);
+	user = login();
 }
 
 //done
-bool BookStoreSystem::login() 
+Person * BookStoreSystem::login() 
 {
-    string loginName;
     int loginPIN;
-    bool pinFound = false;
-    bool nameMatches = false;
-
-    cout << "\nPlease enter name:\n";
-    cin >> loginName;
-    cout << "\nEnter I.D.:\n";
-    cin >> loginPIN;
-    for (int i = 0; i < employeeListing->GetListCount(); i++)
-    {
-        if (loginPIN == employeeListing->GetElementAtPosI(i)->getID())
-        {
-            pinFound = true;    //there exists an employee with that PIN
-            if (loginName.compare(employeeListing->GetElementAtPosI(i)->getName()) == 0)
-            {
-                user = employeeListing->GetElementAtPosI(i);
-                nameMatches = true; // that said employee's name matches the user's input for login name
-            }
-        }
-    }
-
-    return(pinFound && nameMatches); //if both are true, returns true
+	Person * loginPerson = NULL;
+	for (int i = 0; i < MAX_LOGIN_ATTEMPTS; i++)
+	{
+		cout << "\nEnter your PIN\n Try #" << i + 1 << endl;
+		cin >> loginPIN;
+		user = employeeListing->Search(loginPIN);
+		if (loginPerson != NULL)
+		{
+			return(loginPerson); 
+		}
+	}
+	cout << "\nMaximum Attempts reached. Exitting...\n";
+	cin.ignore();
+	exit(1);
 }
 
 void BookStoreSystem::menu()
@@ -115,6 +108,7 @@ void BookStoreSystem::menu()
             case 'q':
             case 'Q':
                 menuIsRunning = false;
+				cin.clear();
                 break;
             default:
                 break;
@@ -146,12 +140,12 @@ void BookStoreSystem::modifyInventory()
     int choice=0;
     Item * targetItem = NULL;
 
-    cout << "1) Edit Item\n"
-        << "2) Add Item\n"
-        << "3) Remove Item\n" 
-        << "4) View Item\n"    << endl;
+    cout 
+        << "1) Add Item\n"
+        << "2) Remove Item\n" 
+        << "3) View Item\n"    << endl;
     cin >> choice;
-    if (choice == 2)
+    if (choice == 1)
     {
         addItem();
         return;
@@ -171,12 +165,12 @@ void BookStoreSystem::modifyInventory()
     switch (choice)
     {
     case 1:
-        editItem(targetItem);
+//        editItem(targetItem);
         break;
-    case 3:
+    case 2:
         removeItem(targetItem);
         break;
-    case 4:
+    case 3:
         cout << targetItem;
     default:
         cout << "Invalid selection";
@@ -300,7 +294,7 @@ void BookStoreSystem::addTransaction()
 {   
  //   transactionsList->AddToList();
 }
-void BookStoreSystem::removeTransaction(Transaction * targetTransaction)
+void BookStoreSystem::removeTransaction(Order<Item*> * targetTransaction)
 {
     //transactionsList->RemoveFromList(targetTransaction);
 }
@@ -314,13 +308,12 @@ void BookStoreSystem::modifyEmployees()
     int choice;
     Person * targetPerson = NULL;
 
-    cout << "1) Edit Person\n"
-         << "2) Add Person\n"
-         << "3) Remove Person\n"
-            "4) View Person\n" << endl;
+    cout << "1) Add Person\n"
+         << "2) Remove Person\n"
+            "3) View Person\n" << endl;
     cin >> choice;
 
-    if (choice == 2)
+    if (choice == 1)
     {
         addEmployee();
         cin.ignore();
@@ -341,12 +334,12 @@ void BookStoreSystem::modifyEmployees()
     switch (choice)
     {
     case 1: 
-        editEmployee(targetPerson);
-        break;
-    case 4:
-        viewEmployee(targetPerson);
+//        addEmployee(targetPerson);
         break;
     case 3:
+        viewEmployee(targetPerson);
+        break;
+    case 2:
         removeEmployee(targetPerson);
         break;
     default:
@@ -432,7 +425,7 @@ void BookStoreSystem::viewEmployee(Person * targ)
 
 
 
-//Time did not permit:
-void BookStoreSystem::editItem(Item * targetItem){} 
-void BookStoreSystem::editTransaction(Transaction * targetTransaction){}
-void BookStoreSystem::editEmployee(Person * Employee){}
+////Time did not permit:
+	//void BookStoreSystem::editItem(Item * targetItem){} 
+	//void BookStoreSystem::editTransaction(Order<Item *> * targetTransaction){}
+	//void BookStoreSystem::editEmployee(Person * Employee){}
