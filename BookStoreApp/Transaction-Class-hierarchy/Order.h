@@ -36,11 +36,18 @@ class Order {
 };
 
 
+
 template <class T>
 Order<T>::Order() { cout << "Order constructor"; }
 
 template <class T>
-Order<T>::Order(T t, int quantity) : item(t), orderQuantity(quantity), orderID(generateRandomID()), orderDate(setOrderDate()){}
+Order<T>::Order(T t, int quantity) {
+    item = t;
+    orderQuantity = quantity;
+    orderID = generateRandomID();
+    time_t rawtime = time(NULL);
+    orderDate = ctime(&rawtime);
+}
 
 template <class T>
 Order<T>::Order(T t, int quantity, int orderNum, string date) :
@@ -98,7 +105,4 @@ int Order<T>::generateRandomID() const {
     return id;
 }
 
-
-
 #endif
-
