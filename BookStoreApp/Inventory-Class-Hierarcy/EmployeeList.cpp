@@ -24,33 +24,36 @@ EmployeeList::EmployeeList( string name, string databasePath):
 
 EmployeeList::~EmployeeList()
 {
-    
+    SaveToTextFile();
 }
 
 
 
 void EmployeeList::SaveToTextFile()
 {
-    ofstream out("employeelistout.txt", ios::trunc);
-    if ((dynamic_cast <Manager *> (this)) != NULL) {
-        Manager * p = dynamic_cast <Manager *> (this);
-        out << p->getName()
-            << ";" << p->getID()
-            << ";" << p->getAge()
-            << ";" << p->getAddress()
-            << ";" << "M"
-            << ";" << p->getLevelString()
-            << endl;
-    }
-    else if ((dynamic_cast <Employee *> (this)) != NULL) {
-        Employee * p = dynamic_cast <Employee *> (this);
-        out << p->getName()
-            << ";" << p->getID()
-            << ";" << p->getAge()
-            << ";" << p->getAddress()
-            << ";" << "E"
-            << ";" << "Standard"
-            << endl;
+    ofstream out(DatabasePath, ios::trunc);
+    p = ItemList.begin();
+    while (p != ItemList.end()) {
+        Manager *p1 = dynamic_cast <Manager *> (*p);
+        Employee *p2 = dynamic_cast <Employee *> (*p);
+        if (p1 != NULL) {
+            out << p1->getName()
+                << ";" << p1->getAge()
+                << ";" << p1->getID()
+                << ";" << p1->getAddress()
+                << ";" << "M"
+                << ";" << p1->getLevelString()
+                << endl;
+        }
+        else if (p2 != NULL) {
+            out << p2->getName()
+                << ";" << p2->getAge()
+                << ";" << p2->getID()
+                << ";" << p2->getAddress()
+                << ";" << "E"
+                << ";" << "Standard"
+                << endl;
+        }
     }
     out.close();
 }
