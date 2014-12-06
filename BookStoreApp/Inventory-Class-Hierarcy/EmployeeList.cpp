@@ -215,7 +215,7 @@ void EmployeeList::DisplayList()
 
     for (p = ItemList.begin(); p != ItemList.end(); p++)
     {
-        Manager * mg  = dynamic_cast<Manager  *>(*p);
+        Manager  * mg  = dynamic_cast<Manager *>(*p);
         Employee * ep = dynamic_cast<Employee *>(*p);
         Customer * cs = dynamic_cast<Customer *>(*p);
 

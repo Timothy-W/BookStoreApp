@@ -1,6 +1,6 @@
 #pragma once
 #include "Employee.h"
-#include "Item.h"
+#include "../Item-Class-Hierarchy/Item.h"
 
 
 enum managerType { shift_manager, store_manager, VP, CEO };
