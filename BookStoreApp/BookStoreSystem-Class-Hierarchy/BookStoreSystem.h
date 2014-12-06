@@ -3,7 +3,11 @@
 #include "StoreOrder.h"
 #include "EmployeeList.h"
 #include "InventoryList.h"
+<<<<<<< HEAD
 #include "OrderList.h"
+=======
+#include "Order.h"
+>>>>>>> mine
 #include <string>
 #include <iostream>
 using namespace std;
@@ -56,7 +60,11 @@ private:
     //TRANSACTIONLIST interaction
     void modifyTransactions();    //add, subtract, edit a Transaction
     void addTransaction();
+<<<<<<< HEAD
     void removeTransaction(StoreOrder * targetTransaction);
+=======
+    void removeTransaction(Order<Item *> * targetTransaction);
+>>>>>>> mine
     void viewTransaction();
 
     //EMPLOYEELIST    interaction
@@ -66,8 +74,14 @@ private:
     void viewEmployee(Person * employee);
     
     //Time did not permit
+<<<<<<< HEAD
     void editItem(Item * targetItem);            
     void editTransaction(StoreOrder * targetTransaction);
     void editEmployee(Person * targetPerson);
+=======
+		/*void editItem(Item * targetItem);            
+		void editTransaction(Order<Item *> * targetTransaction);
+		void editEmployee(Person * targetPerson);*/
+>>>>>>> mine
 
 };
