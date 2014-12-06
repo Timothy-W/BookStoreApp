@@ -1,7 +1,7 @@
-#include "EmployeeList.h"
-#include "List.h"
+#include "Manager.h"
 #include "Item.h"
 #include "StoreOrder.h"
+#include "EmployeeList.h"
 #include "InventoryList.h"
 #include <string>
 #include <iostream>
@@ -31,7 +31,7 @@ protected:
  
 public:
     void menu();
-    bool login();
+    Person * login();
     void makeOrder();
     void searchInventory() const;
 

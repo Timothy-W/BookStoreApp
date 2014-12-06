@@ -4,11 +4,6 @@
 
 #include <iostream>
 #include <map>
-//#include "BookStoreSystem-Class-Hierarchy\BookStoreSystem.h"
-//#include "Inventory-Class-Hierarcy\InventoryList.h"
-//#include "Item-Class-Hierarchy\Item.h"
-//#include "Transaction-Class-hierarchy\StoreOrder.h"
-
 using namespace std;
 
 #include "List.h"
@@ -21,10 +16,14 @@ using namespace std;
 void welcomeMessage();
 int main()
 {
-    
+
+	//map<string, string> databases;
+	//databases["Book-Inventory"] = "C:/Users/hh/github/BookStoreApp/BookStoreApp/databases/book-inventory.txt";
+	//databases["Employee-List"] = "C:/Users/hh/github/BookStoreApp/BookStoreApp/databases/employee-list.txt";
+
    map<string,string> databases;
-   databases["Book-Inventory"] = "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/book-inventory.txt";
-   databases["Employee-List"] = "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/employee-list.txt";
+   databases["Book-Inventory"] = "C:/Users/hh/github/BookStoreApp/BookStoreApp/databases/book-inventory.txt";
+   databases["Employee-List"] = "C:/Users/hh/github/BookStoreApp/BookStoreApp/databases/employee-list.txt";
 
    
    welcomeMessage();
