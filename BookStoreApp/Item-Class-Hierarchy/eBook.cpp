@@ -27,7 +27,7 @@ const void eBook::DisplayItem()
 
 ostream & operator<<(ostream & os, const eBook& eBookRef)
 {
-   os << "\nName: " << eBookRef.Name
+   os << "\nName: " << eBookRef.ItemType
       << "\nQuantity: " << eBookRef.Quantity
       << "\nPrice: " << eBookRef.Price
       << "\nISBN: " << eBookRef.ISBN
@@ -41,7 +41,7 @@ ostream & operator<<(ostream & os, const eBook& eBookRef)
 
 const bool eBook::operator== (const eBook & eBookRef)
 {
-   return (this->Name == eBookRef.Name
+   return (this->ItemType == eBookRef.ItemType
       && this->Quantity == eBookRef.Quantity
       && this->Price == eBookRef.Price
       && this->ISBN == eBookRef.ISBN
@@ -61,7 +61,7 @@ const eBook & eBook::operator= (const eBook & eBookRef)
 {
    if (this != &eBookRef)
    {
-      this->Name = eBookRef.Name;
+      this->ItemType = eBookRef.ItemType;
       this->Quantity = eBookRef.Quantity;
       this->Price = eBookRef.Price;
       this->ISBN = eBookRef.ISBN;
