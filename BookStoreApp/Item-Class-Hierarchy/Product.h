@@ -26,7 +26,7 @@ public:
    virtual ~Product();
 
    //Accessors
-   virtual int GetID();
+   int GetID();
    double GetPrice();
 
    //Mutators
