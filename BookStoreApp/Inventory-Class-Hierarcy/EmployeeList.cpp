@@ -131,17 +131,6 @@ void EmployeeList::RemoveFromList( Person* person )
             ItemList.erase(ItemList.begin() + i);
     }
 
-   //for( p = ItemList.begin(); p != ItemList.end();  )
-   //{
-   //    if (*p == person)
-   //    {
-   //        ItemList.erase(p);
-   //        --ItemCount;
-   //    }
-   //    else
-   //        p++;
-   //}
-
 }
 
 
