@@ -42,29 +42,19 @@ void BookStoreSystem::initLists(string invPATH, string empPATH, string tranPATH)
 {
     inventory = new InventoryList("Inventory List", invPATH);
     employeeListing = new EmployeeList("Employee List", empPATH);
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     //transactionsList = new InventoryList("Transaction List", tranPATH);
 	user = login();
-=======
+
     transactionsList = new OrderList("Transaction List", tranPATH, employeeListing, inventory);
->>>>>>> master
+
 }
 
 //done
 Person * BookStoreSystem::login() 
-=======
-    transactionsList = new OrderList("Transaction List", tranPATH, employeeListing, inventory);
-}
-
-//done
-<<<<<<< HEAD
-/*bool BookStoreSystem::login()
->>>>>>> 64e8f467b9af6281dc724526d39d034e1cf9be0e
 {
-    int loginPIN;
-<<<<<<< HEAD
 	Person * loginPerson = NULL;
+	int login pin;
 	for (int i = 0; i < MAX_LOGIN_ATTEMPTS; i++)
 	{
 		cout << "\nEnter your PIN\n Try #" << i + 1 << endl;
@@ -79,57 +69,6 @@ Person * BookStoreSystem::login()
 	cin.ignore();
 	exit(1);
 }
-=======
-=======
-Person * BookStoreSystem::login() 
->>>>>>> mine
-{
-    int loginPIN;
-<<<<<<< HEAD
->>>>>>> master
-    bool pinFound = false;
-    bool nameMatches = false;
-
-    cout << "\nPlease enter name:\n";
-    cin >> loginName;
-    cout << "\nEnter I.D.:\n";
-    cin >> loginPIN;
-    for (int i = 0; i < employeeListing->GetListCount(); i++)
-    {
-        if (loginPIN == employeeListing->GetElementAtPosI(i)->getID())
-        {
-            pinFound = true;    //there exists an employee with that PIN
-            if (loginName.compare(employeeListing->GetElementAtPosI(i)->getName()) == 0)
-            {
-                user = employeeListing->GetElementAtPosI(i);
-                nameMatches = true; // that said employee's name matches the user's input for login name
-            }
-        }
-    }
-
-    return(pinFound && nameMatches); //if both are true, returns true
-}*/
-<<<<<<< HEAD
->>>>>>> 64e8f467b9af6281dc724526d39d034e1cf9be0e
-=======
-=======
-	Person * loginPerson = NULL;
-	for (int i = 0; i < MAX_LOGIN_ATTEMPTS; i++)
-	{
-		cout << "\nEnter your PIN\n Try #" << i + 1 << endl;
-		cin >> loginPIN;
-		user = employeeListing->Search(loginPIN);
-		if (loginPerson != NULL)
-		{
-			return(loginPerson); 
-		}
-	}
-	cout << "\nMaximum Attempts reached. Exitting...\n";
-	cin.ignore();
-	exit(1);
-}
->>>>>>> mine
->>>>>>> master
 
 void BookStoreSystem::menu()
 {
