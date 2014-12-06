@@ -43,8 +43,12 @@ void BookStoreSystem::initLists(string invPATH, string empPATH, string tranPATH)
     inventory = new InventoryList("Inventory List", invPATH);
     employeeListing = new EmployeeList("Employee List", empPATH);
 <<<<<<< HEAD
+<<<<<<< HEAD
     //transactionsList = new InventoryList("Transaction List", tranPATH);
 	user = login();
+=======
+    transactionsList = new OrderList("Transaction List", tranPATH, employeeListing, inventory);
+>>>>>>> master
 }
 
 //done
@@ -54,6 +58,7 @@ Person * BookStoreSystem::login()
 }
 
 //done
+<<<<<<< HEAD
 /*bool BookStoreSystem::login()
 >>>>>>> 64e8f467b9af6281dc724526d39d034e1cf9be0e
 {
@@ -75,6 +80,13 @@ Person * BookStoreSystem::login()
 	exit(1);
 }
 =======
+=======
+Person * BookStoreSystem::login() 
+>>>>>>> mine
+{
+    int loginPIN;
+<<<<<<< HEAD
+>>>>>>> master
     bool pinFound = false;
     bool nameMatches = false;
 
@@ -97,7 +109,27 @@ Person * BookStoreSystem::login()
 
     return(pinFound && nameMatches); //if both are true, returns true
 }*/
+<<<<<<< HEAD
 >>>>>>> 64e8f467b9af6281dc724526d39d034e1cf9be0e
+=======
+=======
+	Person * loginPerson = NULL;
+	for (int i = 0; i < MAX_LOGIN_ATTEMPTS; i++)
+	{
+		cout << "\nEnter your PIN\n Try #" << i + 1 << endl;
+		cin >> loginPIN;
+		user = employeeListing->Search(loginPIN);
+		if (loginPerson != NULL)
+		{
+			return(loginPerson); 
+		}
+	}
+	cout << "\nMaximum Attempts reached. Exitting...\n";
+	cin.ignore();
+	exit(1);
+}
+>>>>>>> mine
+>>>>>>> master
 
 void BookStoreSystem::menu()
 {
@@ -327,11 +359,12 @@ void BookStoreSystem::addTransaction()
 {   
  //   transactionsList->AddToList();
 }
-<<<<<<< HEAD
 void BookStoreSystem::removeTransaction(Order<Item*> * targetTransaction)
-=======
 void BookStoreSystem::removeTransaction(StoreOrder * targetTransaction)
->>>>>>> 64e8f467b9af6281dc724526d39d034e1cf9be0e
+void BookStoreSystem::removeTransaction(StoreOrder * targetTransaction)
+void BookStoreSystem::removeTransaction(Order<Item*> * targetTransaction)
+
+
 {
     //transactionsList->RemoveFromList(targetTransaction);
 }
@@ -463,13 +496,25 @@ void BookStoreSystem::viewEmployee(Person * targ)
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+//Time did not permit:
+void BookStoreSystem::editItem(Item * targetItem){} 
+void BookStoreSystem::editTransaction(StoreOrder * targetTransaction){}
+void BookStoreSystem::editEmployee(Person * Employee){}
+=======
+>>>>>>> master
 ////Time did not permit:
 	//void BookStoreSystem::editItem(Item * targetItem){} 
 	//void BookStoreSystem::editTransaction(Order<Item *> * targetTransaction){}
 	//void BookStoreSystem::editEmployee(Person * Employee){}
+<<<<<<< HEAD
 =======
 //Time did not permit:
 void BookStoreSystem::editItem(Item * targetItem){} 
 void BookStoreSystem::editTransaction(StoreOrder * targetTransaction){}
 void BookStoreSystem::editEmployee(Person * Employee){}
 >>>>>>> 64e8f467b9af6281dc724526d39d034e1cf9be0e
+=======
+>>>>>>> mine
+>>>>>>> master
