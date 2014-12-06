@@ -36,7 +36,6 @@ class Order {
 };
 
 
-
 template <class T>
 Order<T>::Order() { cout << "Order constructor"; }
 
@@ -99,4 +98,7 @@ int Order<T>::generateRandomID() const {
     return id;
 }
 
+
+
 #endif
+
