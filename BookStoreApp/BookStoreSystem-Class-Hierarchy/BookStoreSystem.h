@@ -3,12 +3,9 @@
 #include "StoreOrder.h"
 #include "EmployeeList.h"
 #include "InventoryList.h"
-
-#include "Order.h"
-
 #include "OrderList.h"
 
-#include "OrderList.h"
+#include "StoreOrder.h"
 
 #include "Order.h"
 #include <string>
@@ -63,9 +60,7 @@ private:
     //TRANSACTIONLIST interaction
     void modifyTransactions();    //add, subtract, edit a Transaction
     void addTransaction();
-    void removeTransaction(Order<Item *> * targetTransaction);
-    void removeTransaction(StoreOrder * targetTransaction);
-    void removeTransaction(StoreOrder * targetTransaction);
+
     void removeTransaction(Order<Item *> * targetTransaction);
     void viewTransaction();
 
@@ -76,25 +71,9 @@ private:
     void viewEmployee(Person * employee);
     
     //Time did not permit
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 		/*void editItem(Item * targetItem);            
 		void editTransaction(Order<Item *> * targetTransaction);
 		void editEmployee(Person * targetPerson);*/
-=======
-    void editItem(Item * targetItem);            
-    void editTransaction(StoreOrder * targetTransaction);
-    void editEmployee(Person * targetPerson);
->>>>>>> 64e8f467b9af6281dc724526d39d034e1cf9be0e
-=======
-    void editItem(Item * targetItem);            
-    void editTransaction(StoreOrder * targetTransaction);
-    void editEmployee(Person * targetPerson);
-=======
-		/*void editItem(Item * targetItem);            
-		void editTransaction(Order<Item *> * targetTransaction);
-		void editEmployee(Person * targetPerson);*/
->>>>>>> mine
->>>>>>> master
 
 };

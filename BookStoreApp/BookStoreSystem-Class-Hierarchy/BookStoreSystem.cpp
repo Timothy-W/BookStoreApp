@@ -54,7 +54,7 @@ void BookStoreSystem::initLists(string invPATH, string empPATH, string tranPATH)
 Person * BookStoreSystem::login() 
 {
 	Person * loginPerson = NULL;
-	int login pin;
+	int loginPIN;
 	for (int i = 0; i < MAX_LOGIN_ATTEMPTS; i++)
 	{
 		cout << "\nEnter your PIN\n Try #" << i + 1 << endl;
@@ -299,11 +299,6 @@ void BookStoreSystem::addTransaction()
  //   transactionsList->AddToList();
 }
 void BookStoreSystem::removeTransaction(Order<Item*> * targetTransaction)
-void BookStoreSystem::removeTransaction(StoreOrder * targetTransaction)
-void BookStoreSystem::removeTransaction(StoreOrder * targetTransaction)
-void BookStoreSystem::removeTransaction(Order<Item*> * targetTransaction)
-
-
 {
     //transactionsList->RemoveFromList(targetTransaction);
 }
@@ -434,26 +429,8 @@ void BookStoreSystem::viewEmployee(Person * targ)
 
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-//Time did not permit:
-void BookStoreSystem::editItem(Item * targetItem){} 
-void BookStoreSystem::editTransaction(StoreOrder * targetTransaction){}
-void BookStoreSystem::editEmployee(Person * Employee){}
-=======
->>>>>>> master
+
 ////Time did not permit:
 	//void BookStoreSystem::editItem(Item * targetItem){} 
 	//void BookStoreSystem::editTransaction(Order<Item *> * targetTransaction){}
 	//void BookStoreSystem::editEmployee(Person * Employee){}
-<<<<<<< HEAD
-=======
-//Time did not permit:
-void BookStoreSystem::editItem(Item * targetItem){} 
-void BookStoreSystem::editTransaction(StoreOrder * targetTransaction){}
-void BookStoreSystem::editEmployee(Person * Employee){}
->>>>>>> 64e8f467b9af6281dc724526d39d034e1cf9be0e
-=======
->>>>>>> mine
->>>>>>> master

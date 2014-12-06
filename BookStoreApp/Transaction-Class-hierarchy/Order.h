@@ -36,17 +36,6 @@ class Order {
 };
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> 64e8f467b9af6281dc724526d39d034e1cf9be0e
-=======
-=======
-
->>>>>>> mine
->>>>>>> master
-
 template <class T>
 Order<T>::Order() { cout << "Order constructor"; }
 
