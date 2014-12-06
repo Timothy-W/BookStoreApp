@@ -59,7 +59,7 @@ private:
 
     //TRANSACTIONLIST interaction
     void modifyTransactions();    //add, subtract, edit a Transaction
-    void addTransaction();
+    void newStoreOrder();
 
     void removeTransaction(Order<Item *> * targetTransaction);
     void viewTransaction();
