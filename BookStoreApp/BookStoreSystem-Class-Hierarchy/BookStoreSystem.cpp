@@ -142,32 +142,33 @@ void BookStoreSystem::showEmployees() const
 
 //Inventory Interaction
 //Menu
-void BookStoreSystem::modifyInventory() 
+void BookStoreSystem::modifyInventory()
 {
-    int targetProdID=0;
-    int choice=0;
-    Item * targetItem = NULL;
+   int targetProdID = 0;
+   int choice = 0;
+   Item * targetItem = NULL;
+   int searchISBN = 0;
+   Item* editableItem = NULL;
 
-    cout 
-        << "1) Add Item\n"
-        << "2) Remove Item\n" 
-        << "3) View Item\n"    << endl;
-    cin >> choice;
-    if (choice == 1)
-    {
-        addItem();
-        return;
-    }
+   cout << "1) Add New Item\n" << endl << "2) Remove Item\n" << endl << "3) View Item\n" << endl << "4) Order Existing Item\n" << endl;
+   cin >> choice;
+   if (choice == 1)
+   {
+      addItem();
+      return;
+   }
 
-    cout << "\nEnter product ID:" << endl;
-    cin >> targetProdID;
-    if (employeeListing->Search(targetProdID) != 0)         //If Item exists
-        targetItem = inventory->SearchID(targetProdID);
-    else
-    {
-        cout << "\nItem not found in database";
-        return;
-    }
+   if (choice == 1 || choice == 2 || choice == 3){
+   cout << "\nEnter product ID:" << endl;
+   cin >> targetProdID;
+   if (employeeListing->Search(targetProdID) != 0)         //If Item exists
+      targetItem = inventory->SearchID(targetProdID);
+   else
+   {
+      cout << "\nItem not found in database";
+      return;
+   }
+}
 
     
     switch (choice)
@@ -180,6 +181,12 @@ void BookStoreSystem::modifyInventory()
         break;
     case 3:
         cout << targetItem;
+    case 4:
+       //cout << "Enter ISBN: ";
+       //cin >> searchISBN;
+       editableItem = searchInventory();
+       addToExistingInventory(editableItem);
+       break;
     default:
         cout << "Invalid selection";
         break;
@@ -302,11 +309,32 @@ Item* BookStoreSystem::searchInventory()
          cout << *pb << endl;
          return pb;
       }
-      else{ cout << "ISBN not found." << endl; }
+      else{ 
+         cout << "ISBN not found." << endl; 
+         return NULL;
+      }
 
    return NULL;
 }
+ 
+void BookStoreSystem::addToExistingInventory(Item* editableItem){
+   int tempQuantity = 0;
+   cout << "What is the new Quantity: ";
+   cin >> tempQuantity;
    
+   eBook * eb = dynamic_cast<eBook  *>(editableItem);
+   AudioBook * ap = dynamic_cast<AudioBook *>(editableItem);
+   PaperBook * pb = dynamic_cast<PaperBook *>(editableItem);
+
+   if (eb){
+      eb->setQuantity(tempQuantity);
+     }
+   else if (ap){
+      ap -> setQuantity(tempQuantity);
+     }
+   else if(pb){ pb->setQuantity(tempQuantity); }
+   else{ cout << "Check ISBN" << endl; }
+}
 
 
 //Transaction Interaction
