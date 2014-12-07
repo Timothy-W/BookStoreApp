@@ -274,7 +274,40 @@ void BookStoreSystem::removeItem(Item * targetItem)
     inventory->RemoveFromList(targetItem);
 } 
 //Seatch the inventory  by author, name, isbn
+<<<<<<< HEAD
  
+=======
+Item* BookStoreSystem::searchInventory()
+{   
+   int searchISBN = 0;
+
+   cout << "Enter ISBN: ";
+   cin >> searchISBN;
+
+   Item * search = inventory->Search(searchISBN);
+
+   eBook * eb = dynamic_cast<eBook  *>(search);
+   AudioBook * ap = dynamic_cast<AudioBook *>(search);
+   PaperBook * pb = dynamic_cast<PaperBook *>(search);
+
+      if (eb){
+         cout << eb << endl;
+         return eb;
+      }
+      else if (ap){
+         cout << ap << endl;
+         return ap;
+      }
+      else if (pb){
+         cout << pb << endl;
+         return pb;
+      }
+      else{ cout << "ISBN not found." << endl; }
+
+}
+   
+
+>>>>>>> 74fec4146af073be0cc45fd4b2bc6e97e4c4c0aa
 
 //Transaction Interaction
 //Menu
