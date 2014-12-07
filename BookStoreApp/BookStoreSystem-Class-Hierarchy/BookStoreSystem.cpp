@@ -273,21 +273,24 @@ void BookStoreSystem::removeItem(Item * targetItem)
 void BookStoreSystem::searchInventory() const
 {
     string input;
-    cout << "Search for Book either by ISBN, title, or author";
+    cout << "Search for Book either by ISBN, title, or author\n";
     getline(cin, input);
 
     //check if input is a number
     string::const_iterator iter = input.begin();
     while (iter != input.end() && isdigit(*iter))
         iter++;
+
     //user intends to search by isbn
     if ( iter == input.end())
     {
+		cout << "search int";
         inventory->Search(atoi(input.c_str()));
     }
     //user intends to search by title/author
     else
     {
+		cout << "search str";
         inventory->Search(input);
     }
 } 

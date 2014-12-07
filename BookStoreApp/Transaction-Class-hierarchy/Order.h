@@ -5,7 +5,7 @@
 
 #ifndef Order_H
 #define Order_H
-
+#define _CRT_SECURE_NO_WARNINGS
 #include <string>
 #include <iostream>
 #include <ctime>
