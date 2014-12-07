@@ -27,8 +27,8 @@ BookStoreSystem::BookStoreSystem(string storeName, string storeAddress, string i
 BookStoreSystem::~BookStoreSystem()
 {
    cout << "Book Store Sytem Deleted" << endl;
-   delete inventory;
    delete transactionsList;
+   delete inventory;
    delete employeeListing;
 }
 
@@ -48,7 +48,7 @@ void BookStoreSystem::initLists(string invPATH, string empPATH, string tranPATH)
 
 
     transactionsList = new OrderList("Transaction List", tranPATH, employeeListing, inventory);
-	user = login();
+	 user = login();
 }
 
 //done
