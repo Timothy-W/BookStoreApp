@@ -1,9 +1,6 @@
  /*
    Main entry point for the app
 */
-
-#include <iostream>
-#include <cctype>
 #include "BookStoreSystem.h"
 #define MAX_LOGIN_ATTEMPTS 3
 
@@ -14,10 +11,7 @@ BookStoreSystem::BookStoreSystem()
     transactionsList = new OrderList("Order List", "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/orders.txt", employeeListing, inventory);
 }
 
-BookStoreSystem::BookStoreSystem(string storeName, string storeAddress ) : storeName(storeName), storeAddress(storeAddress)
-{
-    initLists();
-}
+
 
 BookStoreSystem::BookStoreSystem(string storeName, string storeAddress, string invPATH, string empPATH, string tranPATH) : storeName(storeName), storeAddress(storeAddress), invPATH(invPATH), empPATH(empPATH), tranPATH(tranPATH)
 {
@@ -35,21 +29,10 @@ BookStoreSystem::~BookStoreSystem()
 
 }
 
-
-//done
-void BookStoreSystem::initLists()
-{
-	 inventory = new InventoryList("Inventory List", "C:/Users/hh/github/BookStoreApp/BookStoreApp/databases/book-inventory.txt");
-    employeeListing = new EmployeeList("Employee List", "C:/Users/hh/github/BookStoreApp/BookStoreApp/databases/employee-list.txt");
-
-}
 void BookStoreSystem::initLists(string invPATH, string empPATH, string tranPATH)
 {
     inventory = new InventoryList("Inventory List", invPATH);
     employeeListing = new EmployeeList("Employee List", empPATH);
-
-
-
     transactionsList = new OrderList("Transaction List", tranPATH, employeeListing, inventory);
 	 user = login();
 }
@@ -97,13 +80,13 @@ void BookStoreSystem::menu()
                 showEmployees();            //DONE
                 break;
             case '2':
-                showTransactions();         
+                showTransactions();         //Show Transactions
                 break;
             case '3':
                 showInventory();           //DONE
                 break;
             case '4':
-                modifyEmployees();
+                modifyEmployees();		
                 break;
             case '5':
                 modifyTransactions();
@@ -164,9 +147,8 @@ void BookStoreSystem::modifyInventory()
    if (choice == 1 || choice == 2 || choice == 3){
    cout << "\nEnter product ID:" << endl;
    cin >> targetProdID;
-   if (employeeListing->Search(targetProdID) != 0)         //If Item exists
-      targetItem = inventory->SearchID(targetProdID);
-   else
+   targetItem = inventory->SearchID(targetProdID);
+   if (!targetItem)
    {
       cout << "\nItem not found in database";
       return;
@@ -177,7 +159,7 @@ void BookStoreSystem::modifyInventory()
     switch (choice)
     {
     case 1:
-//        editItem(targetItem);
+//        additemm
         break;
     case 2:
         removeItem(targetItem);
@@ -186,7 +168,7 @@ void BookStoreSystem::modifyInventory()
         cout << targetItem;
     case 4:
        editableItem = searchInventory();
-       addToExistingInventory(editableItem);
+//     addToExistingInventory(editableItem);
        break;
     default:
         cout << "Invalid selection";
@@ -317,44 +299,7 @@ Item* BookStoreSystem::searchInventory()
 
    return NULL;
 }
- 
-void BookStoreSystem::addToExistingInventory(Item* editableItem){
-   int reorderQuantity = 0;
-   int employeeID = 0;
-   string reorderVendor = "";
-   int newQuantity = 0;
- 
-   cout << "How many more are you ordering: ";
-   cin >> reorderQuantity;
-   cout << "Order From: " << endl;
-   cin >> reorderVendor;
-   
-   eBook * eb = dynamic_cast<eBook  *>(editableItem);
-   AudioBook * ap = dynamic_cast<AudioBook *>(editableItem);
-   PaperBook * pb = dynamic_cast<PaperBook *>(editableItem);
 
-   if (eb)
-   {
-      //cout << "it enters loop";
-      newQuantity = eb->getQuantity() + reorderQuantity;
-      //cout << "addition done";
-      eb->setQuantity(newQuantity);
-      //cout << "works till here";
-      StoreOrder *so = new StoreOrder(editableItem, reorderQuantity, reorderVendor, user);
-   }
-   else if (ap)
-   {
-      ap->setQuantity(ap->getQuantity() + reorderQuantity);
-      StoreOrder *so = new StoreOrder(editableItem, reorderQuantity, reorderVendor, user);
-   }
-   else if (pb)
-   {
-      ap->setQuantity(ap->getQuantity() + reorderQuantity);
-      StoreOrder *so = new StoreOrder(editableItem, reorderQuantity, reorderVendor, user);
-   }
-   else{ cout << "Check ISBN" << endl; }
-
-}
 
 
 //Transaction Interaction
@@ -370,6 +315,7 @@ void BookStoreSystem::modifyTransactions() {
     << "2) Remove Order\n"
     << "3) View Order\n"    << endl;
     cin >> choice;
+
     if (choice == 1) {
         newStoreOrder();
         cin.ignore();
@@ -403,7 +349,7 @@ void BookStoreSystem::newStoreOrder()
 {
    //Some kind of checking to make sure employee adding store order is a manager
 
-   Item *givenItem = NULL;
+   Item *	givenItem  = NULL;
    Person *givenPerson = NULL;
 
    int orderNum = 0;
@@ -510,7 +456,6 @@ void BookStoreSystem::newStoreOrder()
    //   transactionsList->AddToList();
 
 }
-//
 void BookStoreSystem::removeTransaction(StoreOrder *  targetOrder)
 {
 	transactionsList->RemoveFromList(targetOrder);
@@ -640,11 +585,6 @@ void BookStoreSystem::viewEmployee(Person * targ)
         cout << "\n" << *cs << "\n";
     }
 }
-
-
-
-
-
 
 
 ////Time did not permit:

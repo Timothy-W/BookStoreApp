@@ -202,8 +202,7 @@ void InventoryList::RemoveFromList( Item* item )
    for( p = ItemList.begin(); p != ItemList.end(); p++ )
    {
       if(*p == item)
-      {
-         delete *p;
+	  {
          ItemList.erase(p);
          --ItemCount;
       }

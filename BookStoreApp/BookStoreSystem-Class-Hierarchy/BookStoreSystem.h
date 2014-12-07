@@ -4,7 +4,8 @@
 #include "EmployeeList.h"
 #include "InventoryList.h"
 #include "OrderList.h"
-
+#include <iostream>
+#include <cctype>
 #include "StoreOrder.h"
 
 #include "Order.h"
@@ -18,7 +19,6 @@ public:
 
     // 3 constructors
     BookStoreSystem();
-    BookStoreSystem(string storeName, string storeAddress);
     BookStoreSystem(string storeName, string storeAddress, string invPATH, string empPATH, string tranPATH);
     ~BookStoreSystem();
 
@@ -42,7 +42,6 @@ public:
 
 private:
     //Initializes the 3 main vectors
-    void initLists();
     void initLists(string invPATH, string empPATH, string tranPATH);
 
     //These display the 3 main vectors
@@ -60,7 +59,7 @@ private:
     //TRANSACTIONLIST interaction
     void modifyTransactions();    //add, subtract, edit a Transaction
     void newStoreOrder();
-    void addToExistingInventory(Item* editableItem);
+    //void addToExistingInventory(Item* editableItem);
     void removeTransaction(StoreOrder  * targetTransaction);
 	void viewTransaction(StoreOrder  * targetTransactionn);
 
