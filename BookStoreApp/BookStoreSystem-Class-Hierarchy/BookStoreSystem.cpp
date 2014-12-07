@@ -535,6 +535,7 @@ void BookStoreSystem::addEmployee()
     int age;
     string name;
     string address;
+    Person * newGuy;
 
     cin.ignore();
     cout << "Person's Full name?\n";
@@ -563,10 +564,11 @@ void BookStoreSystem::addEmployee()
             return;
         }
         managerlvl = (managerType)managerlvlInt;
-        Manager * newGuy = new Manager(age, address, name, NULL, managerlvl);
-    }
+        newGuy = new Manager(age, address, name, NULL, managerlvl);
+    }else{
 
-    Employee * newGuy = new Employee(age, address, name, NULL);
+        newGuy = new Employee(age, address, name, NULL);
+    }
 
     employeeListing->AddToList(newGuy);
 
