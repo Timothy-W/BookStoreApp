@@ -30,6 +30,7 @@ int main()
    welcomeMessage();
    BookStoreSystem * OurBookStore = new BookStoreSystem("Our Awesome Book Store", "1234 El Monte dr.", databases["Book-Inventory"], databases["Employee-List"], databases["Order-List"]);
    OurBookStore->menu();
+
    cout << "exitted";
    cin.ignore();
 
@@ -46,6 +47,6 @@ int main()
 
 void welcomeMessage()
 {
-    cout << "\nWelcome\n";
+    cout << "\nWelcome to our Book Store\n";
 }
 
