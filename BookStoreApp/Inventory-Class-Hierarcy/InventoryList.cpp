@@ -24,7 +24,31 @@ InventoryList::InventoryList( string name, string databasePath):
 
 InventoryList::~InventoryList()
 {
-    SaveToTextFile();
+   //SaveToTextFile();
+
+   for( p = ItemList.begin(); p != ItemList.end(); ++p )
+   {
+      if(*p)
+      {
+         eBook* eb = dynamic_cast<eBook *> (*p);
+         PaperBook* pb = dynamic_cast<PaperBook*>(*p);
+         AudioBook* ab = dynamic_cast<AudioBook*>(*p);
+         cout << "\nDeleteing:\n";
+         if(eb)
+         {
+            delete eb;
+         }
+         if(pb)
+         {
+            delete pb;
+         }
+         if(ab)
+         {
+            delete ab;
+         }
+      }
+      *p = NULL;
+   }
 }
 
 void InventoryList::SaveToTextFile() {
@@ -64,6 +88,7 @@ void InventoryList::SaveToTextFile() {
             << ";" << p3->getPublisher()
             << ";" << p3->getAudioFormat() << endl;
         }
+        ++p;
     }
     out.close();
 

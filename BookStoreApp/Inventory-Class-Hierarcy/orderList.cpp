@@ -26,7 +26,17 @@ OrderList::OrderList( string name, string databasePath, EmployeeList* employeeLi
 
 OrderList::~OrderList()
 {
-  
+   for( p = ItemList.begin(); p != ItemList.end(); ++p )
+   {
+      if(*p)
+      {
+         cout << "\nDeleteing p\n";
+         delete *p;
+      }
+      *p = NULL;
+   }
+
+   cout << "\nOrder List Destructor \n";
 }
 
 
