@@ -165,7 +165,7 @@ void BookStoreSystem::modifyInventory()
         removeItem(targetItem);
         break;
     case 3:
-        cout << targetItem;
+        viewItem(targetItem);
     case 4:
        editableItem = searchInventory();
 //     addToExistingInventory(editableItem);
@@ -264,7 +264,25 @@ void BookStoreSystem::removeItem(Item * targetItem)
 {
     inventory->RemoveFromList(targetItem);
 }
+void BookStoreSystem::viewItem(Item * targItem)
+{
+	AudioBook * ab = dynamic_cast<AudioBook  *>(targItem);
+	eBook * eb = dynamic_cast<eBook *>(targItem);
+	PaperBook * pb = dynamic_cast<PaperBook *>(targItem);
 
+	if (ab)
+	{
+		cout << "\n" << *ab << "\n";
+	}
+	else if (eb)
+	{
+		cout << "\n" << *eb << "\n";
+	}
+	else if (pb)
+	{
+		cout << "\n" << *pb << "\n";
+	}
+}
 
 //Seatch the inventory  by author, name, isbn
 Item* BookStoreSystem::searchInventory()

@@ -54,6 +54,7 @@ private:
     void modifyInventory();       //add, subtract, edit an Item
     void addItem();             //add item
     void removeItem(Item * targetItem);          //subtract Item
+	void viewItem(Item *);
     Item* searchInventory();
 
     //TRANSACTIONLIST interaction
