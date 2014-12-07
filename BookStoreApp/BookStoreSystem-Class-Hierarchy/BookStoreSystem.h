@@ -54,11 +54,13 @@ private:
     void modifyInventory();       //add, subtract, edit an Item
     void addItem();             //add item
     void removeItem(Item * targetItem);          //subtract Item
+	void viewItem(Item *);
     Item* searchInventory();
 
     //TRANSACTIONLIST interaction
     void modifyTransactions();    //add, subtract, edit a Transaction
-    void newStoreOrder();
+	void makeStoreOrder();
+	void newStoreOrder();
     //void addToExistingInventory(Item* editableItem);
     void removeTransaction(StoreOrder  * targetTransaction);
 	void viewTransaction(StoreOrder  * targetTransactionn);

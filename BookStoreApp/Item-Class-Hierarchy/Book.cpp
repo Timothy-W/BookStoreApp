@@ -73,7 +73,7 @@ bool Book::setPublisher(string publisher)
    return true;
 }
 
-string Book::getTextForGenre()const
+string Book::getTextForGenre() const
 {
    switch (genre)
    {

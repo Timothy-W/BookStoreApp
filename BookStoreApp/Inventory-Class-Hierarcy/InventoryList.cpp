@@ -1,7 +1,7 @@
 
 
 
-
+#include "Book.h"
 #include "InventoryList.h"
 
 InventoryList::InventoryList(): List(), DatabasePath(""){}
@@ -47,7 +47,7 @@ void InventoryList::SaveToTextFile() {
         if (p1 != NULL) {
             out << "eBook;" << p1->getTitle()
             << ";" << p1->getAuthor()
-            << ";" << p1->getTextForGenre()
+			<< ";" << p1->getTextForGenre()
             << ";" << p1->GetPrice()
             << ";" << p1->GetID()
             << ";" << "NULL"
@@ -181,14 +181,12 @@ void InventoryList::BuildFromDatabase()
 /*overwrties the templates RemoveFromList so it deletes the pointer as well*/
 void InventoryList::RemoveFromList( Item* item )
 {
-
    for (int i = 0; i < ItemList.size(); i++)
    {
       if (ItemList.at(i) == item)
          delete item;
          ItemList.erase(ItemList.begin() + i);
    }
-
 }
 
 
