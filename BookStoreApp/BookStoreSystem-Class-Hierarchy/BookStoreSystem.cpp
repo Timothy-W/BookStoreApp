@@ -26,9 +26,10 @@ BookStoreSystem::BookStoreSystem(string storeName, string storeAddress, string i
 
 BookStoreSystem::~BookStoreSystem()
 {
-    delete inventory;
-    delete employeeListing;
-    delete transactionsList;
+   cout << "Book Store Sytem Deleted" << endl;
+   delete inventory;
+   delete transactionsList;
+   delete employeeListing;
 }
 
 
@@ -272,7 +273,9 @@ void BookStoreSystem::addItem()
 void BookStoreSystem::removeItem(Item * targetItem)
 {
     inventory->RemoveFromList(targetItem);
-} 
+}
+
+
 //Seatch the inventory  by author, name, isbn
 Item* BookStoreSystem::searchInventory()
 {   
@@ -301,6 +304,7 @@ Item* BookStoreSystem::searchInventory()
       }
       else{ cout << "ISBN not found." << endl; }
 
+   return NULL;
 }
    
 
