@@ -24,7 +24,28 @@ EmployeeList::EmployeeList( string name, string databasePath):
 
 EmployeeList::~EmployeeList()
 {
-    SaveToTextFile();
+   //SaveToTextFile();
+   for( p = ItemList.begin(); p != ItemList.end(); ++p )
+   {
+      if(*p)
+      {
+         Manager * mg = dynamic_cast<Manager *>(*p);
+         Employee * ep = dynamic_cast<Employee *>(*p);
+         cout << "deleting:";
+         if(mg)
+         {
+            cout << *mg << endl;
+            delete mg;
+         }
+         if(ep)
+         {
+            cout << *ep << endl;
+            delete ep;
+         }
+      }
+      *p = NULL;
+   }
+
 }
 
 
@@ -54,6 +75,7 @@ void EmployeeList::SaveToTextFile()
                 << ";" << "Standard"
                 << endl;
         }
+        ++p;
     }
     out.close();
 }

@@ -3,10 +3,15 @@
 InventoryItem::InventoryItem() : ItemType(""), Quantity(0) {}
 InventoryItem::InventoryItem(string Name, int Quantity) : ItemType(Name), Quantity(Quantity) {}
 
-InventoryItem::~InventoryItem() {}
+InventoryItem::~InventoryItem() 
+{
+   cout << "InventoryItem deleted" << endl;
+}
 
 string InventoryItem::getName() const
-{ return ItemType; }
+{ 
+   return ItemType;
+}
 
 int InventoryItem::getQuantity() const
 { 

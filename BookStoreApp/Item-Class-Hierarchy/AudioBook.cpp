@@ -2,7 +2,7 @@
 
 AudioBook::~AudioBook()
 {
-
+   cout << "AudioBook delete" << endl;
 }
 
 audioFileFormat AudioBook::getAudioFormat()

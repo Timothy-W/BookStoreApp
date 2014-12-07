@@ -11,6 +11,7 @@ BookStoreSystem::BookStoreSystem()
 {
     inventory = new InventoryList("Inventory List", "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/book-inventory.txt");
     employeeListing = new EmployeeList("Employee List", "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/employee-list.txt");
+    transactionsList = new OrderList("Order List", "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/orders.txt", employeeListing, inventory);
 }
 
 BookStoreSystem::BookStoreSystem(string storeName, string storeAddress ) : storeName(storeName), storeAddress(storeAddress)
@@ -294,8 +295,45 @@ void BookStoreSystem::searchInventory() const
     }
 } 
 
-//These 4  are untouched
-void BookStoreSystem::modifyTransactions(){}
+void BookStoreSystem::modifyTransactions() {
+    
+    int targetOrderID=0;
+    int choice=0;
+    StoreOrder * targetOrder = NULL;
+    
+    cout
+    << "1) Add Order\n"
+    << "2) Remove Order\n"
+    << "3) View Order\n"    << endl;
+    cin >> choice;
+    if (choice == 1) {
+        newStoreOrder();
+        cin.ignore();
+        return;
+    }
+    cout << "\nEnter order ID:" << endl;
+    cin >> targetOrderID;
+    targetOrder = transactionsList->Search(targetOrderID);
+    if (!targetOrder) {        //If order does not exist
+        cout << "\nOrder not found in database";
+        cin.ignore();
+        return;
+    }
+    switch (choice) {
+        case 1:
+            //        newStoreOrder(targetOrder);
+            break;
+        case 2:
+            removeTransaction(targetOrder);
+            break;
+        case 3:
+            cout << targetOrder;
+            break;
+        default:
+            cout << "Invalid selection";
+            break;
+    }
+}
 
 void BookStoreSystem::newStoreOrder()
 {
@@ -417,7 +455,9 @@ void BookStoreSystem::newStoreOrder()
 }
 
 
-void BookStoreSystem::removeTransaction(Order<Item*> * targetTransaction)
+void BookStoreSystem::removeTransaction(Order<Item*> * targetOrder)
+//void BookStoreSystem::removeTransaction(StoreOrder * targetOrder)
+
 {
     //transactionsList->RemoveFromList(targetTransaction);
 }
