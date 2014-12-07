@@ -13,4 +13,3 @@ eBook;The Ghost;Apryl Baker;Horror;1.99;532535;NULL;1492156363;Limitless Publish
 Paper Book;I Married a Billionaire;Melanie Marchande;Romance;7.06;525332;867;1482576988;CreateSpace Independent Publishing Platform;238
 Audio Book;I Married a Billionaire;Melanie Marchande;Romance;17.06;492048;837;1482576989;CreateSpace Independent Publishing Platform;MP3
 eBook;I Married a Billionaire;Melanie Marchande;Romance;2.06;835297;NULL;1482576990;CreateSpace Independent Publishing Platform;EPUB
-

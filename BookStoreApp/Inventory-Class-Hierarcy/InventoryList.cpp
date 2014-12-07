@@ -24,7 +24,7 @@ InventoryList::InventoryList( string name, string databasePath):
 
 InventoryList::~InventoryList()
 {
-   //SaveToTextFile();
+   SaveToTextFile();
 
    for( p = ItemList.begin(); p != ItemList.end(); ++p )
    {
@@ -52,9 +52,10 @@ InventoryList::~InventoryList()
 }
 
 void InventoryList::SaveToTextFile() {
+
     ofstream out(DatabasePath, ios::trunc);
-    p = ItemList.begin();
-    while (p != ItemList.end()) {
+    for( p = ItemList.begin(); p != ItemList.end(); ++p )
+    {
         eBook* p1 = dynamic_cast<eBook *> (*p);
         PaperBook* p2 = dynamic_cast<PaperBook*>(*p);
         AudioBook* p3 = dynamic_cast<AudioBook*>(*p);
@@ -88,7 +89,6 @@ void InventoryList::SaveToTextFile() {
             << ";" << p3->getPublisher()
             << ";" << p3->getAudioFormat() << endl;
         }
-        ++p;
     }
     out.close();
 
