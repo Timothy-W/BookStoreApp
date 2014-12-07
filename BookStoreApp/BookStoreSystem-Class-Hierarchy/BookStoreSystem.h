@@ -18,7 +18,6 @@ public:
 
     // 3 constructors
     BookStoreSystem();
-    BookStoreSystem(string storeName, string storeAddress);
     BookStoreSystem(string storeName, string storeAddress, string invPATH, string empPATH, string tranPATH);
     ~BookStoreSystem();
 
@@ -42,7 +41,6 @@ public:
 
 private:
     //Initializes the 3 main vectors
-    void initLists();
     void initLists(string invPATH, string empPATH, string tranPATH);
 
     //These display the 3 main vectors

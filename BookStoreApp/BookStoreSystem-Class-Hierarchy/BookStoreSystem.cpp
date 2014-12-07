@@ -14,10 +14,7 @@ BookStoreSystem::BookStoreSystem()
     transactionsList = new OrderList("Order List", "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/orders.txt", employeeListing, inventory);
 }
 
-BookStoreSystem::BookStoreSystem(string storeName, string storeAddress ) : storeName(storeName), storeAddress(storeAddress)
-{
-    initLists();
-}
+
 
 BookStoreSystem::BookStoreSystem(string storeName, string storeAddress, string invPATH, string empPATH, string tranPATH) : storeName(storeName), storeAddress(storeAddress), invPATH(invPATH), empPATH(empPATH), tranPATH(tranPATH)
 {
@@ -40,21 +37,10 @@ BookStoreSystem::~BookStoreSystem()
 
 }
 
-
-//done
-void BookStoreSystem::initLists()
-{
-	 inventory = new InventoryList("Inventory List", "C:/Users/hh/github/BookStoreApp/BookStoreApp/databases/book-inventory.txt");
-    employeeListing = new EmployeeList("Employee List", "C:/Users/hh/github/BookStoreApp/BookStoreApp/databases/employee-list.txt");
-
-}
 void BookStoreSystem::initLists(string invPATH, string empPATH, string tranPATH)
 {
     inventory = new InventoryList("Inventory List", invPATH);
     employeeListing = new EmployeeList("Employee List", empPATH);
-
-
-
     transactionsList = new OrderList("Transaction List", tranPATH, employeeListing, inventory);
 	 user = login();
 }
@@ -337,19 +323,8 @@ void BookStoreSystem::addToExistingInventory(Item* editableItem){
    eBook * eb = dynamic_cast<eBook  *>(editableItem);
    AudioBook * ap = dynamic_cast<AudioBook *>(editableItem);
    PaperBook * pb = dynamic_cast<PaperBook *>(editableItem);
-<<<<<<< HEAD
 
-   if(eb)
-      cout << eb->getQuantity() << endl;
-   else if(ap)
-      cout << ap->getQuantity() << endl;
-   else if (pb)
-      cout << pb->getQuantity() << endl;
-   if (eb){
-      eb->setQuantity(eb->getQuantity() + reorderQuantity);
-      so = new StoreOrder(editableItem, reorderQuantity, reorderVendor, user);
-=======
-   
+      
    if (eb){
       //cout << "it enters loop";
       newQuantity = eb->getQuantity() + reorderQuantity;
@@ -357,7 +332,6 @@ void BookStoreSystem::addToExistingInventory(Item* editableItem){
       eb->setQuantity(newQuantity);
       //cout << "works till here";
       StoreOrder *so = new StoreOrder(editableItem, reorderQuantity, reorderVendor, user);
->>>>>>> b1c98a8e207fdc0a26dcb3cc5801c3601606a58f
       }
    else if (ap){
       ap->setQuantity(ap->getQuantity() + reorderQuantity);
