@@ -62,32 +62,38 @@ void InventoryList::SaveToTextFile() {
         if (p1 != NULL) {
             out << "eBook;" << p1->getTitle()
             << ";" << p1->getAuthor()
-            << ";" << p1->getGenre()
+            << ";" << p1->getTextForGenre()
             << ";" << p1->GetPrice()
+            << ";" << p1->GetID()
             << ";" << "NULL"
             << ";" << p1->getISBN()
             << ";" << p1->getPublisher()
-            << ";" << p1->getFileFormat() << endl;
+            << ";" << p1->eBookFileFormatText()
+            << "\n";
         }
         else if (p2 != NULL) {
             out << "Paper Book;" << p2->getTitle()
             << ";" << p2->getAuthor()
-            << ";" << p2->getGenre()
+            << ";" << p2->getTextForGenre()
             << ";" << p2->GetPrice()
+            << ";" << p2->GetID()
             << ";" << p2->getQuantity()
             << ";" << p2->getISBN()
             << ";" << p2->getPublisher()
-            << ";" << p2->getNumberOfPages() << endl;
+            << ";" << p2->getNumberOfPages()
+            << "\n";
         }
         else if (p3 != NULL){
             out << "Audio Book;" << p3->getTitle()
             << ";" << p3->getAuthor()
-            << ";" << p3->getGenre()
+            << ";" << p3->getTextForGenre()
             << ";" << p3->GetPrice()
+            << ";" << p3->GetID()
             << ";" << p3->getQuantity()
             << ";" << p3->getISBN()
             << ";" << p3->getPublisher()
-            << ";" << p3->getAudioFormat() << endl;
+            << ";" << p3->audioFileFormatText()
+            << "\n";
         }
     }
     out.close();

@@ -42,9 +42,6 @@ int main()
    OurBookStore->menu();
 
 
-
-   cout << "exitted" << endl;
-
    delete OurBookStore;
 
 

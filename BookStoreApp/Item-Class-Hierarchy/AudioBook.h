@@ -23,7 +23,7 @@ public:
    audioFileFormat getAudioFormat();
    void setAudioFormat(audioFileFormat fileFormat);
 
-   static const string audioFileFormatText(audioFileFormat fileFormat);
+   string audioFileFormatText()const;
    virtual const void DisplayItem();
 
    friend ostream & operator<< (ostream & os, const AudioBook & audioBookRef);

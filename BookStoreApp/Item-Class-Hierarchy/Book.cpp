@@ -73,7 +73,7 @@ bool Book::setPublisher(string publisher)
    return true;
 }
 
-const string Book::getTextForGenre(genreType genre)
+string Book::getTextForGenre()const
 {
    switch (genre)
    {
@@ -93,5 +93,5 @@ const string Book::getTextForGenre(genreType genre)
 const void Book::DisplayItem()
 {
    Product::DisplayItem();
-   cout << ISBN << " " << author << " " << title << " " << getTextForGenre(genre) << " " << publisher << " ";
+   cout << ISBN << " " << author << " " << title << " " << getTextForGenre() << " " << publisher << " ";
 }

@@ -80,7 +80,7 @@ void EmployeeList::SaveToTextFile()
                 << ";" << p2->getAddress()
                 << ";" << "E"
                 << ";" << "Standard"
-                << endl;
+                << "\n";
         }
 
     }
