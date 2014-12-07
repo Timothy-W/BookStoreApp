@@ -148,7 +148,7 @@ void BookStoreSystem::modifyInventory()
    cout << "\nEnter product ID:" << endl;
    cin >> targetProdID;
    targetItem = inventory->SearchID(targetProdID);
-   if (!targetItem)
+   if (targetItem == 0)
    {
       cout << "\nItem not found in database";
       return;

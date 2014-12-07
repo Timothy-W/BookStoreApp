@@ -294,7 +294,7 @@ Item * InventoryList::SearchID(int ID)
       if (GetElementAtPosI(i)->GetID() == ID)
          return GetElementAtPosI(i);
       else
-      cout << "Item ID doesnt exist";
+		cout << "Item ID doesnt exist";
    }
    return NULL;
 }
