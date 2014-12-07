@@ -169,9 +169,8 @@ void BookStoreSystem::modifyInventory()
    if (choice == 1 || choice == 2 || choice == 3){
    cout << "\nEnter product ID:" << endl;
    cin >> targetProdID;
-   if (employeeListing->Search(targetProdID) != 0)         //If Item exists
-      targetItem = inventory->SearchID(targetProdID);
-   else
+   targetItem = inventory->SearchID(targetProdID);
+   if (!targetItem)
    {
       cout << "\nItem not found in database";
       return;
@@ -505,7 +504,6 @@ void BookStoreSystem::newStoreOrder()
    //   transactionsList->AddToList();
 
 }
-//
 void BookStoreSystem::removeTransaction(StoreOrder *  targetOrder)
 {
 	transactionsList->RemoveFromList(targetOrder);
@@ -538,7 +536,7 @@ void BookStoreSystem::modifyEmployees()
     cin >> targetPersonID;
 
     targetPerson = employeeListing->Search(targetPersonID);
-    if (!targetPerson)         //If person does not exist
+    if (targetPerson)         //If person does not exist
     {
         cout << "\nPerson not found in database";
         cin.ignore();
