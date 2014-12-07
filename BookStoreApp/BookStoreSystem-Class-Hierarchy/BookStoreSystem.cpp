@@ -148,7 +148,8 @@ void BookStoreSystem::modifyInventory()
       return;
    }
 
-   if (choice == 1 || choice == 2 || choice == 3){
+   if (choice == 1 || choice == 2 || choice == 3)
+{
    cout << "\nEnter product ID:" << endl;
    cin >> targetProdID;
    targetItem = inventory->SearchID(targetProdID);
@@ -170,6 +171,7 @@ void BookStoreSystem::modifyInventory()
         break;
     case 3:
         viewItem(targetItem);
+		break;
     case 4:
        editableItem = searchInventory();
 //     addToExistingInventory(editableItem);
