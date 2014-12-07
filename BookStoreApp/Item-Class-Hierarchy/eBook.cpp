@@ -11,6 +11,7 @@ eBook::eBook(string Name, int Quantity, double Price, int ISBN, string author, s
 //Destructor
 eBook::~eBook()
 {
+   cout << "eBook deleted" << endl;
 }
 
 //Mutators and Accessors

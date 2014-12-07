@@ -7,7 +7,7 @@ Product(Name, Quantity, Price), ISBN(ISBN), author(author), title(title), genre(
 
 Book::~Book()
 {
-
+   cout << "Book deleted" << endl;
 }
 
 int Book::getISBN()

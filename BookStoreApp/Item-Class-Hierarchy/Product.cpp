@@ -9,7 +9,10 @@ Product::Product(string Name, int Quantity, double Price) : InventoryItem(Name, 
    SetPrice(Price); SetID();
 }
 
-Product::~Product() {}
+Product::~Product() 
+{
+   cout << "Product deleted" << endl;
+}
 
 int Product::GetID()
 { 

@@ -5,7 +5,10 @@ PaperBook::PaperBook(string Name, int Quantity, double Price, int ISBN, string a
                      genreType genre, string publisher, int pageCount) :
                      Book(Name, Quantity, Price, ISBN, author, title, genre, publisher), pageCount(pageCount) {}
 
-PaperBook::~PaperBook() {}
+PaperBook::~PaperBook() 
+{
+   cout << "PaperBook deleted" << endl;
+}
 
 int PaperBook::getNumberOfPages()
 { 

@@ -4,7 +4,10 @@ using namespace std;
 
 Item::Item() {}
 
-Item::~Item() {};
+Item::~Item() 
+{
+   cout << "Item deleted" << endl;
+}
 
 int Item::GetID()
 { 
