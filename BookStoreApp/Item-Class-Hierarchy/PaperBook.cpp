@@ -34,6 +34,7 @@ const void PaperBook::DisplayItem()
 ostream & operator<<(ostream & os, const PaperBook& paperBookRef)
 {
    os << "\nName: " << paperBookRef.ItemType
+	  << "\nProduct ID:" << paperBookRef.ProductID
       << "\nQuantity: " << paperBookRef.Quantity
       << "\nPrice: " << paperBookRef.Price
       << "\nISBN: " << paperBookRef.ISBN

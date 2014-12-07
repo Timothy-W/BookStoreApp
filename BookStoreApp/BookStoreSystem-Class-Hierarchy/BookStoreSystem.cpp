@@ -26,11 +26,12 @@ BookStoreSystem::BookStoreSystem(string storeName, string storeAddress, string i
 
 BookStoreSystem::~BookStoreSystem()
 {
+
+   cout << "Book Store Sytem Deleted" << endl;
    delete transactionsList;
    delete inventory;
    delete employeeListing;
 
-   cout << "\nBook Store Sytem Deleted\n" << endl;
 }
 
 
@@ -151,7 +152,7 @@ void BookStoreSystem::modifyInventory()
    int searchISBN = 0;
    Item* editableItem = NULL;
 
-   cout << "1) Add New Item\n" << endl << "2) Remove Item\n" << endl << "3) View Item\n" << endl << "4) Order Existing Item\n" << endl;
+   cout << "1) Add New Item\n" << endl << "2) Remove Item\n" << endl << "3) View Item\n" << endl << "4) Reorder Existing Item\n" << endl;
    cin >> choice;
    if (choice == 1)
    {
@@ -183,8 +184,6 @@ void BookStoreSystem::modifyInventory()
     case 3:
         cout << targetItem;
     case 4:
-       //cout << "Enter ISBN: ";
-       //cin >> searchISBN;
        editableItem = searchInventory();
        addToExistingInventory(editableItem);
        break;
@@ -319,22 +318,40 @@ Item* BookStoreSystem::searchInventory()
 }
  
 void BookStoreSystem::addToExistingInventory(Item* editableItem){
-   int tempQuantity = 0;
-   cout << "What is the new Quantity: ";
-   cin >> tempQuantity;
+   int reorderQuantity = 0;
+   int employeeID = 0;
+   string reorderVendor = "";
+   StoreOrder *so = NULL;
+ 
+   cout << "How many more are you ordering: ";
+   cin >> reorderQuantity;
+   cout << "Order From: " << endl;
+   cin >> reorderVendor;
    
    eBook * eb = dynamic_cast<eBook  *>(editableItem);
    AudioBook * ap = dynamic_cast<AudioBook *>(editableItem);
    PaperBook * pb = dynamic_cast<PaperBook *>(editableItem);
 
-   if (eb){
-      eb->setQuantity(tempQuantity);
-     }
+   if(eb)
+      cout << eb->getQuantity() << endl;
+   else if(ap)
+      cout << ap->getQuantity() << endl;
+   else if (pb)
+      cout << pb->getQuantity() << endl;
+   /*if (eb){
+      eb->setQuantity(eb->getQuantity() + reorderQuantity);
+      so = new StoreOrder(editableItem, reorderQuantity, reorderVendor, user);
+      }
    else if (ap){
-      ap -> setQuantity(tempQuantity);
+      ap->setQuantity(ap->getQuantity() + reorderQuantity);
+      so = new StoreOrder(editableItem, reorderQuantity, reorderVendor, user);
      }
-   else if(pb){ pb->setQuantity(tempQuantity); }
-   else{ cout << "Check ISBN" << endl; }
+   else if (pb){
+      ap->setQuantity(ap->getQuantity() + reorderQuantity);
+      so = new StoreOrder(editableItem, reorderQuantity, reorderVendor, user);
+   }
+   else{ cout << "Check ISBN" << endl; }*/
+
 }
 
 
@@ -390,14 +407,7 @@ void BookStoreSystem::newStoreOrder()
    int orderNum = 0;
    string date = "";
    string name = "";
-   int employeeID = 0;
-
-   //givenPerson pointer is populated here
-   cout << "Enter Employee ID: ";
-   cin >> employeeID;
-   givenPerson = employeeListing->Search(employeeID);
-
-
+   
    //FIRST THE ITEM NEEDS TO BE CREATED, givenItem is populated
    int quantity;
    int ISBN;
@@ -493,7 +503,7 @@ void BookStoreSystem::newStoreOrder()
    //cout << "Where are you ordering from?" << endl;
    //cin >> name;
 
-   StoreOrder * newStoreOrder = new StoreOrder(givenItem, quantity, orderNum, date, name, givenPerson);
+   StoreOrder * newStoreOrder = new StoreOrder(givenItem, quantity, orderNum, date, name, user);
 
    //   transactionsList->AddToList();
 

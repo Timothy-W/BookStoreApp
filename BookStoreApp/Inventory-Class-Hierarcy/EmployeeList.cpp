@@ -24,7 +24,7 @@ EmployeeList::EmployeeList( string name, string databasePath):
 
 EmployeeList::~EmployeeList()
 {
-   //SaveToTextFile();
+   SaveToTextFile();
    for( p = ItemList.begin(); p != ItemList.end(); ++p )
    {
       if(*p)
@@ -60,8 +60,8 @@ EmployeeList::~EmployeeList()
 void EmployeeList::SaveToTextFile()
 {
     ofstream out(DatabasePath, ios::trunc);
-    p = ItemList.begin();
-    while (p != ItemList.end()) {
+    for( p = ItemList.begin(); p != ItemList.end(); ++p )
+    {
         Manager *p1 = dynamic_cast <Manager *> (*p);
         Employee *p2 = dynamic_cast <Employee *> (*p);
         if (p1 != NULL) {
@@ -71,7 +71,7 @@ void EmployeeList::SaveToTextFile()
                 << ";" << p1->getAddress()
                 << ";" << "M"
                 << ";" << p1->getLevelString()
-                << endl;
+                << "\n";
         }
         else if (p2 != NULL) {
             out << p2->getName()
@@ -82,7 +82,7 @@ void EmployeeList::SaveToTextFile()
                 << ";" << "Standard"
                 << endl;
         }
-        ++p;
+
     }
     out.close();
 }
