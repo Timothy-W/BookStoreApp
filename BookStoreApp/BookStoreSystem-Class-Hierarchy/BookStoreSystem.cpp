@@ -275,9 +275,6 @@ void BookStoreSystem::removeItem(Item * targetItem)
     inventory->RemoveFromList(targetItem);
 } 
 //Seatch the inventory  by author, name, isbn
-<<<<<<< HEAD
- 
-=======
 Item* BookStoreSystem::searchInventory()
 {   
    int searchISBN = 0;
@@ -292,15 +289,15 @@ Item* BookStoreSystem::searchInventory()
    PaperBook * pb = dynamic_cast<PaperBook *>(search);
 
       if (eb){
-         cout << eb << endl;
+         cout << *eb << endl;
          return eb;
       }
       else if (ap){
-         cout << ap << endl;
+         cout << *ap << endl;
          return ap;
       }
       else if (pb){
-         cout << pb << endl;
+         cout << *pb << endl;
          return pb;
       }
       else{ cout << "ISBN not found." << endl; }
@@ -308,7 +305,6 @@ Item* BookStoreSystem::searchInventory()
 }
    
 
->>>>>>> 74fec4146af073be0cc45fd4b2bc6e97e4c4c0aa
 
 //Transaction Interaction
 //Menu
@@ -470,12 +466,11 @@ void BookStoreSystem::newStoreOrder()
    //   transactionsList->AddToList();
 
 }
-//Subtract a new order
+//
 void BookStoreSystem::removeTransaction(StoreOrder *  targetOrder)
 {
 	transactionsList->RemoveFromList(targetOrder);
 }
-//view a particular order
 void BookStoreSystem::viewTransaction(StoreOrder * DAHORDA )
 {
 	cout << DAHORDA;
@@ -565,10 +560,10 @@ void BookStoreSystem::addEmployee()
             return;
         }
         managerlvl = (managerType)managerlvlInt;
-        Person * newGuy = new Manager(age, address, name, NULL, managerlvl);
+        Manager * newGuy = new Manager(age, address, name, NULL, managerlvl);
     }
 
-    Person * newGuy = new Employee(age, address, name, NULL);
+    Employee * newGuy = new Employee(age, address, name, NULL);
 
     employeeListing->AddToList(newGuy);
 
