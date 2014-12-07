@@ -28,9 +28,15 @@ BookStoreSystem::~BookStoreSystem()
 {
 
    cout << "Book Store Sytem Deleted" << endl;
+   //delete transactionsList;
+   //delete inventory;
+   //delete employeeListing;
+
    delete transactionsList;
    delete inventory;
    delete employeeListing;
+
+   cout << "\nBook Store Sytem Deleted\n" << endl;
 
 }
 
@@ -320,7 +326,7 @@ void BookStoreSystem::addToExistingInventory(Item* editableItem){
    int reorderQuantity = 0;
    int employeeID = 0;
    string reorderVendor = "";
-   StoreOrder *so = NULL;
+   int newQuantity = 0;
  
    cout << "How many more are you ordering: ";
    cin >> reorderQuantity;
@@ -330,6 +336,7 @@ void BookStoreSystem::addToExistingInventory(Item* editableItem){
    eBook * eb = dynamic_cast<eBook  *>(editableItem);
    AudioBook * ap = dynamic_cast<AudioBook *>(editableItem);
    PaperBook * pb = dynamic_cast<PaperBook *>(editableItem);
+<<<<<<< HEAD
 
    if(eb)
       cout << eb->getQuantity() << endl;
@@ -337,21 +344,31 @@ void BookStoreSystem::addToExistingInventory(Item* editableItem){
       cout << ap->getQuantity() << endl;
    else if (pb)
       cout << pb->getQuantity() << endl;
-   /*if (eb){
+   if (eb){
       eb->setQuantity(eb->getQuantity() + reorderQuantity);
       so = new StoreOrder(editableItem, reorderQuantity, reorderVendor, user);
+=======
+   
+   if (eb){
+      //cout << "it enters loop";
+      newQuantity = eb->getQuantity() + reorderQuantity;
+      //cout << "addition done";
+      eb->setQuantity(newQuantity);
+      //cout << "works till here";
+      StoreOrder *so = new StoreOrder(editableItem, reorderQuantity, reorderVendor, user);
+>>>>>>> b1c98a8e207fdc0a26dcb3cc5801c3601606a58f
       }
    else if (ap){
       ap->setQuantity(ap->getQuantity() + reorderQuantity);
-      so = new StoreOrder(editableItem, reorderQuantity, reorderVendor, user);
+      StoreOrder *so = new StoreOrder(editableItem, reorderQuantity, reorderVendor, user);
      }
    else if (pb){
       ap->setQuantity(ap->getQuantity() + reorderQuantity);
-      so = new StoreOrder(editableItem, reorderQuantity, reorderVendor, user);
+      StoreOrder *so = new StoreOrder(editableItem, reorderQuantity, reorderVendor, user);
    }
-   else{ cout << "Check ISBN" << endl; }*/
+   else{ cout << "Check ISBN" << endl; }
 
-}
+   }
 
 
 //Transaction Interaction
