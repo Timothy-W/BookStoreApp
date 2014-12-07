@@ -274,30 +274,36 @@ void BookStoreSystem::removeItem(Item * targetItem)
     inventory->RemoveFromList(targetItem);
 } 
 //Seatch the inventory  by author, name, isbn
-void BookStoreSystem::searchInventory() const
-{
-    string input;
-    cout << "Search for Book either by ISBN, title, or author\n";
-    getline(cin, input);
-	cin.ignore();
-    //check if input is a number
-	Manager * mg = dynamic_cast<Manager  *>(targ);
-	Employee * ep = dynamic_cast<Employee *>(targ);
-	Customer * cs = dynamic_cast<Customer *>(targ);
+Item* BookStoreSystem::searchInventory()
+{   
+   int searchISBN = 0;
 
-	if (mg)
-	{
-		cout << "\n" << *mg << "\n";
-	}
-	else if (ep)
-	{
-		cout << "\n" << *ep << "\n";
-	}
-	else if (cs)
-	{
-		cout << "\n" << *cs << "\n";
-	}
-} 
+   cout << "Enter ISBN: ";
+   cin >> searchISBN;
+
+   Item * search = inventory->Search(searchISBN);
+
+   eBook * eb = dynamic_cast<eBook  *>(search);
+   AudioBook * ap = dynamic_cast<AudioBook *>(search);
+   PaperBook * pb = dynamic_cast<PaperBook *>(search);
+
+      if (eb){
+         cout << eb << endl;
+         return eb;
+      }
+      else if (ap){
+         cout << ap << endl;
+         return ap;
+      }
+      else if (pb){
+         cout << pb << endl;
+         return pb;
+      }
+      else{ cout << "ISBN not found." << endl; }
+
+}
+   
+
 
 //Transaction Interaction
 //Menu
