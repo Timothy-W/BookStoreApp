@@ -21,6 +21,7 @@ public:
    StoreOrder* Search(int orderNum);
    virtual void RemoveFromList( StoreOrder * order );
    virtual void DisplayList();
+   void SaveToTextFile();
 
 private:
    string DatabasePath;

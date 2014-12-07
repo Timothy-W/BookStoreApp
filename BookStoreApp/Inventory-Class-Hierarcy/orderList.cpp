@@ -26,6 +26,7 @@ OrderList::OrderList( string name, string databasePath, EmployeeList* employeeLi
 
 OrderList::~OrderList()
 {
+   SaveToTextFile();
    for( p = ItemList.begin(); p != ItemList.end(); ++p )
    {
       if(*p)
@@ -171,6 +172,30 @@ void OrderList::DisplayList()
    }
    
    
+}
+
+void OrderList::SaveToTextFile() // ISBN, emp id, quantity, ordernum, date, orderFrom
+{
+   ofstream out(DatabasePath, ios::trunc);
+   for (p = ItemList.begin(); p != ItemList.end(); ++p)
+   {
+      StoreOrder * tempStorePtr =  static_cast<StoreOrder *>(*p);
+      Person * tempPtr = tempStorePtr->getPerson();
+            
+      Book * tempItem = dynamic_cast<Book *>(tempStorePtr->getItem());
+
+      if (tempStorePtr != NULL)
+      {
+         out << tempItem->getISBN()
+            << ";" << tempPtr->getID()
+            << ";" << tempStorePtr->getOrderQuantity()
+            << ";" << tempStorePtr->getOrderID()
+            << ";" << tempStorePtr->getOrderDate()
+            << ";" << tempStorePtr->getOrderFrom()
+            << endl;
+      }
+   }
+   out.close();
 }
 
 
