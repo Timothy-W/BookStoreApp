@@ -5,6 +5,14 @@ AudioBook::~AudioBook()
    cout << "AudioBook delete" << endl;
 }
 
+AudioBook::AudioBook(string Name, int Quantity, double Price, int ISBN, string author, string title,
+	genreType genre, string publisher, audioFileFormat fileFormat) :
+	Book(Name, Quantity, Price, ISBN, author, title, genre, publisher), fileFormat(fileFormat) {}
+
+AudioBook::AudioBook(string Name, int Quantity, double Price, int ID, int ISBN, string author, string title,
+	genreType genre, string publisher, audioFileFormat fileFormat) :
+	Book(Name, Quantity, Price, ID, ISBN, author, title, genre, publisher), fileFormat(fileFormat) {}
+
 audioFileFormat AudioBook::getAudioFormat()
 { 
    return fileFormat;

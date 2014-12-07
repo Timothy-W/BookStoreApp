@@ -274,9 +274,7 @@ void BookStoreSystem::removeItem(Item * targetItem)
     inventory->RemoveFromList(targetItem);
 } 
 //Seatch the inventory  by author, name, isbn
-<<<<<<< HEAD
- 
-=======
+
 Item* BookStoreSystem::searchInventory()
 {   
    int searchISBN = 0;
@@ -307,7 +305,6 @@ Item* BookStoreSystem::searchInventory()
 }
    
 
->>>>>>> 74fec4146af073be0cc45fd4b2bc6e97e4c4c0aa
 
 //Transaction Interaction
 //Menu

@@ -21,6 +21,7 @@ public:
    //Constructor
    Product();
    Product(string Name, int Quantity, double Price);
+   Product(string Name, int Quantity, double Price,int ID);
 
    //Destructor
    virtual ~Product();
@@ -31,6 +32,7 @@ public:
 
    //Mutators
    bool SetID();
+   void SetID(int ID);
    bool SetPrice(double Price);
 
    //Class member funtions

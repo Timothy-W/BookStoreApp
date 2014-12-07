@@ -2,9 +2,11 @@
 #define BOOK_H
 
 #include "Product.h"
+#include <iostream>
 
 enum genreType { UNKNOWN, SCIENCE_FICTION, MYSTERY, HORROR, ROMANCE };
 
+using namespace std;
 class Book : public Product
 {
 protected:
@@ -17,7 +19,7 @@ protected:
 public:
    Book();
    Book(string Name, int Quantity, double Price, int ISBN, string author, string title, genreType genre, string publisher);
-
+   Book(string Name, int Quantity, double Price, int ID, int ISBN, string author, string title, genreType genre, string publisher);
    virtual ~Book();
 
    int getISBN();

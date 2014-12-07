@@ -4,9 +4,13 @@ using namespace std;
 
 Product::Product() : InventoryItem(), ProductID(SetID()), Price(0.0) {}
 
-Product::Product(string Name, int Quantity, double Price) : InventoryItem(Name, Quantity) 
+Product::Product(string Name, int Quantity, double Price) : InventoryItem(Name, Quantity), Price(Price)
 {
-   SetPrice(Price); SetID();
+	SetID();
+}
+
+Product::Product(string Name, int Quantity, double Price, int ID) : InventoryItem(Name, Quantity), Price(Price), ProductID(ID)
+{
 }
 
 Product::~Product() 
@@ -28,6 +32,11 @@ bool Product::SetID()
 {
    ProductID = generateProductID();
    return true;
+}
+
+void Product::SetID(int ID)
+{
+	ProductID = ID;
 }
 
 bool Product::SetPrice(double Price)
