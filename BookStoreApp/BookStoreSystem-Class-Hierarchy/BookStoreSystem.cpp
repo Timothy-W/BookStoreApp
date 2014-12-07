@@ -34,7 +34,7 @@ void BookStoreSystem::initLists(string invPATH, string empPATH, string tranPATH)
     inventory = new InventoryList("Inventory List", invPATH);
     employeeListing = new EmployeeList("Employee List", empPATH);
     transactionsList = new OrderList("Transaction List", tranPATH, employeeListing, inventory);
-	 user = login();
+	user = login();
 }
 
 //done
@@ -363,22 +363,27 @@ Item* BookStoreSystem::searchInventory()
 //Transaction Interaction
 //Menu
 void BookStoreSystem::modifyTransactions() {
-    
-    int targetOrderID=0;
-    int choice=0;
-    StoreOrder * targetOrder = NULL;
-    
-    cout
-    << "1) Add Order\n"
-    << "2) Remove Order\n"
-    << "3) View Order\n"    << endl;
-    cin >> choice;
 
-    if (choice == 1) {
+	int targetOrderID = 0;
+	int choice = 0;
+	StoreOrder * targetOrder = NULL;
+
+	cout
+		<< "1) Order existing product\n"
+		<< "2) Order non-existant product\n"
+		<< "3) Remove Order\n"
+		<< "4) View Order\n" << endl;
+	cin >> choice;
+	if (choice == 1)
+	{
+		return;
+	}
+    if (choice == 2) {
         newStoreOrder();
         cin.ignore();
         return;
     }
+
     cout << "\nEnter order ID:" << endl;
     cin >> targetOrderID;
     targetOrder = transactionsList->Search(targetOrderID);
@@ -388,13 +393,16 @@ void BookStoreSystem::modifyTransactions() {
         return;
     }
     switch (choice) {
-        case 1:
+		case 1:
+			makeStoreOrder();
+			break;
+        case 2:
             newStoreOrder();
             break;
-        case 2:
+        case 3:
             removeTransaction(targetOrder);
             break;
-        case 3:
+        case 4:
 			cout << targetOrder;
             break;
         default:
@@ -402,11 +410,12 @@ void BookStoreSystem::modifyTransactions() {
             break;
     }
 }
-//create a new order
+//order a New item not in the data base
+void BookStoreSystem::makeStoreOrder(){}
 void BookStoreSystem::newStoreOrder()
 {
    //Some kind of checking to make sure employee adding store order is a manager
-
+	Product * addedProduct;
    Item *	givenItem  = NULL;
    Person *givenPerson = NULL;
 
@@ -457,14 +466,14 @@ void BookStoreSystem::newStoreOrder()
 
    cout << "\nBook author?\n";
    getline(cin, author);
-   cout << "\nBook title?\n?";
+   cout << "\nBook title?\n";
    getline(cin, title);
-   cout << "\nBook genre?\n?"
-      << "0 Unknown\n 1 Science fiction\n 2 Mystery\n 3 Horror\n 4 Romance";
+   cout << "\nBook genre?\n"
+      << "0 Unknown\n 1 Science fiction\n 2 Mystery\n 3 Horror\n 4 Romance" << endl;
    cin >> genreInt;
    genre = (genreType)genreInt;
    cin.ignore();
-   cout << "\nBook publisher?\n?";
+   cout << "\nBook publisher?\n";
    getline(cin, publisher);
 
    if (itemType == 1)
@@ -490,7 +499,7 @@ void BookStoreSystem::newStoreOrder()
    }
    else
    {
-      cout << "\n How many pages in your stupid book??\n";
+      cout << "\n How many pages in your  book??\n";
       cin >> numPages;
       newItem = new PaperBook(bookType, quantity, price, ISBN, author, title, genre, publisher, numPages);
       givenItem = dynamic_cast<Item*>(newItem);
@@ -509,7 +518,10 @@ void BookStoreSystem::newStoreOrder()
    //cout << "Where are you ordering from?" << endl;
    //cin >> name;
 
-   StoreOrder * newStoreOrder = new StoreOrder(givenItem, quantity, orderNum, date, name, user);
+   StoreOrder * newStoreOrder = new StoreOrder(givenItem, quantity, name, user);
+   transactionsList->AddToList(newStoreOrder);
+   addedProduct = dynamic_cast<Product *>(givenItem);
+   addedProduct->setQuantity(addedProduct->getQuantity() + quantity);
 
    //   transactionsList->AddToList();
 
