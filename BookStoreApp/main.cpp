@@ -16,16 +16,16 @@ void welcomeMessage();
 int main()
 {
 
-   //map<string, string> databases;
-   //databases["Book-Inventory"] = "C:/Users/hh/github/BookStoreApp/BookStoreApp/databases/book-inventory.txt";
-   //databases["Employee-List"] = "C:/Users/hh/github/BookStoreApp/BookStoreApp/databases/employee-list.txt";
-   //databases["Order-List"] = "C:/Users/hh/gitHub/BookStoreApp/BookStoreApp/databases/orders.txt";
+   map<string, string> databases;
+   databases["Book-Inventory"] = "C:/Users/hh/github/BookStoreApp/BookStoreApp/databases/book-inventory.txt";
+   databases["Employee-List"] = "C:/Users/hh/github/BookStoreApp/BookStoreApp/databases/employee-list.txt";
+   databases["Order-List"] = "C:/Users/hh/gitHub/BookStoreApp/BookStoreApp/databases/orders.txt";
 
-   map<string,string> databases;
+   /*map<string,string> databases;
    databases["Book-Inventory"] = "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/book-inventory.txt";
    databases["Employee-List"] = "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/employee-list.txt";
    databases["Order-List"] = "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/orders.txt";
-
+*/
    //map<string, string> databases;
    //databases["Book-Inventory"] = "C:\\Important Documents\\School\\CS 2B\\Projects\\BookStoreApp\\BookStoreApp\\databases\\book-inventory.txt";
    //databases["Employee-List"] = "C:\\Important Documents\\School\\CS 2B\\Projects\\BookStoreApp\\BookStoreApp\\databases\\employee-list.txt";

@@ -4,7 +4,8 @@
 #include "EmployeeList.h"
 #include "InventoryList.h"
 #include "OrderList.h"
-
+#include <iostream>
+#include <cctype>
 #include "StoreOrder.h"
 
 #include "Order.h"
@@ -60,7 +61,7 @@ private:
     //TRANSACTIONLIST interaction
     void modifyTransactions();    //add, subtract, edit a Transaction
     void newStoreOrder();
-    void addToExistingInventory(Item* editableItem);
+    //void addToExistingInventory(Item* editableItem);
     void removeTransaction(StoreOrder  * targetTransaction);
 	void viewTransaction(StoreOrder  * targetTransactionn);
 
