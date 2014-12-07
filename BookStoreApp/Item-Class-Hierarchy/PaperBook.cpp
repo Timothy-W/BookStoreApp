@@ -4,6 +4,10 @@ PaperBook::PaperBook() : Book(), pageCount(0) {}
 PaperBook::PaperBook(string Name, int Quantity, double Price, int ISBN, string author, string title,
                      genreType genre, string publisher, int pageCount) :
                      Book(Name, Quantity, Price, ISBN, author, title, genre, publisher), pageCount(pageCount) {}
+PaperBook::PaperBook(string Name, int Quantity, double Price, int ID, int ISBN, string author, string title,
+	genreType genre, string publisher, int pageCount) :
+	Book(Name, Quantity, Price, ID, ISBN, author, title, genre, publisher), pageCount(pageCount) {}
+
 
 PaperBook::~PaperBook() 
 {

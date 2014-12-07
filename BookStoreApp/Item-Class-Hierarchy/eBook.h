@@ -13,9 +13,12 @@ private:
 public:
    //Constructors
    eBook();
-   eBook(string Name, int Quantity, double Price,
+   eBook(string Name, int Quantity, double Price, int ID,
       int ISBN, string author, string title,
       genreType genre, string publisher, eBookFileFormat fileFormat);
+   eBook(string Name, int Quantity, double Price,
+	   int ISBN, string author, string title,
+	   genreType genre, string publisher, eBookFileFormat fileFormat);
 
    //Destructor
    virtual ~eBook();

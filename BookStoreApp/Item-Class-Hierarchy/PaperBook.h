@@ -10,8 +10,11 @@ private:
 public:
    //Constructors
    PaperBook();
-   PaperBook(string Name, int Quantity, double Price, int ISBN, string author, string title,
+   PaperBook(string Name, int Quantity, double Price, int ID, int ISBN, string author, string title,
       genreType genre, string publisher, int pageCount);
+   PaperBook(string Name, int Quantity, double Price, int ISBN, string author, string title,
+	   genreType genre, string publisher, int pageCount);
+
 
    //Destructor
    virtual ~PaperBook();

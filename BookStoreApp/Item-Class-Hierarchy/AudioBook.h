@@ -13,9 +13,9 @@ protected:
 public:
    AudioBook() : Book(), fileFormat(UNKNOWN_AUDIO) {}
    AudioBook(string Name, int Quantity, double Price, int ISBN, string author, string title,
-                        genreType genre, string publisher, audioFileFormat fileFormat) : 
-                        Book(Name, Quantity, Price, ISBN, author, title, genre, publisher), fileFormat(fileFormat) {}
-
+	   genreType genre, string publisher, audioFileFormat fileFormat);
+   AudioBook(string Name, int Quantity, double Price, int ID, int ISBN, string author, string title,
+	   genreType genre, string publisher, audioFileFormat fileFormat);
    //Destructor
    virtual ~AudioBook();
 
