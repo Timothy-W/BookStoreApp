@@ -1,16 +1,12 @@
-
-
+/*
+ OrderList.cpp
+ */
 
 
 #include "OrderList.h"
 
 
 OrderList::OrderList(): List<StoreOrder *>(), DatabasePath(""){}
-
-
-
-
-
 
 OrderList::OrderList( string name, string databasePath, EmployeeList* employeeList, InventoryList* inventory):
    List<StoreOrder *>(name), DatabasePath(databasePath)
@@ -20,9 +16,6 @@ OrderList::OrderList( string name, string databasePath, EmployeeList* employeeLi
    this->BuildFromDatabase();
 
 }
-
-
-
 
 OrderList::~OrderList()
 {
@@ -39,9 +32,6 @@ OrderList::~OrderList()
    }
 
 }
-
-
-
 
 void OrderList::BuildFromDatabase()
 {
@@ -102,9 +92,6 @@ void OrderList::BuildFromDatabase()
    
 }
 
-
-
-
 StoreOrder* OrderList::Search(int orderNum)
 {
 
@@ -118,9 +105,6 @@ StoreOrder* OrderList::Search(int orderNum)
    
 }
 
-
-
-
 void OrderList::RemoveFromList( StoreOrder * order )
 {
    for (int i = 0; i < ItemList.size(); i++)
@@ -131,10 +115,6 @@ void OrderList::RemoveFromList( StoreOrder * order )
 
 }
 
-
-
-
-
 void OrderList::SetDatabasePath( string path )
 {
 
@@ -142,21 +122,12 @@ void OrderList::SetDatabasePath( string path )
 
 }
 
-
-
-
-
-
 string OrderList::GetDatabasePath() const
 {
 
    return DatabasePath;
    
 }
-
-
-
-
 
 void OrderList::DisplayList()
 {
@@ -178,8 +149,6 @@ void OrderList::SaveToTextFile() // ISBN, emp id, quantity, ordernum, date, orde
    ofstream out(DatabasePath, ios::trunc);
    for (p = ItemList.begin(); p != ItemList.end(); ++p)
    {
-
-
       StoreOrder * tempStorePtr =  static_cast<StoreOrder *>(*p);
       Person * tempPtr = tempStorePtr->getPerson();
             

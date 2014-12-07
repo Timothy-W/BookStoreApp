@@ -1,14 +1,18 @@
-
+/*
+ EmployeeList.h
+ List of all the employees. Defines functions to display the list,
+ search through the list, remove from the list, etc.
+ */
 
 #ifndef EmployeeList_H
 #define EmployeeList_H
 
 
 #include "List.h"
-#include "../Person-Class-Hierarchy/Person.h"
-#include "../Person-Class-Hierarchy/Employee.h"
-#include "../Person-Class-Hierarchy/Manager.h"
-#include "../Person-Class-Hierarchy/Customer.h"
+#include "Person.h"
+#include "Employee.h"
+#include "Manager.h"
+#include "Customer.h"
 #include <fstream>
 
 

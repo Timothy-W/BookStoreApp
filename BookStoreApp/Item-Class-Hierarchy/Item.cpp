@@ -1,3 +1,7 @@
+/*
+Item.cpp
+ */
+
 #include "Item.h"
 
 using namespace std;
@@ -14,7 +18,7 @@ int Item::GetID()
    return -1;
 }
 
-void const Item::DisplayItem()             //take no parameter and return nothing.Default implementation is to display an empty string(“”).
+void const Item::DisplayItem()             //take no parameter and return nothing. Default implementation is to display an empty string(“”).
 {
    cout << "" << endl;
 }

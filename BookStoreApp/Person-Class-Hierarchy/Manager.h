@@ -1,7 +1,12 @@
-#pragma once
-#include "Employee.h"
-#include "../Item-Class-Hierarchy/Item.h"
+/*
+Manager.h
+*/
 
+#ifndef Manager_H
+#define Manager_H
+
+#include "Employee.h"
+#include "Item.h"
 
 enum managerType { shift_manager, store_manager, VP, CEO };
 
@@ -17,10 +22,10 @@ public:
 
     void setLevel(managerType lvl);
     managerType getLevel() const;
-    string getLevelString() const;
-	
+    string getLevelString() const;	
 
     friend ostream& operator<<(ostream& os, const Manager& man);
     void editItem(Item &Item);
 };
 
+#endif

@@ -1,3 +1,7 @@
+/*
+ Person.cpp
+ */
+
 #include "Person.h"
 
 Person::Person() : age(0), address(""), name("")
@@ -13,18 +17,15 @@ int Person::getAge() const
     return age;
 }
 
-
 void Person::setAge(int age)
 {
     this->age = age;
 }
 
-
 void Person::setAddress(string address)
 {
     this->address = address;
 }
-
 
 string Person::getAddress() const
 {

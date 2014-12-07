@@ -1,3 +1,7 @@
+/*
+ eBook.cpp
+ */
+
 #include "eBook.h"
 
 eBook::eBook() : Book(), fileFormat(UNKNOWN_EBOOK) 

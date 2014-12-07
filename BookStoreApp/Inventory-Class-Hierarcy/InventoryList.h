@@ -1,11 +1,18 @@
-#pragma once
+/*
+ InventoryList.h
+ List of all the items in the inventory. Defines functions to display the list, 
+ search through the list, remove from the list, etc.
+ */
+
+#ifndef InventoryList_H
+#define InventoryList_H
 
 #include "List.h"
-#include "../Item-Class-Hierarchy/Item.h"
-#include "../Item-Class-Hierarchy/Book.h"
-#include "../Item-Class-Hierarchy/PaperBook.h"
-#include "../Item-Class-Hierarchy/AudioBook.h"
-#include "../Item-Class-Hierarchy/eBook.h"
+#include "Item.h"
+#include "Book.h"
+#include "PaperBook.h"
+#include "AudioBook.h"
+#include "eBook.h"
 #include <fstream>
 #include <string>
 
@@ -32,3 +39,7 @@ private:
    void AudioFormat(audioFileFormat& abFormat, string identifier);
    void EbookFormat(eBookFileFormat& ebFormat, string identifier);
 };
+
+#endif
+
+

@@ -1,8 +1,11 @@
  /*
-   Main entry point for the app
+BookStoreSystem.cpp
+Main entry point for the app
 */
+
 #include "BookStoreSystem.h"
 #define MAX_LOGIN_ATTEMPTS 3
+
 
 BookStoreSystem::BookStoreSystem()
 {
@@ -10,8 +13,6 @@ BookStoreSystem::BookStoreSystem()
     employeeListing = new EmployeeList("Employee List", "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/employee-list.txt");
     transactionsList = new OrderList("Order List", "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/orders.txt", employeeListing, inventory);
 }
-
-
 
 BookStoreSystem::BookStoreSystem(string storeName, string storeAddress, string invPATH, string empPATH, string tranPATH) : storeName(storeName), storeAddress(storeAddress), invPATH(invPATH), empPATH(empPATH), tranPATH(tranPATH)
 {
@@ -28,7 +29,6 @@ BookStoreSystem::~BookStoreSystem()
    delete transactionsList;
    delete inventory;
    delete employeeListing;
-
    cout << "\nBook Store Sytem Deleted\n" << endl;
 
 }
@@ -41,7 +41,6 @@ void BookStoreSystem::initLists(string invPATH, string empPATH, string tranPATH)
 	user = login();
 }
 
-//done
 Person * BookStoreSystem::login() 
 {
 	Person * loginPerson = NULL;
@@ -72,7 +71,7 @@ void BookStoreSystem::menu()
             << "2) Display Transactions\n"
             << "3) Display Inventory\n\n"
             << "4) Edit Employees\n"             //using Employee I.D.
-            << "5) Edit Transactions \n"        //using Transaction I.D.
+            << "5) Edit Transactions \n"         //using Transaction I.D.
             << "6) Edit Inventory\n"             //using product I.D.
             << "7) Search Inventory\n"
             << "(q to quit)\n"
@@ -87,7 +86,7 @@ void BookStoreSystem::menu()
                 showTransactions();         //Show Transactions
                 break;
             case '3':
-                showInventory();           //DONE
+                showInventory();            //DONE
                 break;
             case '4':
                 modifyEmployees();		
@@ -119,14 +118,17 @@ void BookStoreSystem::showInventory() const
 {
    inventory->DisplayList();
 }
+
 void BookStoreSystem::showTransactions() const
 {
    transactionsList->DisplayList();
 }
+
 void BookStoreSystem::showEmployees() const
 {
    employeeListing->DisplayList();
 }
+
 
 // Below methods modify the vectors
 
@@ -180,7 +182,8 @@ void BookStoreSystem::modifyInventory()
         cout << "Invalid selection";
         break;
     }
-}	
+}
+
 //add a new item
 void BookStoreSystem::addItem()
 {
@@ -264,12 +267,14 @@ void BookStoreSystem::addItem()
         newItem = new PaperBook(bookType, quantity, price, ISBN, author, title, genre, publisher, numPages);
     }
     inventory->AddToList(newItem);
-} 
+}
+
 //remove an item
 void BookStoreSystem::removeItem(Item * targetItem)
 {
     inventory->RemoveFromList(targetItem);
 }
+
 void BookStoreSystem::viewItem(Item * targItem)
 {
 	AudioBook * ab = dynamic_cast<AudioBook  *>(targItem);
@@ -416,6 +421,7 @@ void BookStoreSystem::modifyTransactions() {
             break;
     }
 }
+
 //order a New item not in the data base
 void BookStoreSystem::makeStoreOrder(){}
 void BookStoreSystem::newStoreOrder()
@@ -512,18 +518,7 @@ void BookStoreSystem::newStoreOrder()
    }
 
    //givenItem is populated
-
-
-
-
-   //cout << "What is the Order ID?" << endl;                  //This needs to be changed
-   //cin >> orderNum;
-
-   //cout << "What is the date?" << endl;                     //This needs to be changed
-   //cin >> date;
-   //cout << "Where are you ordering from?" << endl;
-   //cin >> name;
-
+    
    StoreOrder * newStoreOrder = new StoreOrder(givenItem, quantity, name, user);
    transactionsList->AddToList(newStoreOrder);
    addedProduct = dynamic_cast<Product *>(givenItem);
@@ -532,10 +527,12 @@ void BookStoreSystem::newStoreOrder()
    //   transactionsList->AddToList();
 
 }
+
 void BookStoreSystem::removeTransaction(StoreOrder *  targetOrder)
 {
 	transactionsList->RemoveFromList(targetOrder);
 }
+
 void BookStoreSystem::viewTransaction(StoreOrder * DAHORDA )
 {
 	cout << DAHORDA;

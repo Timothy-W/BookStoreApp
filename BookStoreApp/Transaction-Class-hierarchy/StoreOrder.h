@@ -1,7 +1,6 @@
-//
-//  StoreOrder.h
-//  Team Project
-//
+/*
+StoreOrder.h
+*/
 
 #ifndef StoreOrder_H
 #define StoreOrder_H

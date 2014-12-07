@@ -1,3 +1,8 @@
+/*
+ PaperBook.h
+ */
+
+
 #ifndef PAPERBOOK_H
 #define PAPERBOOK_H
 
@@ -14,7 +19,6 @@ public:
       genreType genre, string publisher, int pageCount);
    PaperBook(string Name, int Quantity, double Price, int ISBN, string author, string title,
 	   genreType genre, string publisher, int pageCount);
-
 
    //Destructor
    virtual ~PaperBook();

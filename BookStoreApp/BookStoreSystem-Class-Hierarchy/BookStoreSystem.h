@@ -1,3 +1,13 @@
+/*
+ BookStoreSystem.h
+ Main entry point for the app. Displays the menu and defines functions to show 
+ the entire inventory or add/remove/view an item/order/employee to/from/in the
+ corresponding inventories.
+ */
+
+#ifndef BookStoreSystem_H
+#define BookStoreSystem_H
+
 #include "Manager.h"
 #include "Item.h"
 #include "StoreOrder.h"
@@ -7,7 +17,6 @@
 #include <iostream>
 #include <cctype>
 #include "StoreOrder.h"
-
 #include "Order.h"
 #include <string>
 #include <iostream>
@@ -26,7 +35,7 @@ protected:
 
     InventoryList * inventory;
     EmployeeList  * employeeListing;
-    OrderList * transactionsList; //RENAME TO TransactionList * ....
+    OrderList * transactionsList;
     
     Person * user = NULL;
     string storeName;
@@ -49,15 +58,14 @@ private:
     void showTransactions() const;
     void showEmployees() const;
 
-
     //INVENTORYLIST   interaction
-    void modifyInventory();       //add, subtract, edit an Item
-    void addItem();             //add item
-    void removeItem(Item * targetItem);          //subtract Item
+    void modifyInventory();               //add, subtract, edit an Item
+    void addItem();                       //add item
+    void removeItem(Item * targetItem);   //subtract Item
 	void viewItem(Item *);
     Item* searchInventory();
 
-    //TRANSACTIONLIST interaction
+    //ORDERLIST interaction
     void modifyTransactions();    //add, subtract, edit a Transaction
 	void makeStoreOrder();
 	void newStoreOrder();
@@ -72,9 +80,11 @@ private:
     void viewEmployee(Person * employee);
     
     //Time did not permit
-
-		/*void editItem(Item * targetItem);            
-		void editTransaction(Order<Item *> * targetTransaction);
-		void editEmployee(Person * targetPerson);*/
+	/*void editItem(Item * targetItem);
+	void editTransaction(Order<Item *> * targetTransaction);
+    void editEmployee(Person * targetPerson);*/
 
 };
+
+#endif
+

@@ -1,3 +1,7 @@
+/*
+InventoryItem.cpp
+ */
+
 #include "InventoryItem.h"
 
 InventoryItem::InventoryItem() : ItemType(""), Quantity(0) {}

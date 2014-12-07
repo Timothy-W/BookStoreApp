@@ -1,3 +1,7 @@
+/*
+Book.cpp
+*/
+
 #include "Book.h"
 
 Book::Book() : Product(), ISBN(0), author(""), title(""), genre(UNKNOWN), publisher("") {}
@@ -6,9 +10,6 @@ Book::Book(string Name, int Quantity, double Price, int ISBN, string author, str
 Product(Name, Quantity, Price), ISBN(ISBN), author(author), title(title), genre(genre), publisher(publisher) {}
 
 Book::Book(string Name, int Quantity, double Price, int ID ,int ISBN, string author, string title, genreType genre, string publisher) :Product(Name, Quantity, Price, ID), ISBN(ISBN), author(author), title(title), genre(genre), publisher(publisher) {}
-
-
-
 
 Book::~Book()
 {

@@ -1,4 +1,7 @@
-
+/*
+ List.h
+ A class template for the three inventory lists. Parent for list of items/orders/employees.
+ */
 
 #ifndef List_H
 #define List_H
@@ -10,38 +13,33 @@ using namespace std;
 template <class T>
 class List{
 
-public:
+    public:
 
-   List();
-   List( string name );
-   List( string name, T array[], int arrayLength );
-   virtual ~List();
-   void AddToList( T item );
-   virtual void RemoveFromList( T item );
-   virtual void DisplayList();
-   string GetListName() const;
-   void SetListName( string name );
-   int GetListCount() const;
-   T GetElementAtPosI(int i) const;
+        List();
+        List( string name );
+        List( string name, T array[], int arrayLength );
+        virtual ~List();
+        void AddToList( T item );
+        virtual void RemoveFromList( T item );
+        virtual void DisplayList();
+        string GetListName() const;
+        void SetListName( string name );
+        int GetListCount() const;
+        T GetElementAtPosI(int i) const;
 
-
-protected:
-   string ListName;
-   int ItemCount;
-   vector<T> ItemList;
-   typename vector<T>::iterator p;
+    protected:
+        string ListName;
+        int ItemCount;
+        vector<T> ItemList;
+        typename vector<T>::iterator p;
 };
 
 
 template <class T>
 List<T>::List():ListName(""), ItemCount(0), ItemList(NULL){}
 
-
-
 template <class T>
 List<T>::List( string name ):ListName(name), ItemCount(0), ItemList(NULL){}
-
-
 
 template <class T>
 List<T>::List( string name, T array[], int arrayLength ):ListName(name)
@@ -57,14 +55,11 @@ List<T>::List( string name, T array[], int arrayLength ):ListName(name)
 
 }
 
-
 template <class T>
 List<T>::~List()
 {
    cout << "\nList " << this->ListName <<  " was destroyed\n";
 }
-
-
 
 template <class T>
 void List<T>::AddToList( T item )
@@ -73,9 +68,6 @@ void List<T>::AddToList( T item )
    ItemList.push_back( item );
 
 }
-
-
-
 
 template <class T>
 void List<T>::RemoveFromList( T item )
@@ -92,7 +84,6 @@ void List<T>::RemoveFromList( T item )
 
 }
 
-
 template <class T>
 void List<T>::DisplayList()
 {
@@ -104,17 +95,12 @@ void List<T>::DisplayList()
    
 }
 
-
-
-
 template <class T>
 string List<T>::GetListName() const
 {
-
    return ListName;
 
 }
-
 
 template <class T>
 void List<T>::SetListName( string name )
@@ -124,9 +110,6 @@ void List<T>::SetListName( string name )
 
 }
 
-
-
-
 template <class T>
 int List<T>::GetListCount() const
 {
@@ -135,13 +118,11 @@ int List<T>::GetListCount() const
  
 }
 
-
-
 template <class T>
 T List<T>::GetElementAtPosI(int I) const
 {
    return ItemList[I];
 }
 
-
 #endif
+

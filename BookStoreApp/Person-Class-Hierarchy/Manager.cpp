@@ -1,3 +1,7 @@
+/*
+ Manager.cpp
+ */
+
 #include "Manager.h"
 #include <string>
 

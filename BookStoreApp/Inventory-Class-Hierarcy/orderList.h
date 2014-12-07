@@ -1,3 +1,9 @@
+/*
+ OrderList.h
+ List of all the orders. Defines functions to display the list,
+ search through the list, remove from the list, etc.
+ */
+
 #ifndef ORDER_LIST_H
 #define ORDER_LIST_H
 

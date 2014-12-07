@@ -1,3 +1,7 @@
+/*
+ InventoryItem.h
+ */
+
 #ifndef INVENTORYITEM_H
 #define INVENTORYITEM_H
 

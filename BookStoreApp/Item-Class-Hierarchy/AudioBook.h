@@ -1,3 +1,7 @@
+/*
+ AudioBook.h
+ */
+
 #ifndef AUDIOBOOK_H
 #define AUDIOBOOK_H
 
@@ -16,7 +20,6 @@ public:
 	   genreType genre, string publisher, audioFileFormat fileFormat);
    AudioBook(string Name, int Quantity, double Price, int ID, int ISBN, string author, string title,
 	   genreType genre, string publisher, audioFileFormat fileFormat);
-   //Destructor
    virtual ~AudioBook();
 
    //Mutators and Accessors

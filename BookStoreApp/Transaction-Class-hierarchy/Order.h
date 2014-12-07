@@ -1,10 +1,10 @@
-//
-//  Order.h, Order.cpp
-//  Team Project
-
+/*
+Order.h, contains the declaration and definition of the Order class template.
+ */
 
 #ifndef Order_H
 #define Order_H
+
 #define _CRT_SECURE_NO_WARNINGS
 #include <string>
 #include <iostream>
@@ -34,7 +34,6 @@ class Order {
         int getOrderID() const;
         string getOrderDate() const;
 };
-
 
 
 template <class T>

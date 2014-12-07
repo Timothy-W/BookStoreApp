@@ -1,15 +1,11 @@
-
-
+/*
+ EmployeeList.cpp
+ */
 
 
 #include "EmployeeList.h"
 
 EmployeeList::EmployeeList(): List(), DatabasePath(""){}
-
-
-
-
-
 
 EmployeeList::EmployeeList( string name, string databasePath):
    List(name), DatabasePath(databasePath)
@@ -19,9 +15,6 @@ EmployeeList::EmployeeList( string name, string databasePath):
 
 
 }
-
-
-
 
 EmployeeList::~EmployeeList()
 {
@@ -36,8 +29,6 @@ EmployeeList::~EmployeeList()
    }
 
 }
-
-
 
 void EmployeeList::SaveToTextFile()
 {
@@ -68,9 +59,6 @@ void EmployeeList::SaveToTextFile()
     }
     out.close();
 }
-
-
-
 
 void EmployeeList::BuildFromDatabase()
 {
@@ -133,8 +121,6 @@ void EmployeeList::BuildFromDatabase()
    
 }
 
-
-
 void EmployeeList::RemoveFromList( Person* person )
 {
     for (int i = 0; i < ItemList.size(); i++)
@@ -145,10 +131,6 @@ void EmployeeList::RemoveFromList( Person* person )
 
 }
 
-
-
-
-
 void EmployeeList::SetDatabasePath( string path )
 {
 
@@ -156,16 +138,12 @@ void EmployeeList::SetDatabasePath( string path )
    
 }
 
-
-
-
 string EmployeeList::GetDatabasePath() const
 {
 
    return DatabasePath;
 
 }
-
 
 Person* EmployeeList::Search( int employeeID )
 {
@@ -194,9 +172,6 @@ Person* EmployeeList::Search( int employeeID )
 
 }
 
-
-
-
 void EmployeeList::ManagerType(managerType& managerLevel, string identifier)
 {
    if( identifier == "Shift Manager" )
@@ -210,7 +185,6 @@ void EmployeeList::ManagerType(managerType& managerLevel, string identifier)
 }
 
 
-//Added this guy
 void EmployeeList::DisplayList()
 {
 
@@ -240,5 +214,5 @@ void EmployeeList::DisplayList()
         }
     }
 
-
 }
+

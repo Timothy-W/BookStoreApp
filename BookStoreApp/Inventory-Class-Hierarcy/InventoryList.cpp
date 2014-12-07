@@ -1,15 +1,11 @@
-
-
+/*
+ InventoryList.cpp
+ */
 
 #include "Book.h"
 #include "InventoryList.h"
 
 InventoryList::InventoryList(): List(), DatabasePath(""){}
-
-
-
-
-
 
 InventoryList::InventoryList( string name, string databasePath):
    List(name), DatabasePath(databasePath)
@@ -18,9 +14,6 @@ InventoryList::InventoryList( string name, string databasePath):
    this->BuildFromDatabase();
 
 }
-
-
-
 
 InventoryList::~InventoryList()
 {
@@ -84,7 +77,6 @@ void InventoryList::SaveToTextFile() {
     out.close();
 
 }
-
 
 void InventoryList::BuildFromDatabase()
 {
@@ -177,7 +169,6 @@ void InventoryList::BuildFromDatabase()
    
 }
 
-
 /*overwrties the templates RemoveFromList so it deletes the pointer as well*/
 void InventoryList::RemoveFromList( Item* item )
 {
@@ -188,8 +179,6 @@ void InventoryList::RemoveFromList( Item* item )
          ItemList.erase(ItemList.begin() + i);
    }
 }
-
-
 
 vector<Item*> InventoryList::Search( string bookProperty )
 {
@@ -221,13 +210,11 @@ vector<Item*> InventoryList::Search( string bookProperty )
 
       }
 
-
    }
 
    return temp;
 
 }
-
 
 
 Item * InventoryList::Search( int isbn )
@@ -257,7 +244,6 @@ Item * InventoryList::Search( int isbn )
          return ab;
          
       }
-      
       
    }
    
@@ -294,13 +280,11 @@ Item * InventoryList::SearchID(int ID)
 
       }
       
-      
    }
    
    return NULL;
    
 }
-
 
 
 void InventoryList::Genre(genreType& bGenre, string identifier)
@@ -318,8 +302,6 @@ void InventoryList::Genre(genreType& bGenre, string identifier)
 }
 
 
-
-
 void InventoryList::AudioFormat(audioFileFormat& abFormat, string identifier)
 {
    if( identifier == "MP3" )
@@ -327,8 +309,6 @@ void InventoryList::AudioFormat(audioFileFormat& abFormat, string identifier)
    else
       abFormat = UNKNOWN_AUDIO;
 }
-
-
 
 
 void InventoryList::EbookFormat(eBookFileFormat& ebFormat, string identifier)
@@ -342,15 +322,12 @@ void InventoryList::EbookFormat(eBookFileFormat& ebFormat, string identifier)
 }
 
 
-
 void InventoryList::SetDatabasePath( string path )
 {
 
    DatabasePath = path;
 
 }
-
-
 
 
 string InventoryList::GetDatabasePath() const

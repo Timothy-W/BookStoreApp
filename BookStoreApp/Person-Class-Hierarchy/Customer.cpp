@@ -1,3 +1,7 @@
+/*
+ Customer.cpp
+ */
+
 #include "Customer.h"
 #include <string>
 

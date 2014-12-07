@@ -1,3 +1,7 @@
+/*
+ Product.h
+ */
+
 #ifndef PRODUCT_H
 #define PRODUCT_H
 
@@ -6,9 +10,7 @@
 #include <fstream>
 #include <sstream>
 #include <iomanip>
-
 #include "InventoryItem.h"
-
 using namespace std;
 
 class Product : public InventoryItem //derived from InventoryItem class 

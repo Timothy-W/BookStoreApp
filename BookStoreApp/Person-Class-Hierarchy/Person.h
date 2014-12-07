@@ -1,4 +1,10 @@
-#pragma once
+/*
+ Person.h
+ */
+
+#ifndef Person_H
+#define Person_H
+
 #include <iostream>
 
 enum personType{MANAGER, EMPLOYEE, CUSTOMER};
@@ -11,7 +17,7 @@ public:
     virtual ~Person();
 protected:
     int age; //day of birth MMDDYYYY
-    string address; //
+    string address; 
     string name; // First Last
 
 public:
@@ -26,3 +32,7 @@ public:
 
     virtual int getID() const { return -1; };
 };
+
+#endif
+
+

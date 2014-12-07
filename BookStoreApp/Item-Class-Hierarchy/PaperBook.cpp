@@ -1,3 +1,7 @@
+/*
+PaperBook.cpp
+*/
+
 #include "PaperBook.h"
 
 PaperBook::PaperBook() : Book(), pageCount(0) {}
