@@ -15,7 +15,11 @@ BookStoreSystem::BookStoreSystem()
 
 BookStoreSystem::BookStoreSystem(string storeName, string storeAddress, string invPATH, string empPATH, string tranPATH) : storeName(storeName), storeAddress(storeAddress), invPATH(invPATH), empPATH(empPATH), tranPATH(tranPATH)
 {
-	initLists(invPATH, empPATH, tranPATH);
+   try{
+      initLists(invPATH, empPATH, tranPATH);
+   }catch(string e){
+      throw;
+   }
 }
 
 BookStoreSystem::~BookStoreSystem()

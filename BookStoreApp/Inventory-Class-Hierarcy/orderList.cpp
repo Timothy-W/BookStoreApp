@@ -46,8 +46,8 @@ OrderList::~OrderList()
 void OrderList::BuildFromDatabase()
 {
 
-   if( DatabasePath != "" )
-   {
+   try{
+      
       ifstream inventoryFile(DatabasePath);
       string orderedFrom, orderType, buffer, date;
       int employeeID, isbn, quantity, orderNum;
@@ -55,8 +55,7 @@ void OrderList::BuildFromDatabase()
       Item* item;
 
       if ( !inventoryFile ) {
-         cerr << "ERROR: Failed to open input file\n";
-         exit(-1);
+         throw this->GetListName();
       }
 
       while ( getline (inventoryFile, buffer, ';') )
@@ -94,11 +93,11 @@ void OrderList::BuildFromDatabase()
       inventoryFile.close();
       
    }
-   else
+   catch(string e)
    {
-      
-      cout << "\nDatabase Path not set\n";
-      
+
+      throw;
+
    }
    
 }

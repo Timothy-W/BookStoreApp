@@ -30,22 +30,7 @@ InventoryList::~InventoryList()
    {
       if(*p)
       {
-         eBook* eb = dynamic_cast<eBook *> (*p);
-         PaperBook* pb = dynamic_cast<PaperBook*>(*p);
-         AudioBook* ab = dynamic_cast<AudioBook*>(*p);
-         cout << "\nDeleteing Inventory Item:\n";
-         if(eb)
-         {
-            delete eb;
-         }
-         if(pb)
-         {
-            delete pb;
-         }
-         if(ab)
-         {
-            delete ab;
-         }
+         delete *p;
       }
       *p = NULL;
    }
@@ -104,8 +89,7 @@ void InventoryList::SaveToTextFile() {
 void InventoryList::BuildFromDatabase()
 {
 
-   if( DatabasePath != "" )
-   {
+   try{
 
       ifstream inventoryFile(DatabasePath);
       string productType, author, title, genre, publisher, audioFormat, ebookFormat, buffer;
@@ -114,11 +98,10 @@ void InventoryList::BuildFromDatabase()
       genreType bGenre;
       audioFileFormat abFormat;
       eBookFileFormat ebFormat;
-	  int ID;
-      cout << DatabasePath << endl;
+	   int ID;
+      
       if ( !inventoryFile ) {
-         cerr << "ERROR: Failed to open input file\n";
-         exit(-1);
+         throw this->GetListName();
       }
 
       while ( getline (inventoryFile, buffer, ';') )
@@ -185,10 +168,10 @@ void InventoryList::BuildFromDatabase()
       inventoryFile.close();
 
    }
-   else
+   catch(string e)
    {
 
-      cout << "\nDatabase Path not set\n";
+      throw;
 
    }
    
@@ -199,13 +182,11 @@ void InventoryList::BuildFromDatabase()
 void InventoryList::RemoveFromList( Item* item )
 {
 
-   for( p = ItemList.begin(); p != ItemList.end(); p++ )
+   for (int i = 0; i < ItemList.size(); i++)
    {
-      if(*p == item)
-	  {
-         ItemList.erase(p);
-         --ItemCount;
-      }
+      if (ItemList.at(i) == item)
+         delete item;
+         ItemList.erase(ItemList.begin() + i);
    }
 
 }

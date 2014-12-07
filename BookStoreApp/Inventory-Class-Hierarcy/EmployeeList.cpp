@@ -17,6 +17,7 @@ EmployeeList::EmployeeList( string name, string databasePath):
 
    this->BuildFromDatabase();
 
+
 }
 
 
@@ -29,26 +30,7 @@ EmployeeList::~EmployeeList()
    {
       if(*p)
       {
-         Manager  * mg  = dynamic_cast<Manager *>(*p);
-         Employee * ep = dynamic_cast<Employee *>(*p);
-         Customer * cs = dynamic_cast<Customer *>(*p);
-         cout << "Deleting Employee:";
-
-         if(mg)
-         {
-            cout << *mg << endl;
-            delete mg;
-         }
-         else if(ep)
-         {
-            cout << *ep << endl;
-            delete ep;
-         }
-         else if(cs)
-         {
-            cout << *ep << endl;
-            delete ep;
-         }
+         delete *p;
       }
       *p = NULL;
    }
@@ -93,8 +75,7 @@ void EmployeeList::SaveToTextFile()
 void EmployeeList::BuildFromDatabase()
 {
 
-   if( DatabasePath != "" )
-   {
+   try {
 
       ifstream inventoryFile(DatabasePath);
       string employeeType, name, address, level, buffer;
@@ -102,8 +83,7 @@ void EmployeeList::BuildFromDatabase()
       managerType managerLevel;
 
       if ( !inventoryFile ) {
-         cerr << "ERROR: Failed to open input file\n";
-         exit(-1);
+         throw this->GetListName();
       }
 
       while ( getline (inventoryFile, buffer, ';') )
@@ -144,10 +124,10 @@ void EmployeeList::BuildFromDatabase()
       inventoryFile.close();
 
    }
-   else
+   catch(string e)
    {
-
-      cout << "\nDatabase Path not set\n";
+      
+      throw;
 
    }
    

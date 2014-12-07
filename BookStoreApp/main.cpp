@@ -38,19 +38,20 @@ int main()
    //databases["Order-List"] = "C:\\Users\\Owner\\Documents\\Foothill\\CS 2B\\BookStoreApp\\BookStoreApp\\databases\\orders.txt";
    
    welcomeMessage();
-   BookStoreSystem * OurBookStore = new BookStoreSystem("Our Awesome Book Store", "1234 El Monte dr.", databases["Book-Inventory"], databases["Employee-List"], databases["Order-List"]);
-   OurBookStore->menu();
+   BookStoreSystem * OurBookStore = NULL;
+   try{
+      OurBookStore = new BookStoreSystem("Our Awesome Book Store", "1234 El Monte dr.", databases["Book-Inventory"], databases["Employee-List"], databases["Order-List"]);
+      OurBookStore->menu();
+   }catch(string e){
 
+      cout << "\nThere was an error in the system with:\n"
+           << e << "\n\n";
+      
+   }
 
-   delete OurBookStore;
+   if(OurBookStore)
+      delete OurBookStore;
 
-
-   //OrderList Tests
-   /*InventoryList* inventory = new InventoryList("Inventory List", databases["Book-Inventory"]);
-   EmployeeList* employeeListing = new EmployeeList("Employee List", databases["Employee-List"]);
-   OrderList* transactionsList = new OrderList("Transaction List", databases["Order-List"], employeeListing, inventory);
-
-   transactionsList->DisplayList();*/
 
 
    return 0;
