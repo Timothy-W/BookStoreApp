@@ -42,11 +42,13 @@ int main()
    OurBookStore->menu();
 
 
+
    cout << "exitted" << endl;
 
    delete OurBookStore;
 
-   //cin.ignore();
+   cin.ignore();
+
 
    //OrderList Tests
    /*InventoryList* inventory = new InventoryList("Inventory List", databases["Book-Inventory"]);
