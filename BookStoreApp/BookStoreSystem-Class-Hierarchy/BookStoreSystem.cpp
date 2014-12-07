@@ -336,9 +336,7 @@ void BookStoreSystem::addToExistingInventory(Item* editableItem){
    eBook * eb = dynamic_cast<eBook  *>(editableItem);
    AudioBook * ap = dynamic_cast<AudioBook *>(editableItem);
    PaperBook * pb = dynamic_cast<PaperBook *>(editableItem);
-
-   cout << "ok till here";
-
+   
    if (eb){
       eb->setQuantity(eb->getQuantity() + reorderQuantity);
       StoreOrder *so = new StoreOrder(editableItem, reorderQuantity, reorderVendor, user);
