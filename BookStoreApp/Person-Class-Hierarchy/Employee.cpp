@@ -12,8 +12,7 @@ Employee::Employee(int age, string address, string name, int empId) : Person(age
        setID( empId );
 }
 
-Employee::~Employee()
-{}
+Employee::~Employee(){}
 
 void Employee::setID()
 {

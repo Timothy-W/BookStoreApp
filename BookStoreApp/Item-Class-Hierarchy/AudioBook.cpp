@@ -42,7 +42,8 @@ const void AudioBook::DisplayItem()
 
 ostream & operator<<(ostream & os, const AudioBook& audioBookRef)
 {
-   os << "\nName: " << audioBookRef.ItemType
+   os << "\nType of Product: " << audioBookRef.ItemType
+	   << "\nProduct ID:" << audioBookRef.ProductID
       << "\nQuantity: " << audioBookRef.Quantity
       << "\nPrice: " << audioBookRef.Price
       << "\nISBN: " << audioBookRef.ISBN

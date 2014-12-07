@@ -52,6 +52,7 @@ const void eBook::DisplayItem()
 ostream & operator<<(ostream & os, const eBook& eBookRef)
 {
    os << "\nName: " << eBookRef.ItemType
+	  << "\nProduct ID:"<< eBookRef.ProductID
       << "\nQuantity: " << eBookRef.Quantity
       << "\nPrice: " << eBookRef.Price
       << "\nISBN: " << eBookRef.ISBN

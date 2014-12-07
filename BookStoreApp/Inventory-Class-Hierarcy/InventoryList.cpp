@@ -108,6 +108,7 @@ void InventoryList::BuildFromDatabase()
       genreType bGenre;
       audioFileFormat abFormat;
       eBookFileFormat ebFormat;
+	  int ID;
       cout << DatabasePath << endl;
       if ( !inventoryFile ) {
          cerr << "ERROR: Failed to open input file\n";
@@ -131,6 +132,9 @@ void InventoryList::BuildFromDatabase()
          getline (inventoryFile, buffer, ';');
          price = atof(buffer.c_str( ) );
 
+		 getline(inventoryFile, buffer, ';');
+		 ID = atoi(buffer.c_str());
+
          getline (inventoryFile, buffer, ';');
          quanity = atoi( buffer.c_str() );
 
@@ -144,7 +148,7 @@ void InventoryList::BuildFromDatabase()
          {
             getline (inventoryFile, buffer, '\n');
             pageCount = atoi( buffer.c_str() );
-            AddToList( new PaperBook(productType, quanity, price,
+            AddToList( new PaperBook(productType, quanity, price, ID,
                                      isbn, author, title, bGenre,
                                      publisher, pageCount) );
 
@@ -153,7 +157,7 @@ void InventoryList::BuildFromDatabase()
             getline (inventoryFile, buffer, '\n');
             audioFormat = buffer;
             AudioFormat( abFormat, audioFormat );
-            AddToList( new AudioBook(productType, quanity, price,
+            AddToList( new AudioBook(productType, quanity, price, ID,
                                      isbn, author, title, bGenre,
                                      publisher, abFormat) );
 
@@ -162,7 +166,7 @@ void InventoryList::BuildFromDatabase()
             getline (inventoryFile, buffer, '\n');
             ebookFormat = buffer;
             EbookFormat( ebFormat, ebookFormat );
-            AddToList( new eBook(productType, quanity, price, isbn,
+            AddToList( new eBook(productType, quanity, price, ID, isbn,
                                  author, title, bGenre,
                                  publisher, ebFormat) );
 
