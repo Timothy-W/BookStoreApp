@@ -327,6 +327,7 @@ void BookStoreSystem::addToExistingInventory(Item* editableItem){
    int reorderQuantity = 0;
    int employeeID = 0;
    string reorderVendor = "";
+   int newQuantity = 0;
  
    cout << "How many more are you ordering: ";
    cin >> reorderQuantity;
@@ -338,7 +339,11 @@ void BookStoreSystem::addToExistingInventory(Item* editableItem){
    PaperBook * pb = dynamic_cast<PaperBook *>(editableItem);
    
    if (eb){
-      eb->setQuantity(eb->getQuantity() + reorderQuantity);
+      //cout << "it enters loop";
+      newQuantity = eb->getQuantity() + reorderQuantity;
+      //cout << "addition done";
+      eb->setQuantity(newQuantity);
+      //cout << "works till here";
       StoreOrder *so = new StoreOrder(editableItem, reorderQuantity, reorderVendor, user);
       }
    else if (ap){
