@@ -11,10 +11,7 @@ BookStoreSystem::BookStoreSystem()
     transactionsList = new OrderList("Order List", "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/orders.txt", employeeListing, inventory);
 }
 
-BookStoreSystem::BookStoreSystem(string storeName, string storeAddress ) : storeName(storeName), storeAddress(storeAddress)
-{
-    initLists();
-}
+
 
 BookStoreSystem::BookStoreSystem(string storeName, string storeAddress, string invPATH, string empPATH, string tranPATH) : storeName(storeName), storeAddress(storeAddress), invPATH(invPATH), empPATH(empPATH), tranPATH(tranPATH)
 {
@@ -37,14 +34,6 @@ BookStoreSystem::~BookStoreSystem()
 
 }
 
-
-//done
-void BookStoreSystem::initLists()
-{
-	 inventory = new InventoryList("Inventory List", "C:/Users/hh/github/BookStoreApp/BookStoreApp/databases/book-inventory.txt");
-    employeeListing = new EmployeeList("Employee List", "C:/Users/hh/github/BookStoreApp/BookStoreApp/databases/employee-list.txt");
-
-}
 void BookStoreSystem::initLists(string invPATH, string empPATH, string tranPATH)
 {
     inventory = new InventoryList("Inventory List", invPATH);
@@ -352,6 +341,17 @@ void BookStoreSystem::addToExistingInventory(Item* editableItem){
 			}
 	else if (ap)
 	{
+
+      
+   if (eb){
+      //cout << "it enters loop";
+      newQuantity = eb->getQuantity() + reorderQuantity;
+      //cout << "addition done";
+      eb->setQuantity(newQuantity);
+      //cout << "works till here";
+      StoreOrder *so = new StoreOrder(editableItem, reorderQuantity, reorderVendor, user);
+      }
+   else if (ap){
       ap->setQuantity(ap->getQuantity() + reorderQuantity);
       StoreOrder *so = new StoreOrder(editableItem, reorderQuantity, reorderVendor, user);
      }
