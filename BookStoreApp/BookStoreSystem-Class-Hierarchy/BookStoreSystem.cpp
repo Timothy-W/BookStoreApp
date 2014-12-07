@@ -288,15 +288,15 @@ Item* BookStoreSystem::searchInventory()
    PaperBook * pb = dynamic_cast<PaperBook *>(search);
 
       if (eb){
-         cout << eb << endl;
+         cout << *eb << endl;
          return eb;
       }
       else if (ap){
-         cout << ap << endl;
+         cout << *ap << endl;
          return ap;
       }
       else if (pb){
-         cout << pb << endl;
+         cout << *pb << endl;
          return pb;
       }
       else{ cout << "ISBN not found." << endl; }

@@ -35,12 +35,12 @@ int main()
    welcomeMessage();
    BookStoreSystem * OurBookStore = new BookStoreSystem("Our Awesome Book Store", "1234 El Monte dr.", databases["Book-Inventory"], databases["Employee-List"], databases["Order-List"]);
    OurBookStore->menu();
-<<<<<<< HEAD
+
 
    cout << "exitted";
-=======
+
    delete OurBookStore;
->>>>>>> a235e196b4be3a79a4343dec56f4b36423dedfbc
+
    cin.ignore();
 
    //OrderList Tests
