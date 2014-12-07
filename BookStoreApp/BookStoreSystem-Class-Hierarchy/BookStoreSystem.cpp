@@ -338,7 +338,7 @@ void BookStoreSystem::addToExistingInventory(Item* editableItem){
       cout << ap->getQuantity() << endl;
    else if (pb)
       cout << pb->getQuantity() << endl;
-   /*if (eb){
+   if (eb){
       eb->setQuantity(eb->getQuantity() + reorderQuantity);
       so = new StoreOrder(editableItem, reorderQuantity, reorderVendor, user);
       }
@@ -350,7 +350,7 @@ void BookStoreSystem::addToExistingInventory(Item* editableItem){
       ap->setQuantity(ap->getQuantity() + reorderQuantity);
       so = new StoreOrder(editableItem, reorderQuantity, reorderVendor, user);
    }
-   else{ cout << "Check ISBN" << endl; }*/
+   else{ cout << "Check ISBN" << endl; }
 
 }
 
