@@ -26,9 +26,10 @@ BookStoreSystem::BookStoreSystem(string storeName, string storeAddress, string i
 
 BookStoreSystem::~BookStoreSystem()
 {
-    delete inventory;
-    delete employeeListing;
-    delete transactionsList;
+   cout << "Book Store Sytem Deleted" << endl;
+   delete transactionsList;
+   delete inventory;
+   delete employeeListing;
 }
 
 
@@ -47,7 +48,7 @@ void BookStoreSystem::initLists(string invPATH, string empPATH, string tranPATH)
 
 
     transactionsList = new OrderList("Transaction List", tranPATH, employeeListing, inventory);
-	user = login();
+	 user = login();
 }
 
 //done
@@ -141,32 +142,33 @@ void BookStoreSystem::showEmployees() const
 
 //Inventory Interaction
 //Menu
-void BookStoreSystem::modifyInventory() 
+void BookStoreSystem::modifyInventory()
 {
-    int targetProdID=0;
-    int choice=0;
-    Item * targetItem = NULL;
+   int targetProdID = 0;
+   int choice = 0;
+   Item * targetItem = NULL;
+   int searchISBN = 0;
+   Item* editableItem = NULL;
 
-    cout 
-        << "1) Add Item\n"
-        << "2) Remove Item\n" 
-        << "3) View Item\n"    << endl;
-    cin >> choice;
-    if (choice == 1)
-    {
-        addItem();
-        return;
-    }
+   cout << "1) Add New Item\n" << endl << "2) Remove Item\n" << endl << "3) View Item\n" << endl << "4) Order Existing Item\n" << endl;
+   cin >> choice;
+   if (choice == 1)
+   {
+      addItem();
+      return;
+   }
 
-    cout << "\nEnter product ID:" << endl;
-    cin >> targetProdID;
-    if (employeeListing->Search(targetProdID) != 0)         //If Item exists
-        targetItem = inventory->SearchID(targetProdID);
-    else
-    {
-        cout << "\nItem not found in database";
-        return;
-    }
+   if (choice == 1 || choice == 2 || choice == 3){
+   cout << "\nEnter product ID:" << endl;
+   cin >> targetProdID;
+   if (employeeListing->Search(targetProdID) != 0)         //If Item exists
+      targetItem = inventory->SearchID(targetProdID);
+   else
+   {
+      cout << "\nItem not found in database";
+      return;
+   }
+}
 
     
     switch (choice)
@@ -179,6 +181,12 @@ void BookStoreSystem::modifyInventory()
         break;
     case 3:
         cout << targetItem;
+    case 4:
+       //cout << "Enter ISBN: ";
+       //cin >> searchISBN;
+       editableItem = searchInventory();
+       addToExistingInventory(editableItem);
+       break;
     default:
         cout << "Invalid selection";
         break;
@@ -272,9 +280,10 @@ void BookStoreSystem::addItem()
 void BookStoreSystem::removeItem(Item * targetItem)
 {
     inventory->RemoveFromList(targetItem);
-} 
-//Seatch the inventory  by author, name, isbn
+}
 
+
+//Seatch the inventory  by author, name, isbn
 Item* BookStoreSystem::searchInventory()
 {   
    int searchISBN = 0;
@@ -289,21 +298,43 @@ Item* BookStoreSystem::searchInventory()
    PaperBook * pb = dynamic_cast<PaperBook *>(search);
 
       if (eb){
-         cout << eb << endl;
+         cout << *eb << endl;
          return eb;
       }
       else if (ap){
-         cout << ap << endl;
+         cout << *ap << endl;
          return ap;
       }
       else if (pb){
-         cout << pb << endl;
+         cout << *pb << endl;
          return pb;
       }
-      else{ cout << "ISBN not found." << endl; }
+      else{ 
+         cout << "ISBN not found." << endl; 
+         return NULL;
+      }
 
+   return NULL;
 }
+ 
+void BookStoreSystem::addToExistingInventory(Item* editableItem){
+   int tempQuantity = 0;
+   cout << "What is the new Quantity: ";
+   cin >> tempQuantity;
    
+   eBook * eb = dynamic_cast<eBook  *>(editableItem);
+   AudioBook * ap = dynamic_cast<AudioBook *>(editableItem);
+   PaperBook * pb = dynamic_cast<PaperBook *>(editableItem);
+
+   if (eb){
+      eb->setQuantity(tempQuantity);
+     }
+   else if (ap){
+      ap -> setQuantity(tempQuantity);
+     }
+   else if(pb){ pb->setQuantity(tempQuantity); }
+   else{ cout << "Check ISBN" << endl; }
+}
 
 
 //Transaction Interaction
@@ -466,12 +497,11 @@ void BookStoreSystem::newStoreOrder()
    //   transactionsList->AddToList();
 
 }
-//Subtract a new order
+//
 void BookStoreSystem::removeTransaction(StoreOrder *  targetOrder)
 {
 	transactionsList->RemoveFromList(targetOrder);
 }
-//view a particular order
 void BookStoreSystem::viewTransaction(StoreOrder * DAHORDA )
 {
 	cout << DAHORDA;
@@ -561,10 +591,10 @@ void BookStoreSystem::addEmployee()
             return;
         }
         managerlvl = (managerType)managerlvlInt;
-        Person * newGuy = new Manager(age, address, name, NULL, managerlvl);
+        Manager * newGuy = new Manager(age, address, name, NULL, managerlvl);
     }
 
-    Person * newGuy = new Employee(age, address, name, NULL);
+    Employee * newGuy = new Employee(age, address, name, NULL);
 
     employeeListing->AddToList(newGuy);
 

@@ -30,13 +30,13 @@ OrderList::~OrderList()
    {
       if(*p)
       {
-         cout << "\nDeleteing p\n";
+         cout << "\nDeleteing Order:\n";
+         cout << *p << endl;
          delete *p;
       }
       *p = NULL;
    }
 
-   cout << "\nOrder List Destructor \n";
 }
 
 

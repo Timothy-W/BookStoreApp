@@ -33,7 +33,7 @@ InventoryList::~InventoryList()
          eBook* eb = dynamic_cast<eBook *> (*p);
          PaperBook* pb = dynamic_cast<PaperBook*>(*p);
          AudioBook* ab = dynamic_cast<AudioBook*>(*p);
-         cout << "\nDeleteing:\n";
+         cout << "\nDeleteing Inventory Item:\n";
          if(eb)
          {
             delete eb;

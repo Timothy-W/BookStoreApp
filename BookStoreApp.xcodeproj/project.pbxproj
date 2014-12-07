@@ -8,6 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		E43B03EF1A22DB1C00FA7342 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E43B03EE1A22DB1C00FA7342 /* main.cpp */; };
+		E497685F1A33E3EF0030E92A /* BookStoreSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E49768391A33E3EF0030E92A /* BookStoreSystem.cpp */; };
+		E49768601A33E3EF0030E92A /* EmployeeList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E497683C1A33E3EF0030E92A /* EmployeeList.cpp */; };
+		E49768611A33E3EF0030E92A /* InventoryList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E497683E1A33E3EF0030E92A /* InventoryList.cpp */; };
+		E49768621A33E3EF0030E92A /* orderList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E49768411A33E3EF0030E92A /* orderList.cpp */; };
+		E49768631A33E3EF0030E92A /* AudioBook.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E49768441A33E3EF0030E92A /* AudioBook.cpp */; };
+		E49768641A33E3EF0030E92A /* Book.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E49768461A33E3EF0030E92A /* Book.cpp */; };
+		E49768651A33E3EF0030E92A /* eBook.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E49768481A33E3EF0030E92A /* eBook.cpp */; };
+		E49768661A33E3EF0030E92A /* InventoryItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E497684A1A33E3EF0030E92A /* InventoryItem.cpp */; };
+		E49768671A33E3EF0030E92A /* Item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E497684C1A33E3EF0030E92A /* Item.cpp */; };
+		E49768681A33E3EF0030E92A /* PaperBook.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E497684E1A33E3EF0030E92A /* PaperBook.cpp */; };
+		E49768691A33E3EF0030E92A /* Product.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E49768501A33E3EF0030E92A /* Product.cpp */; };
+		E497686A1A33E3EF0030E92A /* Customer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E49768531A33E3EF0030E92A /* Customer.cpp */; };
+		E497686B1A33E3EF0030E92A /* Employee.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E49768551A33E3EF0030E92A /* Employee.cpp */; };
+		E497686C1A33E3EF0030E92A /* Manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E49768571A33E3EF0030E92A /* Manager.cpp */; };
+		E497686D1A33E3EF0030E92A /* Person.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E49768591A33E3EF0030E92A /* Person.cpp */; };
+		E497686E1A33E3EF0030E92A /* StoreOrder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E497685D1A33E3EF0030E92A /* StoreOrder.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +41,40 @@
 /* Begin PBXFileReference section */
 		E43B03EB1A22DB1C00FA7342 /* BookStoreApp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BookStoreApp; sourceTree = BUILT_PRODUCTS_DIR; };
 		E43B03EE1A22DB1C00FA7342 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		E49768391A33E3EF0030E92A /* BookStoreSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BookStoreSystem.cpp; sourceTree = "<group>"; };
+		E497683A1A33E3EF0030E92A /* BookStoreSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookStoreSystem.h; sourceTree = "<group>"; };
+		E497683C1A33E3EF0030E92A /* EmployeeList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EmployeeList.cpp; sourceTree = "<group>"; };
+		E497683D1A33E3EF0030E92A /* EmployeeList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmployeeList.h; sourceTree = "<group>"; };
+		E497683E1A33E3EF0030E92A /* InventoryList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InventoryList.cpp; sourceTree = "<group>"; };
+		E497683F1A33E3EF0030E92A /* InventoryList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryList.h; sourceTree = "<group>"; };
+		E49768401A33E3EF0030E92A /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
+		E49768411A33E3EF0030E92A /* orderList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = orderList.cpp; sourceTree = "<group>"; };
+		E49768421A33E3EF0030E92A /* orderList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderList.h; sourceTree = "<group>"; };
+		E49768441A33E3EF0030E92A /* AudioBook.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioBook.cpp; sourceTree = "<group>"; };
+		E49768451A33E3EF0030E92A /* AudioBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioBook.h; sourceTree = "<group>"; };
+		E49768461A33E3EF0030E92A /* Book.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Book.cpp; sourceTree = "<group>"; };
+		E49768471A33E3EF0030E92A /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		E49768481A33E3EF0030E92A /* eBook.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = eBook.cpp; sourceTree = "<group>"; };
+		E49768491A33E3EF0030E92A /* eBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBook.h; sourceTree = "<group>"; };
+		E497684A1A33E3EF0030E92A /* InventoryItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InventoryItem.cpp; sourceTree = "<group>"; };
+		E497684B1A33E3EF0030E92A /* InventoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryItem.h; sourceTree = "<group>"; };
+		E497684C1A33E3EF0030E92A /* Item.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Item.cpp; sourceTree = "<group>"; };
+		E497684D1A33E3EF0030E92A /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		E497684E1A33E3EF0030E92A /* PaperBook.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PaperBook.cpp; sourceTree = "<group>"; };
+		E497684F1A33E3EF0030E92A /* PaperBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaperBook.h; sourceTree = "<group>"; };
+		E49768501A33E3EF0030E92A /* Product.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Product.cpp; sourceTree = "<group>"; };
+		E49768511A33E3EF0030E92A /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
+		E49768531A33E3EF0030E92A /* Customer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Customer.cpp; sourceTree = "<group>"; };
+		E49768541A33E3EF0030E92A /* Customer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Customer.h; sourceTree = "<group>"; };
+		E49768551A33E3EF0030E92A /* Employee.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Employee.cpp; sourceTree = "<group>"; };
+		E49768561A33E3EF0030E92A /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Employee.h; sourceTree = "<group>"; };
+		E49768571A33E3EF0030E92A /* Manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Manager.cpp; sourceTree = "<group>"; };
+		E49768581A33E3EF0030E92A /* Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Manager.h; sourceTree = "<group>"; };
+		E49768591A33E3EF0030E92A /* Person.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Person.cpp; sourceTree = "<group>"; };
+		E497685A1A33E3EF0030E92A /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		E497685C1A33E3EF0030E92A /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		E497685D1A33E3EF0030E92A /* StoreOrder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoreOrder.cpp; sourceTree = "<group>"; };
+		E497685E1A33E3EF0030E92A /* StoreOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreOrder.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +107,83 @@
 		E43B03ED1A22DB1C00FA7342 /* BookStoreApp */ = {
 			isa = PBXGroup;
 			children = (
+				E49768381A33E3EF0030E92A /* BookStoreSystem-Class-Hierarchy */,
+				E497683B1A33E3EF0030E92A /* Inventory-Class-Hierarcy */,
+				E49768431A33E3EF0030E92A /* Item-Class-Hierarchy */,
+				E49768521A33E3EF0030E92A /* Person-Class-Hierarchy */,
+				E497685B1A33E3EF0030E92A /* Transaction-Class-hierarchy */,
 				E43B03EE1A22DB1C00FA7342 /* main.cpp */,
 			);
 			path = BookStoreApp;
+			sourceTree = "<group>";
+		};
+		E49768381A33E3EF0030E92A /* BookStoreSystem-Class-Hierarchy */ = {
+			isa = PBXGroup;
+			children = (
+				E49768391A33E3EF0030E92A /* BookStoreSystem.cpp */,
+				E497683A1A33E3EF0030E92A /* BookStoreSystem.h */,
+			);
+			path = "BookStoreSystem-Class-Hierarchy";
+			sourceTree = "<group>";
+		};
+		E497683B1A33E3EF0030E92A /* Inventory-Class-Hierarcy */ = {
+			isa = PBXGroup;
+			children = (
+				E497683C1A33E3EF0030E92A /* EmployeeList.cpp */,
+				E497683D1A33E3EF0030E92A /* EmployeeList.h */,
+				E497683E1A33E3EF0030E92A /* InventoryList.cpp */,
+				E497683F1A33E3EF0030E92A /* InventoryList.h */,
+				E49768401A33E3EF0030E92A /* List.h */,
+				E49768411A33E3EF0030E92A /* orderList.cpp */,
+				E49768421A33E3EF0030E92A /* orderList.h */,
+			);
+			path = "Inventory-Class-Hierarcy";
+			sourceTree = "<group>";
+		};
+		E49768431A33E3EF0030E92A /* Item-Class-Hierarchy */ = {
+			isa = PBXGroup;
+			children = (
+				E49768441A33E3EF0030E92A /* AudioBook.cpp */,
+				E49768451A33E3EF0030E92A /* AudioBook.h */,
+				E49768461A33E3EF0030E92A /* Book.cpp */,
+				E49768471A33E3EF0030E92A /* Book.h */,
+				E49768481A33E3EF0030E92A /* eBook.cpp */,
+				E49768491A33E3EF0030E92A /* eBook.h */,
+				E497684A1A33E3EF0030E92A /* InventoryItem.cpp */,
+				E497684B1A33E3EF0030E92A /* InventoryItem.h */,
+				E497684C1A33E3EF0030E92A /* Item.cpp */,
+				E497684D1A33E3EF0030E92A /* Item.h */,
+				E497684E1A33E3EF0030E92A /* PaperBook.cpp */,
+				E497684F1A33E3EF0030E92A /* PaperBook.h */,
+				E49768501A33E3EF0030E92A /* Product.cpp */,
+				E49768511A33E3EF0030E92A /* Product.h */,
+			);
+			path = "Item-Class-Hierarchy";
+			sourceTree = "<group>";
+		};
+		E49768521A33E3EF0030E92A /* Person-Class-Hierarchy */ = {
+			isa = PBXGroup;
+			children = (
+				E49768531A33E3EF0030E92A /* Customer.cpp */,
+				E49768541A33E3EF0030E92A /* Customer.h */,
+				E49768551A33E3EF0030E92A /* Employee.cpp */,
+				E49768561A33E3EF0030E92A /* Employee.h */,
+				E49768571A33E3EF0030E92A /* Manager.cpp */,
+				E49768581A33E3EF0030E92A /* Manager.h */,
+				E49768591A33E3EF0030E92A /* Person.cpp */,
+				E497685A1A33E3EF0030E92A /* Person.h */,
+			);
+			path = "Person-Class-Hierarchy";
+			sourceTree = "<group>";
+		};
+		E497685B1A33E3EF0030E92A /* Transaction-Class-hierarchy */ = {
+			isa = PBXGroup;
+			children = (
+				E497685C1A33E3EF0030E92A /* Order.h */,
+				E497685D1A33E3EF0030E92A /* StoreOrder.cpp */,
+				E497685E1A33E3EF0030E92A /* StoreOrder.h */,
+			);
+			path = "Transaction-Class-hierarchy";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,7 +242,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E49768611A33E3EF0030E92A /* InventoryList.cpp in Sources */,
+				E49768691A33E3EF0030E92A /* Product.cpp in Sources */,
+				E497686D1A33E3EF0030E92A /* Person.cpp in Sources */,
+				E497686A1A33E3EF0030E92A /* Customer.cpp in Sources */,
 				E43B03EF1A22DB1C00FA7342 /* main.cpp in Sources */,
+				E49768651A33E3EF0030E92A /* eBook.cpp in Sources */,
+				E49768601A33E3EF0030E92A /* EmployeeList.cpp in Sources */,
+				E49768671A33E3EF0030E92A /* Item.cpp in Sources */,
+				E497686C1A33E3EF0030E92A /* Manager.cpp in Sources */,
+				E49768621A33E3EF0030E92A /* orderList.cpp in Sources */,
+				E497685F1A33E3EF0030E92A /* BookStoreSystem.cpp in Sources */,
+				E49768631A33E3EF0030E92A /* AudioBook.cpp in Sources */,
+				E49768661A33E3EF0030E92A /* InventoryItem.cpp in Sources */,
+				E497686E1A33E3EF0030E92A /* StoreOrder.cpp in Sources */,
+				E497686B1A33E3EF0030E92A /* Employee.cpp in Sources */,
+				E49768641A33E3EF0030E92A /* Book.cpp in Sources */,
+				E49768681A33E3EF0030E92A /* PaperBook.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
