@@ -61,7 +61,7 @@ private:
     void modifyTransactions();    //add, subtract, edit a Transaction
     void newStoreOrder();
     void removeTransaction(StoreOrder  * targetTransaction);
-	void viewTransaction(StoreOrder  * targetTransactionn);
+	 void viewTransaction(StoreOrder  * targetTransactionn);
 
     //EMPLOYEELIST    interaction
     void modifyEmployees();       //add, subtract, edit an Employee
