@@ -29,15 +29,22 @@ EmployeeList::~EmployeeList()
    {
       if(*p)
       {
-         Manager * mg = dynamic_cast<Manager *>(*p);
+         Manager  * mg  = dynamic_cast<Manager *>(*p);
          Employee * ep = dynamic_cast<Employee *>(*p);
+         Customer * cs = dynamic_cast<Customer *>(*p);
          cout << "Deleting Employee:";
+
          if(mg)
          {
             cout << *mg << endl;
             delete mg;
          }
-         if(ep)
+         else if(ep)
+         {
+            cout << *ep << endl;
+            delete ep;
+         }
+         else if(cs)
          {
             cout << *ep << endl;
             delete ep;

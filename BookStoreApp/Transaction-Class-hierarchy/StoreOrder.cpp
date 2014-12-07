@@ -18,8 +18,6 @@ StoreOrder::StoreOrder(Item *givenItem, int quantity, int orderNum, string date,
    Order(givenItem, quantity, orderNum, date), orderFrom(name), person(givenPerson){}
 
 StoreOrder::~StoreOrder() {
-   if (person != NULL)
-      delete person;
    cout << "StoreOrder destructor";
 }
 
