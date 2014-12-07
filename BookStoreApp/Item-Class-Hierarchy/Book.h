@@ -34,7 +34,7 @@ public:
    bool setGenre(genreType genre);
    bool setPublisher(string publisher);
 
-   static const string getTextForGenre(genreType genre);
+   string getTextForGenre()const;
    virtual const void DisplayItem();
 };
 

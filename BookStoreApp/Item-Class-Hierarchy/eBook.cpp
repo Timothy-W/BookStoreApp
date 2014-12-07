@@ -30,23 +30,23 @@ bool eBook::setFileFormat(eBookFileFormat fileFormat)
    return true;
 }
 
-const string eBook::eBookFileFormatText(eBookFileFormat fileFormat)
+string eBook::eBookFileFormatText()const
 {
    switch (fileFormat)
    {
    case PDF:
       return "PDF";
    case EPUB:
-      return "ePub";
+      return "EPUB";
    default:
-      return "Unknown";
+      return "UNKNOWN";
    }
 }
 
 const void eBook::DisplayItem()
 {
    Book::DisplayItem();
-   cout << eBookFileFormatText(fileFormat) << " ";
+   cout << eBookFileFormatText() << " ";
 }
 
 ostream & operator<<(ostream & os, const eBook& eBookRef)
@@ -58,9 +58,9 @@ ostream & operator<<(ostream & os, const eBook& eBookRef)
       << "\nISBN: " << eBookRef.ISBN
       << "\nAuthor: " << eBookRef.author
       << "\nTitle: " << eBookRef.title
-      << "\nGenre: " << Book::getTextForGenre(eBookRef.genre)
+      << "\nGenre: " << eBookRef.getTextForGenre()
       << "\nPublisher: " << eBookRef.publisher
-      << "\nFile Format: " << eBook::eBookFileFormatText(eBookRef.fileFormat);
+      << "\nFile Format: " << eBookRef.eBookFileFormatText();
    return os;
 }
 

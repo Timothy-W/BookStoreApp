@@ -40,7 +40,7 @@ ostream & operator<<(ostream & os, const PaperBook& paperBookRef)
       << "\nISBN: " << paperBookRef.ISBN
       << "\nAuthor: " << paperBookRef.author
       << "\nTitle: " << paperBookRef.title
-      << "\nGenre: " << Book::getTextForGenre(paperBookRef.genre)
+      << "\nGenre: " << paperBookRef.getTextForGenre()
       << "\nPublisher: " << paperBookRef.publisher
       << "\nPage Count: " << paperBookRef.pageCount;
    return os;

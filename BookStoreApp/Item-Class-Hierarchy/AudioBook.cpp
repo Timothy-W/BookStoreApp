@@ -23,12 +23,12 @@ void AudioBook::setAudioFormat(audioFileFormat fileFormat)
    this->fileFormat = fileFormat;
 }
 
-const string AudioBook::audioFileFormatText(audioFileFormat fileFormat)
+string AudioBook::audioFileFormatText() const
 {
-   switch (fileFormat)
+   switch (this->fileFormat)
    {
    case MP3:
-      return ".MP3";
+      return "MP3";
    default:
       return "Unknown";
    }
@@ -37,7 +37,7 @@ const string AudioBook::audioFileFormatText(audioFileFormat fileFormat)
 const void AudioBook::DisplayItem()
 {
    Book::DisplayItem();
-   cout << audioFileFormatText(fileFormat) << " ";
+   cout << audioFileFormatText() << " ";
 }
 
 ostream & operator<<(ostream & os, const AudioBook& audioBookRef)
@@ -49,9 +49,9 @@ ostream & operator<<(ostream & os, const AudioBook& audioBookRef)
       << "\nISBN: " << audioBookRef.ISBN
       << "\nAuthor: " << audioBookRef.author
       << "\nTitle: " << audioBookRef.title
-      << "\nGenre: " << Book::getTextForGenre(audioBookRef.genre)
+      << "\nGenre: " << audioBookRef.getTextForGenre()
       << "\nPublisher: " << audioBookRef.publisher
-      << "\nFile Format: " << AudioBook::audioFileFormatText(audioBookRef.fileFormat);
+      << "\nFile Format: " << audioBookRef.audioFileFormatText();
    return os;
 }
 

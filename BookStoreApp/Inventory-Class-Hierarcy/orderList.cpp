@@ -179,6 +179,8 @@ void OrderList::SaveToTextFile() // ISBN, emp id, quantity, ordernum, date, orde
    ofstream out(DatabasePath, ios::trunc);
    for (p = ItemList.begin(); p != ItemList.end(); ++p)
    {
+
+
       StoreOrder * tempStorePtr =  static_cast<StoreOrder *>(*p);
       Person * tempPtr = tempStorePtr->getPerson();
             
@@ -192,7 +194,7 @@ void OrderList::SaveToTextFile() // ISBN, emp id, quantity, ordernum, date, orde
             << ";" << tempStorePtr->getOrderID()
             << ";" << tempStorePtr->getOrderDate()
             << ";" << tempStorePtr->getOrderFrom()
-            << endl;
+            << "\n";
       }
    }
    out.close();
