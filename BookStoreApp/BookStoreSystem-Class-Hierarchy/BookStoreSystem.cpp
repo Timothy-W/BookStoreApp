@@ -303,7 +303,7 @@ Item* BookStoreSystem::searchInventory()
 
 
 
-void BookStoreSystem::addToExistingInventory(Item* editableItem){
+/*void BookStoreSystem::addToExistingInventory(Item* editableItem){
    int reorderQuantity = 0;
    int employeeID = 0;
    string reorderVendor = "";
@@ -339,7 +339,7 @@ void BookStoreSystem::addToExistingInventory(Item* editableItem){
    }
    else{ cout << "Check ISBN" << endl; }
 
-}
+}*/
 
 
 //Transaction Interaction

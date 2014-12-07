@@ -14,7 +14,7 @@ InventoryList::InventoryList(): List(), DatabasePath(""){}
 InventoryList::InventoryList( string name, string databasePath):
    List(name), DatabasePath(databasePath)
 {
-
+   
    this->BuildFromDatabase();
 
 }
@@ -286,18 +286,42 @@ Item * InventoryList::Search( int isbn )
    
 }
 
-// insert SearchID
+
 Item * InventoryList::SearchID(int ID)
 {
-   for (int i = 0; i < ItemCount; i++)
+
+   for( p = ItemList.begin(); p != ItemList.end(); p++ )
    {
-      if (GetElementAtPosI(i)->GetID() == ID)
-         return GetElementAtPosI(i);
-      else
-		cout << "Item ID doesnt exist";
+      eBook * eb = dynamic_cast<eBook *>(*p);
+      PaperBook * pb = dynamic_cast<PaperBook *>(*p);
+      AudioBook * ab = dynamic_cast<AudioBook *>(*p);
+
+      if( eb && eb->GetID() == ID )
+      {
+
+         return eb;
+
+      }
+      else if( pb && pb->GetID() == ID )
+      {
+
+         return pb;
+
+      }
+      else if( ab && ab->GetID() == ID )
+      {
+
+         return ab;
+
+      }
+      
+      
    }
+   
    return NULL;
+   
 }
+
 
 
 void InventoryList::Genre(genreType& bGenre, string identifier)
