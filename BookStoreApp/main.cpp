@@ -21,26 +21,26 @@ int main()
    //databases["Employee-List"] = "C:/Users/hh/github/BookStoreApp/BookStoreApp/databases/employee-list.txt";
 	//databases["Order-List"] = "C:/Users/hh/gitHub/BookStoreApp/BookStoreApp/databases/orders.txt";
 
-   map<string,string> databases;
+   /*map<string,string> databases;
    databases["Book-Inventory"] = "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/book-inventory.txt";
    databases["Employee-List"] = "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/employee-list.txt";
-   databases["Order-List"] = "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/orders.txt";
+   databases["Order-List"] = "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/orders.txt";*/
 
    //Sid's files
-   //map<string, string> databases;
-   //databases["Book-Inventory"] = "C:\\Users\\Owner\\Documents\\Foothill\\CS 2B\\BookStoreApp\\BookStoreApp\\databases\\book-inventory.txt";
-   //databases["Employee-List"] = "C:\\Users\\Owner\\Documents\\Foothill\\CS 2B\\BookStoreApp\\BookStoreApp\\databases\\employee-list.txt";
-   //databases["Order-List"] = "C:\\Users\\Owner\\Documents\\Foothill\\CS 2B\\BookStoreApp\\BookStoreApp\\databases\\orders.txt";
+   map<string, string> databases;
+   databases["Book-Inventory"] = "C:\\Users\\Owner\\Documents\\Foothill\\CS 2B\\BookStoreApp\\BookStoreApp\\databases\\book-inventory.txt";
+   databases["Employee-List"] = "C:\\Users\\Owner\\Documents\\Foothill\\CS 2B\\BookStoreApp\\BookStoreApp\\databases\\employee-list.txt";
+   databases["Order-List"] = "C:\\Users\\Owner\\Documents\\Foothill\\CS 2B\\BookStoreApp\\BookStoreApp\\databases\\orders.txt";
    
    welcomeMessage();
    BookStoreSystem * OurBookStore = new BookStoreSystem("Our Awesome Book Store", "1234 El Monte dr.", databases["Book-Inventory"], databases["Employee-List"], databases["Order-List"]);
    OurBookStore->menu();
-<<<<<<< HEAD
+
 
    cout << "exitted";
-=======
+
    delete OurBookStore;
->>>>>>> a235e196b4be3a79a4343dec56f4b36423dedfbc
+
    cin.ignore();
 
    //OrderList Tests
