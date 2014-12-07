@@ -1,5 +1,25 @@
 #include "eBook.h"
 
+eBook::eBook() : Book(), fileFormat(UNKNOWN_EBOOK) 
+{
+}
+
+eBook::eBook(string Name, int Quantity, double Price, int ISBN, string author, string title,
+             genreType genre, string publisher, eBookFileFormat fileFormat) : 
+             Book(Name, Quantity, Price, ISBN, author, title, genre, publisher), fileFormat(fileFormat) {}
+
+//Destructor
+eBook::~eBook()
+{
+   cout << "eBook deleted" << endl;
+}
+
+//Mutators and Accessors
+eBookFileFormat eBook::getFileFormat()
+{ 
+   return fileFormat;
+}
+
 bool eBook::setFileFormat(eBookFileFormat fileFormat)
 {
    this->fileFormat = fileFormat;

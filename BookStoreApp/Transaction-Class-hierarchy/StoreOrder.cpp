@@ -11,8 +11,8 @@ using namespace std;
 
 StoreOrder::StoreOrder(): Order(), orderFrom(""), person(NULL) {}
 
-StoreOrder::StoreOrder(string name, Person *givenPerson):
-   Order(), orderFrom(name), person(givenPerson) {}
+StoreOrder::StoreOrder(Item *givenItem, int quant, string name, Person *givenPerson):
+   Order(givenItem, quant), orderFrom(name), person(givenPerson) {}
 
 StoreOrder::StoreOrder(Item *givenItem, int quantity, int orderNum, string date, string name, Person *givenPerson):
    Order(givenItem, quantity, orderNum, date), orderFrom(name), person(givenPerson){}

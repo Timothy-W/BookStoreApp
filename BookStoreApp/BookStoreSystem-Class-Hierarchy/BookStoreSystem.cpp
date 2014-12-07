@@ -11,6 +11,7 @@ BookStoreSystem::BookStoreSystem()
 {
     inventory = new InventoryList("Inventory List", "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/book-inventory.txt");
     employeeListing = new EmployeeList("Employee List", "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/employee-list.txt");
+    transactionsList = new OrderList("Order List", "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/orders.txt", employeeListing, inventory);
 }
 
 BookStoreSystem::BookStoreSystem(string storeName, string storeAddress ) : storeName(storeName), storeAddress(storeAddress)
@@ -20,7 +21,7 @@ BookStoreSystem::BookStoreSystem(string storeName, string storeAddress ) : store
 
 BookStoreSystem::BookStoreSystem(string storeName, string storeAddress, string invPATH, string empPATH, string tranPATH) : storeName(storeName), storeAddress(storeAddress), invPATH(invPATH), empPATH(empPATH), tranPATH(tranPATH)
 {
-    initLists(invPATH, empPATH, tranPATH);
+	initLists(invPATH, empPATH, tranPATH);
 }
 
 BookStoreSystem::~BookStoreSystem()
@@ -59,10 +60,10 @@ Person * BookStoreSystem::login()
 	{
 		cout << "\nEnter your PIN\n Try #" << i + 1 << endl;
 		cin >> loginPIN;
-		user = employeeListing->Search(loginPIN);
+		loginPerson = employeeListing->Search(loginPIN);
 		if (loginPerson != NULL)
 		{
-			return(loginPerson); 
+			return(loginPerson);
 		}
 	}
 	cout << "\nMaximum Attempts reached. Exitting...\n";
@@ -72,8 +73,9 @@ Person * BookStoreSystem::login()
 
 void BookStoreSystem::menu()
 {
-    int choice; 
+    char choice; 
     bool menuIsRunning = true;
+
     while (menuIsRunning)
     {
         cout << "\n1) Display Employees\n"
@@ -88,31 +90,30 @@ void BookStoreSystem::menu()
         cin >> choice;
         switch (choice)
         {
-            case 1:
+            case '1':
                 showEmployees();            //DONE
                 break;
-            case 2:
+            case '2':
                 showTransactions();         
                 break;
-            case 3:
+            case '3':
                 showInventory();           //DONE
                 break;
-            case 4:
+            case '4':
                 modifyEmployees();
                 break;
-            case 5:
+            case '5':
                 modifyTransactions();
                 break;
-            case 6:
+            case '6':
                 modifyInventory();
                 break;
-            case 7:
+            case '7':
                 searchInventory();
                 break;
             case 'q':
             case 'Q':
                 menuIsRunning = false;
-				cin.clear();
                 break;
             default:
                 break;
@@ -120,6 +121,7 @@ void BookStoreSystem::menu()
         cin.ignore(1000, '\n');
         cin.clear();
     }
+	return;
 }
 
 // three below are done
@@ -185,12 +187,10 @@ void BookStoreSystem::addItem()
 {
 
     int quantity;
-    int pageCount;
     int ISBN;
     int itemType;
     int genreInt;
     int eFileInt;
-    int audioFileInt;
     int numPages;
     double price;
     string author;
@@ -292,13 +292,169 @@ void BookStoreSystem::searchInventory() const
     }
 } 
 
-//These 4  are untouched
-void BookStoreSystem::modifyTransactions(){}
-void BookStoreSystem::addTransaction()
-{   
- //   transactionsList->AddToList();
+void BookStoreSystem::modifyTransactions() {
+    
+    int targetOrderID=0;
+    int choice=0;
+    StoreOrder * targetOrder = NULL;
+    
+    cout
+    << "1) Add Order\n"
+    << "2) Remove Order\n"
+    << "3) View Order\n"    << endl;
+    cin >> choice;
+    if (choice == 1) {
+        newStoreOrder();
+        cin.ignore();
+        return;
+    }
+    cout << "\nEnter order ID:" << endl;
+    cin >> targetOrderID;
+    targetOrder = transactionsList->Search(targetOrderID);
+    if (!targetOrder) {        //If order does not exist
+        cout << "\nOrder not found in database";
+        cin.ignore();
+        return;
+    }
+    switch (choice) {
+        case 1:
+            //        newStoreOrder(targetOrder);
+            break;
+        case 2:
+            removeTransaction(targetOrder);
+            break;
+        case 3:
+            cout << targetOrder;
+            break;
+        default:
+            cout << "Invalid selection";
+            break;
+    }
 }
-void BookStoreSystem::removeTransaction(Order<Item*> * targetTransaction)
+
+void BookStoreSystem::newStoreOrder()
+{
+   //Some kind of checking to make sure employee adding store order is a manager
+
+   Item *givenItem = NULL;
+   Person *givenPerson = NULL;
+
+   int orderNum = 0;
+   string date = "";
+   string name = "";
+   int employeeID = 0;
+
+   //givenPerson pointer is populated here
+   cout << "Enter Employee ID: ";
+   cin >> employeeID;
+   givenPerson = employeeListing->Search(employeeID);
+
+
+   //FIRST THE ITEM NEEDS TO BE CREATED, givenItem is populated
+   int quantity;
+   int ISBN;
+   int itemType;
+   int genreInt;
+   int eFileInt;
+   int numPages;
+   double price;
+   string author;
+   string bookType = "";
+   string title;
+   string publisher;
+   genreType genre;
+   audioFileFormat audioFileFormat;
+   eBookFileFormat eFileFormat;
+   Item * newItem = NULL;
+
+   cout << "\n1.)eBook\n2.)Audio Book\n3.)Paper Book" << endl;
+   cin >> itemType;
+   if (itemType == 1)
+      bookType = "eBook";
+   else if (itemType == 2)
+      bookType = "Audio Book";
+   else if (itemType == 3)
+      bookType = "Paper Book";
+   else
+   {
+      cout << "invalid selection";
+      return;
+   }
+
+   cout << "\nBook quantity?\n";
+   cin >> quantity;
+
+   cout << "\nBook price?\n";
+   cin >> price;
+
+   cout << "\nBook isbn?\n";
+   cin >> ISBN;
+   cin.ignore();
+
+   cout << "\nBook author?\n";
+   getline(cin, author);
+   cout << "\nBook title?\n?";
+   getline(cin, title);
+   cout << "\nBook genre?\n?"
+      << "0 Unknown\n 1 Science fiction\n 2 Mystery\n 3 Horror\n 4 Romance";
+   cin >> genreInt;
+   genre = (genreType)genreInt;
+   cin.ignore();
+   cout << "\nBook publisher?\n?";
+   getline(cin, publisher);
+
+   if (itemType == 1)
+   {
+      cout << "Which eBook file format?\n"
+         << "1 Unknown/Other \n2 PDF \n3 EPUB\n";
+      cin >> eFileInt;
+      eFileFormat = (eBookFileFormat)eFileInt;
+      newItem = new eBook(bookType, quantity, price, ISBN, author, title, genre, publisher, eFileFormat);
+      givenItem = dynamic_cast<Item*>(newItem);
+   }
+   else if (itemType == 2)
+   {
+      string YesOrNo;
+      cout << "\nIs this Audio Book an mp3 Y/N ?\n";
+      cin >> YesOrNo;
+      if (toupper(YesOrNo[0]) == 'Y')
+         audioFileFormat = MP3;
+      else
+         audioFileFormat = UNKNOWN_AUDIO;
+      newItem = new AudioBook(bookType, quantity, price, ISBN, author, title, genre, publisher, audioFileFormat);
+      givenItem = dynamic_cast<Item*>(newItem);
+   }
+   else
+   {
+      cout << "\n How many pages in your stupid book??\n";
+      cin >> numPages;
+      newItem = new PaperBook(bookType, quantity, price, ISBN, author, title, genre, publisher, numPages);
+      givenItem = dynamic_cast<Item*>(newItem);
+   }
+
+   //givenItem is populated
+
+
+
+
+   cout << "What is the Order ID?" << endl;                  //This needs to be changed
+   cin >> orderNum;
+
+   cout << "What is the date?" << endl;                     //This needs to be changed
+   cin >> date;
+   cout << "Where are you ordering from?" << endl;
+   cin >> name;
+
+   StoreOrder * newStoreOrder = new StoreOrder(givenItem, quantity, orderNum, date, name, givenPerson);
+
+   //   transactionsList->AddToList();
+
+}
+
+
+void BookStoreSystem::removeTransaction(Order<Item*> * targetOrder)
+//void BookStoreSystem::removeTransaction(StoreOrder * targetOrder)
+
 {
     //transactionsList->RemoveFromList(targetTransaction);
 }

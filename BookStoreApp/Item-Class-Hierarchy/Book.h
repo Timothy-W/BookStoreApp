@@ -15,11 +15,10 @@ protected:
    string publisher;
 
 public:
-   Book() : Product(), ISBN(0), author(""), title(""), genre(UNKNOWN), publisher("") {}
-   Book(string Name, int Quantity, double Price, int ISBN, string author, string title, genreType genre, string publisher) :
-      Product(Name, Quantity, Price), ISBN(ISBN), author(author), title(title), genre(genre), publisher(publisher) {}
+   Book();
+   Book(string Name, int Quantity, double Price, int ISBN, string author, string title, genreType genre, string publisher);
 
-   virtual ~Book() {}
+   virtual ~Book();
 
    int getISBN();
    string getAuthor();

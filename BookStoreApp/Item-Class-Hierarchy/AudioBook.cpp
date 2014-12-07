@@ -1,5 +1,10 @@
 #include "AudioBook.h"
 
+AudioBook::~AudioBook()
+{
+   cout << "AudioBook delete" << endl;
+}
+
 audioFileFormat AudioBook::getAudioFormat()
 { 
    return fileFormat;

@@ -19,16 +19,15 @@ protected:
 
 public:
    //Constructor
-   Product() : InventoryItem(), ProductID(SetID()), Price(0.0) {}
-   Product(string Name, int Quantity, double Price) : 
-      InventoryItem(Name, Quantity) { SetPrice(Price); SetID(); }
+   Product();
+   Product(string Name, int Quantity, double Price);
 
    //Destructor
-   virtual ~Product() {}
+   virtual ~Product();
 
    //Accessors
-   virtual int GetID() { return ProductID; }
-   double GetPrice() { return Price; }
+   int GetID();
+   double GetPrice();
 
    //Mutators
    bool SetID();

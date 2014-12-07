@@ -19,7 +19,7 @@ class StoreOrder: public Order<Item *> {
       Person * person;
    public:
       StoreOrder();
-      StoreOrder(string name, Person *givenPerson);
+      StoreOrder(Item *givenItem, int quant, string name, Person *givenPerson);
       StoreOrder(Item *givenItem, int quantity, int orderNum, string date, string name, Person *givenPerson);
 
       virtual ~StoreOrder();

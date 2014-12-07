@@ -9,16 +9,15 @@ private:
 
 public:
    //Constructors
-   PaperBook() : Book(), pageCount(0) {}
+   PaperBook();
    PaperBook(string Name, int Quantity, double Price, int ISBN, string author, string title,
-                                     genreType genre, string publisher, int pageCount) : 
-                        Book(Name, Quantity, Price, ISBN, author, title, genre, publisher), pageCount(pageCount) {}
+      genreType genre, string publisher, int pageCount);
 
    //Destructor
-   virtual ~PaperBook() {}
+   virtual ~PaperBook();
 
    //Mutators and Accessors
-   virtual int getNumberOfPages() { return pageCount; }
+   int getNumberOfPages();
 
    bool setNumberOfPages(int pageCount);
 
