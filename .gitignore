@@ -9,6 +9,9 @@
 *.vcxproj
 *.vcxproj.filters
 
+*.pbxproj
+*.xcuserstate
+
 # Build results
 
 [Dd]ebug/

@@ -55,14 +55,13 @@ private:
     void modifyInventory();       //add, subtract, edit an Item
     void addItem();             //add item
     void removeItem(Item * targetItem);          //subtract Item
-    void searchInventory() const;
+    Item* searchInventory();
 
     //TRANSACTIONLIST interaction
     void modifyTransactions();    //add, subtract, edit a Transaction
     void newStoreOrder();
-
-    void removeTransaction(Order<Item *> * targetTransaction);
-    void viewTransaction();
+    void removeTransaction(StoreOrder  * targetTransaction);
+	void viewTransaction(StoreOrder  * targetTransactionn);
 
     //EMPLOYEELIST    interaction
     void modifyEmployees();       //add, subtract, edit an Employee

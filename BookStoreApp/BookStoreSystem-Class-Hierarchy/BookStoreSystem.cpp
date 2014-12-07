@@ -45,11 +45,10 @@ void BookStoreSystem::initLists(string invPATH, string empPATH, string tranPATH)
     inventory = new InventoryList("Inventory List", invPATH);
     employeeListing = new EmployeeList("Employee List", empPATH);
 
-    //transactionsList = new InventoryList("Transaction List", tranPATH);
-	user = login();
+
 
     transactionsList = new OrderList("Transaction List", tranPATH, employeeListing, inventory);
-
+	user = login();
 }
 
 //done
@@ -141,6 +140,8 @@ void BookStoreSystem::showEmployees() const
 
 // Below methods modify the vectors
 
+//Inventory Interaction
+//Menu
 void BookStoreSystem::modifyInventory() 
 {
     int targetProdID=0;
@@ -183,7 +184,8 @@ void BookStoreSystem::modifyInventory()
         cout << "Invalid selection";
         break;
     }
-} 
+}	
+//add a new item
 void BookStoreSystem::addItem()
 {
 
@@ -267,32 +269,49 @@ void BookStoreSystem::addItem()
     }
     inventory->AddToList(newItem);
 } 
+//remove an item
 void BookStoreSystem::removeItem(Item * targetItem)
 {
     inventory->RemoveFromList(targetItem);
 } 
-void BookStoreSystem::searchInventory() const
-{
-    string input;
-    cout << "Search for Book either by ISBN, title, or author";
-    getline(cin, input);
+//Seatch the inventory  by author, name, isbn
+<<<<<<< HEAD
+ 
+=======
+Item* BookStoreSystem::searchInventory()
+{   
+   int searchISBN = 0;
 
-    //check if input is a number
-    string::const_iterator iter = input.begin();
-    while (iter != input.end() && isdigit(*iter))
-        iter++;
-    //user intends to search by isbn
-    if ( iter == input.end())
-    {
-        inventory->Search(atoi(input.c_str()));
-    }
-    //user intends to search by title/author
-    else
-    {
-        inventory->Search(input);
-    }
-} 
+   cout << "Enter ISBN: ";
+   cin >> searchISBN;
 
+   Item * search = inventory->Search(searchISBN);
+
+   eBook * eb = dynamic_cast<eBook  *>(search);
+   AudioBook * ap = dynamic_cast<AudioBook *>(search);
+   PaperBook * pb = dynamic_cast<PaperBook *>(search);
+
+      if (eb){
+         cout << eb << endl;
+         return eb;
+      }
+      else if (ap){
+         cout << ap << endl;
+         return ap;
+      }
+      else if (pb){
+         cout << pb << endl;
+         return pb;
+      }
+      else{ cout << "ISBN not found." << endl; }
+
+}
+   
+
+>>>>>>> 74fec4146af073be0cc45fd4b2bc6e97e4c4c0aa
+
+//Transaction Interaction
+//Menu
 void BookStoreSystem::modifyTransactions() {
     
     int targetOrderID=0;
@@ -319,20 +338,20 @@ void BookStoreSystem::modifyTransactions() {
     }
     switch (choice) {
         case 1:
-            //        newStoreOrder(targetOrder);
+            newStoreOrder();
             break;
         case 2:
             removeTransaction(targetOrder);
             break;
         case 3:
-            cout << targetOrder;
+			cout << targetOrder;
             break;
         default:
             cout << "Invalid selection";
             break;
     }
 }
-
+//create a new order
 void BookStoreSystem::newStoreOrder()
 {
    //Some kind of checking to make sure employee adding store order is a manager
@@ -438,29 +457,29 @@ void BookStoreSystem::newStoreOrder()
 
 
 
-   cout << "What is the Order ID?" << endl;                  //This needs to be changed
-   cin >> orderNum;
+   //cout << "What is the Order ID?" << endl;                  //This needs to be changed
+   //cin >> orderNum;
 
-   cout << "What is the date?" << endl;                     //This needs to be changed
-   cin >> date;
-   cout << "Where are you ordering from?" << endl;
-   cin >> name;
+   //cout << "What is the date?" << endl;                     //This needs to be changed
+   //cin >> date;
+   //cout << "Where are you ordering from?" << endl;
+   //cin >> name;
 
    StoreOrder * newStoreOrder = new StoreOrder(givenItem, quantity, orderNum, date, name, givenPerson);
 
    //   transactionsList->AddToList();
 
 }
-
-
-void BookStoreSystem::removeTransaction(Order<Item*> * targetOrder)
-//void BookStoreSystem::removeTransaction(StoreOrder * targetOrder)
-
+//Subtract a new order
+void BookStoreSystem::removeTransaction(StoreOrder *  targetOrder)
 {
-    //transactionsList->RemoveFromList(targetTransaction);
+	transactionsList->RemoveFromList(targetOrder);
 }
-void BookStoreSystem::viewTransaction()
-{}
+//view a particular order
+void BookStoreSystem::viewTransaction(StoreOrder * DAHORDA )
+{
+	cout << DAHORDA;
+}
 
 
 void BookStoreSystem::modifyEmployees()
@@ -546,10 +565,10 @@ void BookStoreSystem::addEmployee()
             return;
         }
         managerlvl = (managerType)managerlvlInt;
-        Manager * newGuy = new Manager(age, address, name, NULL, managerlvl);
+        Person * newGuy = new Manager(age, address, name, NULL, managerlvl);
     }
 
-    Employee * newGuy = new Employee(age, address, name, NULL);
+    Person * newGuy = new Employee(age, address, name, NULL);
 
     employeeListing->AddToList(newGuy);
 
