@@ -26,6 +26,11 @@ int main()
    databases["Employee-List"] = "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/employee-list.txt";
    databases["Order-List"] = "/Users/Captain/GitHub/BookStoreApp/BookStoreApp/databases/orders.txt";
 
+   //map<string, string> databases;
+   //databases["Book-Inventory"] = "C:\\Important Documents\\School\\CS 2B\\Projects\\BookStoreApp\\BookStoreApp\\databases\\book-inventory.txt";
+   //databases["Employee-List"] = "C:\\Important Documents\\School\\CS 2B\\Projects\\BookStoreApp\\BookStoreApp\\databases\\employee-list.txt";
+   //databases["Order-List"] = "C:\\Important Documents\\School\\CS 2B\\Projects\\BookStoreApp\\BookStoreApp\\databases\\orders.txt";
+
    //Sid's files
    //map<string, string> databases;
    //databases["Book-Inventory"] = "C:\\Users\\Owner\\Documents\\Foothill\\CS 2B\\BookStoreApp\\BookStoreApp\\databases\\book-inventory.txt";
