@@ -26,10 +26,11 @@ BookStoreSystem::BookStoreSystem(string storeName, string storeAddress, string i
 
 BookStoreSystem::~BookStoreSystem()
 {
-   cout << "Book Store Sytem Deleted" << endl;
    delete transactionsList;
    delete inventory;
-   delete employeeListing;
+   //delete employeeListing;
+
+   cout << "\nBook Store Sytem Deleted\n" << endl;
 }
 
 
