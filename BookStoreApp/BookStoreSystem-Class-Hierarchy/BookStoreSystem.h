@@ -19,9 +19,8 @@
 #include "StoreOrder.h"
 #include "Order.h"
 #include <string>
-#include <iostream>
-using namespace std;
 
+using namespace std;
 class BookStoreSystem
 {
 public:
@@ -60,7 +59,7 @@ private:
 
     //INVENTORYLIST   interaction
     void modifyInventory();               //add, subtract, edit an Item
-    void addItem();                       //add item
+    Item * addItem();                       //add item
     void removeItem(Item * targetItem);   //subtract Item
 	void viewItem(Item *);
     Item* searchInventory();

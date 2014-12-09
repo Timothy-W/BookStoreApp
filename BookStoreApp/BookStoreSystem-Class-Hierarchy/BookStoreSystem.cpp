@@ -72,7 +72,7 @@ void BookStoreSystem::menu()
             << "3) Display Inventory\n\n"
             << "4) Edit Employees\n"             //using Employee I.D.
             << "5) Edit Transactions \n"         //using Transaction I.D.
-            << "6) Edit Inventory\n"             //using product I.D.
+            << "6) Edit Inventory\n\n"             //using product I.D.
             << "7) Search Inventory\n"
             << "(q to quit)\n"
             << "Select an option: " << endl;
@@ -118,12 +118,10 @@ void BookStoreSystem::showInventory() const
 {
    inventory->DisplayList();
 }
-
 void BookStoreSystem::showTransactions() const
 {
    transactionsList->DisplayList();
 }
-
 void BookStoreSystem::showEmployees() const
 {
    employeeListing->DisplayList();
@@ -183,9 +181,8 @@ void BookStoreSystem::modifyInventory()
         break;
     }
 }
-
 //add a new item
-void BookStoreSystem::addItem()
+Item * BookStoreSystem::addItem()
 {
 
     int quantity;
@@ -234,7 +231,7 @@ void BookStoreSystem::addItem()
     cout << "\nBook title?\n?";
     getline(cin, title);
     cout << "\nBook genre?\n?"
-        << "0 Unknown\n 1 Science fiction\n 2 Mystery\n 3 Horror\n 4 Romance"   ;
+        << "0 Unknown\n 1 Science fiction\n 2 Mystery\n 3 Horror\n 4 Romance\n"   ;
     cin >> genreInt;
     genre = (genreType)genreInt;
     cin.ignore();
@@ -262,19 +259,19 @@ void BookStoreSystem::addItem()
     }  
     else
     {
-        cout << "\n How many pages in your stupid book??\n";
+        cout << "\nHow many pages in your book??\n";
         cin >> numPages;
         newItem = new PaperBook(bookType, quantity, price, ISBN, author, title, genre, publisher, numPages);
     }
     inventory->AddToList(newItem);
+	return newItem;
 }
-
 //remove an item
 void BookStoreSystem::removeItem(Item * targetItem)
 {
     inventory->RemoveFromList(targetItem);
 }
-
+//view an Item by its ID
 void BookStoreSystem::viewItem(Item * targItem)
 {
 	AudioBook * ab = dynamic_cast<AudioBook  *>(targItem);
@@ -294,12 +291,10 @@ void BookStoreSystem::viewItem(Item * targItem)
 		cout << "\n" << *pb << "\n";
 	}
 }
-
-//Seatch the inventory  by author, name, isbn
+//Search the inventory  by author, name, isbn
 Item* BookStoreSystem::searchInventory()
 {   
-   int searchISBN = 0;
-
+   int searchISBN;
    cout << "Enter ISBN: ";
    cin >> searchISBN;
 
@@ -330,47 +325,6 @@ Item* BookStoreSystem::searchInventory()
 }
 
 
-
-
-/*void BookStoreSystem::addToExistingInventory(Item* editableItem){
-   int reorderQuantity = 0;
-   int employeeID = 0;
-   string reorderVendor = "";
-   int newQuantity = 0;
- 
-   cout << "How many more are you ordering: ";
-   cin >> reorderQuantity;
-   cout << "Order From: " << endl;
-   cin >> reorderVendor;
-   
-   eBook * eb = dynamic_cast<eBook  *>(editableItem);
-   AudioBook * ap = dynamic_cast<AudioBook *>(editableItem);
-   PaperBook * pb = dynamic_cast<PaperBook *>(editableItem);
-
-      
-   if (eb){
-      //cout << "it enters loop";
-      newQuantity = eb->getQuantity() + reorderQuantity;
-      //cout << "addition done";
-      eb->setQuantity(newQuantity);
-      //cout << "works till here";
-      StoreOrder *so = new StoreOrder(editableItem, reorderQuantity, reorderVendor, user);
-   }
-   else if (ap)
-   {
-      ap->setQuantity(ap->getQuantity() + reorderQuantity);
-      StoreOrder *so = new StoreOrder(editableItem, reorderQuantity, reorderVendor, user);
-   }
-   else if (pb)
-   {
-      ap->setQuantity(ap->getQuantity() + reorderQuantity);
-      StoreOrder *so = new StoreOrder(editableItem, reorderQuantity, reorderVendor, user);
-   }
-   else{ cout << "Check ISBN" << endl; }
-
-}*/
-
-
 //Transaction Interaction
 //Menu
 void BookStoreSystem::modifyTransactions() {
@@ -380,17 +334,19 @@ void BookStoreSystem::modifyTransactions() {
 	StoreOrder * targetOrder = NULL;
 
 	cout
-		<< "1) Order existing product\n"
-		<< "2) Order non-existant product\n"
+		<< "1) Reorder existing product\n"
+		<< "2) Order a new product\n"
 		<< "3) Remove Order\n"
 		<< "4) View Order\n" << endl;
 	cin >> choice;
-	if (choice == 1)
+	if (choice == 2)
 	{
+		//newstore order
 		return;
 	}
-    if (choice == 2) {
-        newStoreOrder();
+    if (choice == 1) 
+	{
+		makeStoreOrder();
         cin.ignore();
         return;
     }
@@ -398,18 +354,13 @@ void BookStoreSystem::modifyTransactions() {
     cout << "\nEnter order ID:" << endl;
     cin >> targetOrderID;
     targetOrder = transactionsList->Search(targetOrderID);
-    if (!targetOrder) {        //If order does not exist
+    if (!targetOrder) 
+	{        //If order does not exist
         cout << "\nOrder not found in database";
         cin.ignore();
         return;
     }
     switch (choice) {
-		case 1:
-			makeStoreOrder();
-			break;
-        case 2:
-            newStoreOrder();
-            break;
         case 3:
             removeTransaction(targetOrder);
             break;
@@ -421,121 +372,43 @@ void BookStoreSystem::modifyTransactions() {
             break;
     }
 }
-
 //order a New item not in the data base
-void BookStoreSystem::makeStoreOrder(){}
+void BookStoreSystem::makeStoreOrder()
+{
+	int ProdID;
+	int quantity;
+	StoreOrder * sOrder = NULL;
+	cout << "\nWhich item would you like to reorder (enter a product ID)" << endl;
+	cin >> ProdID;
+	Item * itemOrdered = inventory->SearchID(ProdID);
+	if (!itemOrdered) //if not found
+	{
+		cout << "\nItem not found\n";
+		return;
+	}
+	cout << "\nHow many more would you like to order?\n";
+	cin >> quantity;
+
+	sOrder = new StoreOrder(itemOrdered, quantity, "Amazon", user);
+	transactionsList->AddToList(sOrder);
+
+	cout << "\nOrder completed\n";
+}
 void BookStoreSystem::newStoreOrder()
 {
-   //Some kind of checking to make sure employee adding store order is a manager
-	Product * addedProduct;
-   Item *	givenItem  = NULL;
-   Person *givenPerson = NULL;
-
-   int orderNum = 0;
-   string date = "";
-   string name = "";
-   
-   //FIRST THE ITEM NEEDS TO BE CREATED, givenItem is populated
-   int quantity;
-   int ISBN;
-   int itemType;
-   int genreInt;
-   int eFileInt;
-   int numPages;
-   double price;
-   string author;
-   string bookType = "";
-   string title;
-   string publisher;
-   genreType genre;
-   audioFileFormat audioFileFormat;
-   eBookFileFormat eFileFormat;
-   Item * newItem = NULL;
-
-   cout << "\n1.)eBook\n2.)Audio Book\n3.)Paper Book" << endl;
-   cin >> itemType;
-   if (itemType == 1)
-      bookType = "eBook";
-   else if (itemType == 2)
-      bookType = "Audio Book";
-   else if (itemType == 3)
-      bookType = "Paper Book";
-   else
-   {
-      cout << "invalid selection";
-      return;
-   }
-
-   cout << "\nBook quantity?\n";
-   cin >> quantity;
-
-   cout << "\nBook price?\n";
-   cin >> price;
-
-   cout << "\nBook isbn?\n";
-   cin >> ISBN;
-   cin.ignore();
-
-   cout << "\nBook author?\n";
-   getline(cin, author);
-   cout << "\nBook title?\n";
-   getline(cin, title);
-   cout << "\nBook genre?\n"
-      << "0 Unknown\n 1 Science fiction\n 2 Mystery\n 3 Horror\n 4 Romance" << endl;
-   cin >> genreInt;
-   genre = (genreType)genreInt;
-   cin.ignore();
-   cout << "\nBook publisher?\n";
-   getline(cin, publisher);
-
-   if (itemType == 1)
-   {
-      cout << "Which eBook file format?\n"
-         << "1 Unknown/Other \n2 PDF \n3 EPUB\n";
-      cin >> eFileInt;
-      eFileFormat = (eBookFileFormat)eFileInt;
-      newItem = new eBook(bookType, quantity, price, ISBN, author, title, genre, publisher, eFileFormat);
-      givenItem = dynamic_cast<Item*>(newItem);
-   }
-   else if (itemType == 2)
-   {
-      string YesOrNo;
-      cout << "\nIs this Audio Book an mp3 Y/N ?\n";
-      cin >> YesOrNo;
-      if (toupper(YesOrNo[0]) == 'Y')
-         audioFileFormat = MP3;
-      else
-         audioFileFormat = UNKNOWN_AUDIO;
-      newItem = new AudioBook(bookType, quantity, price, ISBN, author, title, genre, publisher, audioFileFormat);
-      givenItem = dynamic_cast<Item*>(newItem);
-   }
-   else
-   {
-      cout << "\n How many pages in your  book??\n";
-      cin >> numPages;
-      newItem = new PaperBook(bookType, quantity, price, ISBN, author, title, genre, publisher, numPages);
-      givenItem = dynamic_cast<Item*>(newItem);
-   }
-
-   //givenItem is populated
-    
-   StoreOrder * newStoreOrder = new StoreOrder(givenItem, quantity, name, user);
-   transactionsList->AddToList(newStoreOrder);
-   addedProduct = dynamic_cast<Product *>(givenItem);
-   addedProduct->setQuantity(addedProduct->getQuantity() + quantity);
-
-   //   transactionsList->AddToList();
-
 }
-
 void BookStoreSystem::removeTransaction(StoreOrder *  targetOrder)
 {
 	transactionsList->RemoveFromList(targetOrder);
 }
-
-void BookStoreSystem::viewTransaction(StoreOrder * DAHORDA )
+void BookStoreSystem::viewTransaction(StoreOrder * ORDA)
 {
-	cout << DAHORDA;
+	if (ORDA == NULL)
+	{
+		cout << "order not found";
+		return;
+	}
+	cout << ORDA;
 }
 
 

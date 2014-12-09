@@ -18,7 +18,7 @@ class StoreOrder: public Order<Item *> {
       Person * person;
    public:
       StoreOrder();
-      StoreOrder(Item *givenItem, int quant, string name="Amazon", Person *givenPerson=NULL);
+      StoreOrder(Item *givenItem, int quant=0, string name="Amazon", Person *givenPerson=NULL);
       StoreOrder(Item *givenItem, int quantity, int orderNum, string date, string name, Person *givenPerson);
 
       virtual ~StoreOrder();
