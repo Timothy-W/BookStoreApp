@@ -19,4 +19,4 @@ public:
    virtual const void DisplayItem() = 0;                //take no parameter and return nothing.Default implementation is to display an empty string(“”).
 };
 
-#endif // !ITEM_H
+#endif 

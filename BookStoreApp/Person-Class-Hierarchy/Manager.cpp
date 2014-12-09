@@ -33,10 +33,6 @@ string Manager::getLevelString() const
     return managerStr[(int)managerLevel];
 }
 
-void Manager::editItem(Item &item)
-{
-  //  cout << "Enter item ID" item, ID, quantity
-}
 
 ostream& operator<<(ostream& os, const Manager& man)
 {

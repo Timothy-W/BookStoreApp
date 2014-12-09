@@ -16,7 +16,7 @@ using namespace std;
 class Product : public InventoryItem //derived from InventoryItem class 
 {
 protected:
-   int ProductID; //never passed always generated
+   int ProductID; //never passed, always generated
    double Price;
 
 public:
@@ -41,7 +41,6 @@ public:
    virtual const void DisplayItem();
    int generateProductID();
 
-   /*virtual const bool MoreValuable(const Item & ItemObject);*/
 };
 
 #endif

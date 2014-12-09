@@ -16,7 +16,7 @@ public:
     Person(int age, string address, string name);
     virtual ~Person();
 protected:
-    int age; //day of birth MMDDYYYY
+    int age; //day of birth, MMDDYYYY
     string address; 
     string name; // First Last
 

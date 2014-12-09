@@ -114,7 +114,7 @@ template <class T>
 int List<T>::GetListCount() const
 {
     return ItemList.size();
-//   return ItemCount;
+
  
 }
 

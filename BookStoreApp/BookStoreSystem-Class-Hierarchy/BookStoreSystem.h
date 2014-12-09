@@ -68,7 +68,6 @@ private:
     void modifyTransactions();    //add, subtract, edit a Transaction
 	void makeStoreOrder();
 	void newStoreOrder();
-    //void addToExistingInventory(Item* editableItem);
     void removeTransaction(StoreOrder  * targetTransaction);
 	void viewTransaction(StoreOrder  * targetTransactionn);
 

@@ -164,7 +164,7 @@ void BookStoreSystem::modifyInventory()
     switch (choice)
     {
     case 1:
-//        additemm
+        addItem();
         break;
     case 2:
         removeItem(targetItem);
@@ -174,7 +174,7 @@ void BookStoreSystem::modifyInventory()
 		break;
     case 4:
        editableItem = searchInventory();
-//     addToExistingInventory(editableItem);
+       //newStoreOrder();
        break;
     default:
         cout << "Invalid selection";
@@ -394,6 +394,8 @@ void BookStoreSystem::makeStoreOrder()
 
 	cout << "\nOrder completed\n";
 }
+
+//Order an item already in the Database
 void BookStoreSystem::newStoreOrder()
 {
 	Item * newItem = addItem();
@@ -451,7 +453,7 @@ void BookStoreSystem::modifyEmployees()
     switch (choice)
     {
     case 1: 
-//        addEmployee(targetPerson);
+        addEmployee();
         break;
     case 3:
         viewEmployee(targetPerson);

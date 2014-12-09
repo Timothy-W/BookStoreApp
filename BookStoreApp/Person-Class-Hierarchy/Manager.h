@@ -25,7 +25,6 @@ public:
     string getLevelString() const;	
 
     friend ostream& operator<<(ostream& os, const Manager& man);
-    void editItem(Item &Item);
 };
 
 #endif
