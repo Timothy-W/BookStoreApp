@@ -497,7 +497,12 @@ void BookStoreSystem::addEmployee()
 
     if (isManager)
     {
-        cout << "\n0 shift_manager \n1 store_manager \n2VP\n3CEO";
+        cout << endl << "Manager Level:" << endl 
+           << "0. Shift Manager" << endl << 
+           "1. Store Manager" << endl 
+           << "2. VP" << endl 
+           << "3. CEO" << endl 
+           << "Enter Here: ";
         cin >> managerlvlInt;
         if (managerlvlInt > 3 || managerlvlInt < 0)
         {
