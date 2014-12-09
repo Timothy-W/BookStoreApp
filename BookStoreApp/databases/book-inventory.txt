@@ -12,3 +12,5 @@ Audio Book;The Ghost;Apryl Baker;Horror;17.95;2323;567;1492156362;Limitless Publ
 eBook;The Ghost;Apryl Baker;Horror;1.99;0;NULL;1492156363;Limitless Publishing LLC;EPUB
 Paper Book;I Married a Billionaire;Melanie Marchande;Romance;7.06;94012;867;1482576988;CreateSpace Independent Publishing Platform;238
 Audio Book;I Married a Billionaire;Melanie Marchande;Romance;17.06;9092;837;1482576989;CreateSpace Independent Publishing Platform;MP3
+eBook;;;Unknown;53.43;28762;NULL;-858993460;;UNKNOWN
+eBook;Harry P;George;Mystery;13.44;4690;NULL;49248533;Pearson;UNKNOWN

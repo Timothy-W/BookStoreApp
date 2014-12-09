@@ -213,7 +213,7 @@ Item * BookStoreSystem::addItem()
     else
     {
         cout << "invalid selection";
-        return;
+        return NULL;
     }
 
     cout << "\nBook quantity?\n";
@@ -339,17 +339,17 @@ void BookStoreSystem::modifyTransactions() {
 		<< "3) Remove Order\n"
 		<< "4) View Order\n" << endl;
 	cin >> choice;
-	if (choice == 2)
-	{
-		//newstore order
-		return;
-	}
     if (choice == 1) 
 	{
 		makeStoreOrder();
         cin.ignore();
         return;
     }
+	if (choice == 2)
+	{
+		newStoreOrder();
+		return;
+	}
 
     cout << "\nEnter order ID:" << endl;
     cin >> targetOrderID;
@@ -396,6 +396,13 @@ void BookStoreSystem::makeStoreOrder()
 }
 void BookStoreSystem::newStoreOrder()
 {
+	Item * newItem = addItem();
+	StoreOrder * newOrder = NULL;
+	int quantity;
+	cout << "\nHow many more would you like to order??" << endl;
+	cin >> quantity;
+	newOrder = new StoreOrder(newItem, quantity, "Amazon", user);
+	transactionsList->AddToList(newOrder);
 }
 void BookStoreSystem::removeTransaction(StoreOrder *  targetOrder)
 {
