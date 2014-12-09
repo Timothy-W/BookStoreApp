@@ -67,15 +67,15 @@ void BookStoreSystem::menu()
 
     while (menuIsRunning)
     {
-        cout << "\n1) Display Employees\n"
-            << "2) Display Transactions\n"
-            << "3) Display Inventory\n\n"
-            << "4) Edit Employees\n"             //using Employee I.D.
-            << "5) Edit Transactions \n"         //using Transaction I.D.
-            << "6) Edit Inventory\n\n"             //using product I.D.
-            << "7) Search Inventory\n"
-            << "(q to quit)\n"
-            << "Select an option: " << endl;
+       cout << "\n1) Display Employees\n"
+          << "2) Display Transactions\n"
+          << "3) Display Inventory\n"
+          << "4) Edit Employees\n"             //using Employee I.D.
+          << "5) Edit Transactions\n"         //using Transaction I.D.
+          << "6) Edit Inventory\n"             //using product I.D.
+          << "7) Search Inventory\n"
+          << "(q to quit)\n"
+          << "Select an option: ";
         cin >> choice;
         switch (choice)
         {
