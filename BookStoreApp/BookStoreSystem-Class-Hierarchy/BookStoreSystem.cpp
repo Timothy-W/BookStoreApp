@@ -174,7 +174,6 @@ void BookStoreSystem::modifyInventory()
 		break;
     case 4:
        editableItem = searchInventory();
-       //newStoreOrder();
        break;
     default:
         cout << "Invalid selection";
